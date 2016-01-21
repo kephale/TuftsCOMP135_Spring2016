@@ -6,7 +6,7 @@ Department of Computer Science
 Tufts University  
 Spring 2016
 
-Course Web Page (redirects to current page): http://kephale.github.io/TuftsCOMP135_Spring2016
+Course Web Page (redirects to current page): http://github.com/kephale/TuftsCOMP135_Spring2016
 
 # Announcement(s):
 
@@ -47,24 +47,19 @@ If you aren't done by the due date, then turn in what you have finished for part
 
 # Collaboration  
 
-## This is still verbatim from Roni
-
-On homework assignments and projects: You may discuss the problems and general ideas about their solutions with other students, and similarly you may consult other textbooks or the web. However, you must work out the details on your own and code/write-out the solution on your own. Every such collaboration (either getting help or giving help) and every use of text or electronic sources must be clearly cited and acknowledged in the submitted homework.  
+On homework assignments and projects: Discussion about problems and concepts is great. Each assignment must be completed by you and only you, and is expected to be unique. Code should be written by you; writeups should be written by you. If you have collaborated (helping or being helped), just say so. There is no harm in saying so.  
 
 On quizzes and exams: no collaboration is allowed.  
 
-Failure to follow these guidelines may result in disciplinary action for all parties involved. Any questions? For this and other issues concerning academic integrity please consult the booklet available from the office of the Dean of Student Affairs.  
+Failure to follow these guidelines may result in disciplinary action for all parties involved. For this and other issues concerning academic integrity please consult the booklet available from the office of the Dean of Student Affairs.  
 
 # Tentative List of Topics  
 
-## This is still verbatim from Roni
-
-[We may not cover all sub-topics]
 - Supervised Learning basics: nearest neighbors, decision trees, linear classifiers, and simple Bayesian classifiers; feature processing and selection; avoiding over-fitting; experimental evaluation.
 - Unsupervised learning: clustering algorithms; generative probabilistic models; the EM algorithm; association rules.
 - Theory: basic PAC analysis for classification.
 - More supervised learning: neural networks; backpropagation; dual perceptron; kernel methods; support vector machines.
-- Additional topics selected from: active learning; aggregation methods (boosting and bagging); collective classification; structured output spaces; statistical relational models; semi-supervised learning; time series models (HMM); reinforcement learning; collaborative filtering
+- Additional topics selected from: active learning; aggregation methods (boosting and bagging); time series models (HMM); reinforcement learning
 
 # Reference Material
 
@@ -78,7 +73,7 @@ We will use a mixture of primary research materials, portions of texts, and onli
 - Pattern Classification. R. Duda, P. Hart, and D. Stork, 2001.  
 - Artificial Intelligence: A Modern Approach. Stuart Russell and Peter Norvig, 2010  
 - Principles of Data Mining. D. Hand, H. Mannila, and P. Smyth, 2001.
-- Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.
+- Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.x
 
 # Programming and Software
 
@@ -97,7 +92,7 @@ There are some languages that are particularly useful in the context of machine 
 
 Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
-01/21| Introduction to Machine Learning | [Slides](Lecture01) [Assignment 1](#assignment1) | 01/27
+01/21| Introduction to Machine Learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01) [Assignment 1](#assignment1) | 01/27
 01/26| Instance learning |
 01/28| Decision trees pt 1 |
 02/02| Decision trees pt 2 |
