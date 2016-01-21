@@ -21,7 +21,8 @@ Comp 160 is highly recommended.
 
 ## Class Times:  
 
-Tuesday/Thursday 10:30-11:45, Barnum/Dana Hall 104  
+Tu, Th 10:30AM - 11:45AM  
+Tisch Library, 304-Auditorium  
 
 ## Instructor:  
 
