@@ -1,0 +1,149 @@
+
+# Introduction to Machine Learning and Data Mining  
+
+Comp 135: Introduction to Machine Learning and Data Mining  
+Department of Computer Science  
+Tufts University  
+Spring 2016
+
+Course Web Page (redirects to current page): http://kephale.github.io/TuftsCOMP135_Spring2016
+
+# Announcement(s):
+
+None
+
+# What is this course about?  
+
+Machine learning is the study of algorithmic methods for learning and prediction based upon data. Approaches range from extracting patterns from large collections of data, such as social media and scientific datasets, to online learning in real-time, for applications like active robots. ML is becoming increasingly widespread because of the increase and accessibility of computational power and datasets, as well as recent advances in ML algorithms. It is now commonplace for ML to produce results that have not been achieved by humans.
+
+As this is an introductory course, we will focus on breadth over the field of ML, but this will still require significant cognitive effort on your part. The ideal candidate for this course is an upper-level undergraduate or beginning graduate student comfortable with some mathematical techniques and a solid grounding in programming. Maths that will prove useful are: statistics, probability, calculus, and linear algebra. We will review some of the essential topics, and the only explicit requirements are previous coursework of (COMP 15) and (COMP/MATH 22 or 61) or (consent of instructor).
+Comp 160 is highly recommended.  
+
+## Class Times:  
+
+Tuesday/Thursday 10:30-11:45, Barnum/Dana Hall 104  
+
+## Instructor:  
+
+Kyle Harrington  
+Office Hours: By appointment  
+
+## Teaching Assistants:  
+
+Sepideh Sadeghi  
+
+# Grading  
+
+- Written homework assignments (20%)  
+- Quizzes (20%)  
+- In-class midterm exam (20%): March 17
+- Final project (40%)
+
+### Rules for late submissions:  
+
+All work must be turned in on the date specified. Unless there is a last minute emergency, please notify [Kyle Harrington](mailto:kyle@eecs.tufts.edu) of special circumstances at least two days in advance.
+
+If you aren't done by the due date, then turn in what you have finished for partial credit.
+
+# Collaboration  
+
+## This is still verbatim from Roni
+
+On homework assignments and projects: You may discuss the problems and general ideas about their solutions with other students, and similarly you may consult other textbooks or the web. However, you must work out the details on your own and code/write-out the solution on your own. Every such collaboration (either getting help or giving help) and every use of text or electronic sources must be clearly cited and acknowledged in the submitted homework.  
+
+On quizzes and exams: no collaboration is allowed.  
+
+Failure to follow these guidelines may result in disciplinary action for all parties involved. Any questions? For this and other issues concerning academic integrity please consult the booklet available from the office of the Dean of Student Affairs.  
+
+# Tentative List of Topics  
+
+## This is still verbatim from Roni
+
+[We may not cover all sub-topics]
+- Supervised Learning basics: nearest neighbors, decision trees, linear classifiers, and simple Bayesian classifiers; feature processing and selection; avoiding over-fitting; experimental evaluation.
+- Unsupervised learning: clustering algorithms; generative probabilistic models; the EM algorithm; association rules.
+- Theory: basic PAC analysis for classification.
+- More supervised learning: neural networks; backpropagation; dual perceptron; kernel methods; support vector machines.
+- Additional topics selected from: active learning; aggregation methods (boosting and bagging); collective classification; structured output spaces; statistical relational models; semi-supervised learning; time series models (HMM); reinforcement learning; collaborative filtering
+
+# Reference Material
+
+We will use a mixture of primary research materials, portions of texts, and online sources. Required reading material will be listed as such. The following is a list of recommended reference material.
+
+- Machine Learning. Tom M. Mitchell, McGraw-Hill, 1997  
+- Introduction to Machine Learning, Ethem Alpaydin, 2010.  
+- An introduction to support vector machines : and other kernel-based learning methods. N. Cristianini and J. Shawe-Taylor, 2000.  
+- Data Mining: Practical Machine Learning Tools and Techniques. Ian H. Witten, Eibe Frank, 2005.
+- Machine Learning: The Art and Science of Algorithms that Make Sense of Data. Peter Flach, 2012.  
+- Pattern Classification. R. Duda, P. Hart, and D. Stork, 2001.  
+- Artificial Intelligence: A Modern Approach. Stuart Russell and Peter Norvig, 2010  
+- Principles of Data Mining. D. Hand, H. Mannila, and P. Smyth, 2001.
+- Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.
+
+# Programming and Software
+
+[Weka](http://www.cs.waikato.ac.nz/ml/weka/) is a great machine learning package that has been around for a while. It is quite extensible, and we will be using it for some assignments. You can use weka.jar on the CS department servers through the command line. If you have trouble, there is excellent documentation on the [Weka wiki](https://weka.wikispaces.com/).
+
+There are some languages that are particularly useful in the context of machine learning, either because of their innate capabilities or because of libraries implemented in the language. When code examples are provided in class they will likely be in one of these language:
+
+- Python
+- Java
+- Julia
+- Matlab
+- Clojure
+- R
+
+# Schedule
+
+Date | Lecture | Assignments and Notes | Due Date
+-----|---------|-----------------------|----------
+01/21| Introduction to Machine Learning | [Slides](Lecture01) [Assignment 1](#assignment1) | 01/27
+01/26| Instance learning |
+01/28| Decision trees pt 1 |
+02/02| Decision trees pt 2 |
+02/04| Naive bayes |
+02/09| Measuring ML success pt 1 |
+02/11| Measuring ML success pt 2 |
+02/16| Features |
+02/18| No class, Monday Schedule |
+02/23| Features |
+02/25| Linear threshold units pt 1 |
+03/01| Linear threshold units pt 2 |
+03/03| Clustering pt 1 |
+03/08| Clustering pt 2 |
+03/10| Unsupervised learning |
+03/15| Association rules |
+03/17| Midterm |
+03/22| No class, Spring recess|
+03/24| No class, Spring recess|
+03/29| Computational learning theory |
+03/31| Kernel-based methods |
+04/05| Perceptron |
+04/07| SVM |
+04/12| Active learning |
+04/14| MDPs and Reinforcement Learning |
+04/19| Reinforcement learning pt 2 |
+04/21| Aggregation methods |
+04/26| Project presentations |
+04/28| Project presentations |
+
+# Assignments
+
+## Assignment1
+
+- Download [Weka](http://www.cs.waikato.ac.nz/ml/weka/)
+- Download [Dataset](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Assignment1/IHME_GBD_2013_LIFE_EXPECTANCY_1970_2013_Y2014M12D17.csv)  
+- Open Weka, Choose Explorer models
+- Load the dataset with "Open file..."
+- Investigate the data through the "Classify" "Cluster" "Associate" "Visualize" tabs  
+- If Weka is running slowly, then you can try the [abbreviated dataset](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Assignment1/IHME_GBD_2013_LIFE_EXPECTANCY_1970_2013_Y2014M12D17_short.csv)
+
+Note that it is possible to call Weka from the command line (i.e. on the homework server)
+
+### Submission of assignment 1
+
+Write a one paragraph description of what you can find.
+
+- Open "Visualize" and investigate how pairs of attributes relate to each other?
+- What types of clusters can you find (try "Cluster"/"Choose"/"SimpleKMeans" test with different "numClusters")
+- If you're feeling adventurous, then try to build a classifier ("Classify"/"Choose"/"weka.classifiers.trees.J48" and choose a nominal attribute to classify over, like "location_name". In the case of "location_name", before building the classifier use "Preprocess" and remove all "location" attributes except "location_name". You will want to use the abbreviated dataset for this.)
