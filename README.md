@@ -33,6 +33,7 @@ Office Hours: By appointment
 ## Teaching Assistants:  
 
 Sepideh Sadeghi  
+Hao Cui  
 
 # Grading  
 
