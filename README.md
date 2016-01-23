@@ -26,12 +26,13 @@ Tisch Library, 304-Auditorium
 
 ## Instructor:  
 
-Kyle Harrington  
+Kyle Harrington [kyle@eecs.tufts.edu](mailto:kyle@eecs.tufts.edu)  
 Office Hours: By appointment  
 
 ## Teaching Assistants:  
 
 Sepideh Sadeghi  
+Hao Cui  
 
 # Grading  
 
@@ -75,6 +76,8 @@ We will use a mixture of primary research materials, portions of texts, and onli
 - Artificial Intelligence: A Modern Approach. Stuart Russell and Peter Norvig, 2010  
 - Principles of Data Mining. D. Hand, H. Mannila, and P. Smyth, 2001.
 - Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.x
+
+- Roni Khardon's Version of [COMP-135](http://www.cs.tufts.edu/~roni/Teaching/ML/)  
 
 # Programming and Software
 
@@ -128,11 +131,11 @@ Date | Lecture | Assignments and Notes | Due Date
 ## Assignment1
 
 - Download [Weka](http://www.cs.waikato.ac.nz/ml/weka/)
-- Download [Dataset](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Assignment1/IHME_GBD_2013_LIFE_EXPECTANCY_1970_2013_Y2014M12D17.csv)  
+- Download [Dataset](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/master/Assignment1/IHME_GBD_2013_LIFE_EXPECTANCY_1970_2013_Y2014M12D17.csv)  
 - Open Weka, Choose Explorer models
 - Load the dataset with "Open file..."
 - Investigate the data through the "Classify" "Cluster" "Associate" "Visualize" tabs  
-- If Weka is running slowly, then you can try the [abbreviated dataset](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Assignment1/IHME_GBD_2013_LIFE_EXPECTANCY_1970_2013_Y2014M12D17_short.csv)
+- If Weka is running slowly, then you can try the [abbreviated dataset](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/master/Assignment1/IHME_GBD_2013_LIFE_EXPECTANCY_1970_2013_Y2014M12D17_short.csv)
 
 Note that it is possible to call Weka from the command line (i.e. on the homework server)
 
