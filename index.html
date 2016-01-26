@@ -55,9 +55,9 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'Kyle Harrington'+'<\/'+'a'
 <li>Pattern Classification. R. Duda, P. Hart, and D. Stork, 2001.<br /></li>
 <li>Artificial Intelligence: A Modern Approach. Stuart Russell and Peter Norvig, 2010<br /></li>
 <li>Principles of Data Mining. D. Hand, H. Mannila, and P. Smyth, 2001.</li>
-<li><p>Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.x</p></li>
-<li><p>Roni Khardon's Version of <a href="http://www.cs.tufts.edu/~roni/Teaching/ML/">COMP-135</a></p></li>
+<li>Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.x</li>
 </ul>
+<p>Roni Khardon's Version of <a href="http://www.cs.tufts.edu/~roni/Teaching/ML/">COMP-135</a>.</p>
 <h1 id="programming-and-software">Programming and Software</h1>
 <p><a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka</a> is a great machine learning package that has been around for a while. It is quite extensible, and we will be using it for some assignments. You can use weka.jar on the CS department servers through the command line. If you have trouble, there is excellent documentation on the <a href="https://weka.wikispaces.com/">Weka wiki</a>.</p>
 <p>There are some languages that are particularly useful in the context of machine learning, either because of their innate capabilities or because of libraries implemented in the language. When code examples are provided in class they will likely be in one of these language:</p>
@@ -69,6 +69,7 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'Kyle Harrington'+'<\/'+'a'
 <li>Clojure</li>
 <li>R</li>
 </ul>
+<p><a href="http://jupyter.org/">Jupyter</a> is a notebook-based programming environment that supports many programming languages. We will use it for numerous in-class demos, and you may want to use it for your homeworks as well.</p>
 <h1 id="schedule">Schedule</h1>
 <table>
 <thead>
@@ -89,6 +90,8 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'Kyle Harrington'+'<\/'+'a'
 <tr class="even">
 <td align="left">01/26</td>
 <td align="left">Instance learning</td>
+<td align="left"><a href="http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02">Slides</a> <a href="http://www.github.com/kephale/TuftsCOMP135_Spring2016/Lecture02/notebooks/instance_based_learning.ipynb">Notebook</a> <a href="#assignment2">Assignment 2</a> <a href="http://www.scholarpedia.org/article/K-nearest_neighbor">kNN:Scholarpedia</a> <a href="https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf">Andrew Moore's KD tree tutorial</a></td>
+<td align="left">02/03</td>
 </tr>
 <tr class="odd">
 <td align="left">01/28</td>
@@ -217,4 +220,12 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+'Kyle Harrington'+'<\/'+'a'
 <li>Open &quot;Visualize&quot; and investigate how pairs of attributes relate to each other?</li>
 <li>What types of clusters can you find (try &quot;Cluster&quot;/&quot;Choose&quot;/&quot;SimpleKMeans&quot; test with different &quot;numClusters&quot;)</li>
 <li>If you're feeling adventurous, then try to build a classifier (&quot;Classify&quot;/&quot;Choose&quot;/&quot;weka.classifiers.trees.J48&quot; and choose a nominal attribute to classify over, like &quot;location_name&quot;. In the case of &quot;location_name&quot;, before building the classifier use &quot;Preprocess&quot; and remove all &quot;location&quot; attributes except &quot;location_name&quot;. You will want to use the abbreviated dataset for this.)</li>
+</ul>
+<h2 id="assignment2">Assignment2</h2>
+<p>Git is the current standard for code sharing and collaborative coding. This course is run off of Github using git to control and track the history of changes. For this assignment, clone submit a pull request on GitHub for an exhaustive search implementation of kNN.</p>
+<ul>
+<li>For help getting going with git and GitHub checkout <a href="https://guides.github.com/activities/hello-world/">GitHub guides</a></li>
+<li>Setup <a href="http://jupyter.org/">Jupyter</a> on your computer (use Python for this assignment. This is the default language Jupyter installs)</li>
+<li>See <a href="http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02">Slides</a> from Lecture 2 for information on the k-Nearest Neighbors algorithm</li>
+<li>We already have an existing Jupyter <a href="http://www.github.com/kephale/TuftsCOMP135_Spring2016/Lecture02/notebooks/instance_based_learning.ipynb">Notebook</a>, but it is missing a classic implementation of kNN with exhaustive search!</li>
 </ul>

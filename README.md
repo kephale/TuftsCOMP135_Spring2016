@@ -77,7 +77,7 @@ We will use a mixture of primary research materials, portions of texts, and onli
 - Principles of Data Mining. D. Hand, H. Mannila, and P. Smyth, 2001.
 - Reinforcement Learning: an Introduction. R. Sutton and A. Barto, 1998.x
 
-- Roni Khardon's Version of [COMP-135](http://www.cs.tufts.edu/~roni/Teaching/ML/)  
+Roni Khardon's Version of [COMP-135](http://www.cs.tufts.edu/~roni/Teaching/ML/).    
 
 # Programming and Software
 
@@ -92,12 +92,14 @@ There are some languages that are particularly useful in the context of machine 
 - Clojure
 - R
 
+[Jupyter](http://jupyter.org/) is a notebook-based programming environment that supports many programming languages. We will use it for numerous in-class demos, and you may want to use it for your homeworks as well.  
+
 # Schedule
 
 Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
 01/21| Introduction to Machine Learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01) [Assignment 1](#assignment1) | 01/27
-01/26| Instance learning |
+01/26| Instance learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) [Notebook](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Lecture02/notebooks/instance_based_learning.ipynb) [Assignment 2](#assignment2) [kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor) [Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf) | 02/03  
 01/28| Decision trees pt 1 |
 02/02| Decision trees pt 2 |
 02/04| Naive bayes |
@@ -146,3 +148,12 @@ Write a one paragraph description of what you can find.
 - Open "Visualize" and investigate how pairs of attributes relate to each other?
 - What types of clusters can you find (try "Cluster"/"Choose"/"SimpleKMeans" test with different "numClusters")
 - If you're feeling adventurous, then try to build a classifier ("Classify"/"Choose"/"weka.classifiers.trees.J48" and choose a nominal attribute to classify over, like "location_name". In the case of "location_name", before building the classifier use "Preprocess" and remove all "location" attributes except "location_name". You will want to use the abbreviated dataset for this.)
+
+## Assignment2
+
+Git is the current standard for code sharing and collaborative coding. This course is run off of Github using git to control and track the history of changes. For this assignment, clone submit a pull request on GitHub for an exhaustive search implementation of kNN.
+
+- For help getting going with git and GitHub checkout [GitHub guides](https://guides.github.com/activities/hello-world/)
+- Setup [Jupyter](http://jupyter.org/) on your computer (use Python for this assignment. This is the default language Jupyter installs)
+- See [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) from Lecture 2 for information on the k-Nearest Neighbors algorithm
+- We already have an existing Jupyter [Notebook](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Lecture02/notebooks/instance_based_learning.ipynb), but it is missing a classic implementation of kNN with exhaustive search!
