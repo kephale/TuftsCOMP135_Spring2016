@@ -152,7 +152,8 @@ Write a one paragraph description of what you can find.
 
 ## Assignment2
 
-Git is the current standard for code sharing and collaborative coding. This course is run off of Github using git to control and track the history of changes. For this assignment, clone submit a pull request on GitHub for an exhaustive search implementation of kNN.
+Git is the current standard for code sharing and collaborative coding. This course is run off of Github using git to control and track the history of changes. For this assignment, clone [this repository](https://github.com/kephale/TuftsCOMP135_Spring2016/), open up Lecture02/notebooks/instance_based_learning.ipynb, complete the assignment by adding new cells to the notebook, and submit a pull request on GitHub. The new cells should implement an exhaustive search implementation of kNN. The current version uses a KD-tree to obtain the nearest-neighbors. The current line of code that you should replace with your exhaustive search implementation is:
+query_result = kdtree.query( [0.5, 0.5], k=10 )  
 
 - For help getting going with git and GitHub checkout [GitHub guides](https://guides.github.com/activities/hello-world/)
 - Setup [Jupyter](http://jupyter.org/) on your computer (use Python for this assignment. This is the default language Jupyter installs)
