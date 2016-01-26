@@ -1,4 +1,3 @@
-
 # Introduction to Machine Learning and Data Mining  
 
 Comp 135: Introduction to Machine Learning and Data Mining  
@@ -98,8 +97,8 @@ There are some languages that are particularly useful in the context of machine 
 
 Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
-01/21| Introduction to Machine Learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01) [Assignment 1](#assignment1) | 01/27
-01/26| Instance learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) [Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb) [Assignment 2](#assignment2) [kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor) [Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf) | 02/03  
+01/21| Introduction to Machine Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01)</li><li>[Assignment 1](#assignment1)</li></ul> | 01/27
+01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03  
 01/28| Decision trees pt 1 |
 02/02| Decision trees pt 2 |
 02/04| Naive bayes |
