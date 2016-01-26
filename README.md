@@ -99,7 +99,7 @@ There are some languages that are particularly useful in the context of machine 
 Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
 01/21| Introduction to Machine Learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01) [Assignment 1](#assignment1) | 01/27
-01/26| Instance learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) [Notebook](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Lecture02/notebooks/instance_based_learning.ipynb) [Assignment 2](#assignment2) [kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor) [Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf) | 02/03  
+01/26| Instance learning | [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) [Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb) [Assignment 2](#assignment2) [kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor) [Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf) | 02/03  
 01/28| Decision trees pt 1 |
 02/02| Decision trees pt 2 |
 02/04| Naive bayes |
@@ -157,4 +157,4 @@ Git is the current standard for code sharing and collaborative coding. This cour
 - For help getting going with git and GitHub checkout [GitHub guides](https://guides.github.com/activities/hello-world/)
 - Setup [Jupyter](http://jupyter.org/) on your computer (use Python for this assignment. This is the default language Jupyter installs)
 - See [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) from Lecture 2 for information on the k-Nearest Neighbors algorithm
-- We already have an existing Jupyter [Notebook](http://www.github.com/kephale/TuftsCOMP135_Spring2016/Lecture02/notebooks/instance_based_learning.ipynb), but it is missing a classic implementation of kNN with exhaustive search!
+- We already have an existing Jupyter [Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb), but it is missing a classic implementation of kNN with exhaustive search!
