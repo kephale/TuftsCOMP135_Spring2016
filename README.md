@@ -66,7 +66,7 @@ Failure to follow these guidelines may result in disciplinary action for all par
 
 We will use a mixture of primary research materials, portions of texts, and online sources. Required reading material will be listed as such. The following is a list of recommended reference material.
 
-- Machine Learning. Tom M. Mitchell, McGraw-Hill, 1997  
+- <b>(This is a good default choice!) Machine Learning. Tom M. Mitchell, McGraw-Hill, 1997</b>  
 - Introduction to Machine Learning, Ethem Alpaydin, 2010.  
 - An introduction to support vector machines : and other kernel-based learning methods. N. Cristianini and J. Shawe-Taylor, 2000.  
 - Data Mining: Practical Machine Learning Tools and Techniques. Ian H. Witten, Eibe Frank, 2005.
@@ -99,9 +99,9 @@ Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
 01/21| Introduction to Machine Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01)</li><li>[Assignment 1](#assignment1)</li></ul> | 01/27
 01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03  
-01/28| Decision trees pt 1 |
+01/28| Decision trees pt 1 | <ul><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li></ul> |
 02/02| Decision trees pt 2 |
-02/04| Naive bayes |
+02/04| Naive bayes | <ul><li>[Chapter from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li></ul> |
 02/09| Measuring ML success pt 1 |
 02/11| Measuring ML success pt 2 |
 02/16| Features |
@@ -109,9 +109,9 @@ Date | Lecture | Assignments and Notes | Due Date
 02/23| Features |
 02/25| Linear threshold units pt 1 |
 03/01| Linear threshold units pt 2 |
-03/03| Clustering pt 1 |
+03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
 03/08| Clustering pt 2 |
-03/10| Unsupervised learning |
+03/10| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
 03/15| Association rules |
 03/17| Midterm |
 03/22| No class, Spring recess|
