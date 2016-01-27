@@ -121,10 +121,10 @@ Date | Lecture | Assignments and Notes | Due Date
 03/24| No class, Spring recess|
 03/29| Computational learning theory |
 03/31| Kernel-based methods |
-04/05| Perceptron |
+04/05| Perceptron | <ul><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
 04/07| SVM |
 04/12| Active learning |
-04/14| MDPs and Reinforcement Learning |
+04/14| MDPs and Reinforcement Learning | <ul><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li></ul>
 04/19| Reinforcement learning pt 2 |
 04/21| Aggregation methods |
 04/26| Project presentations |
