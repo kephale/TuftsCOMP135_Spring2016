@@ -5,7 +5,7 @@ Department of Computer Science
 Tufts University  
 Spring 2016
 
-Course Web Page (redirects to current page): [http://kephale.github.io/TuftsCOMP135_Spring2016/](http://kephale.github.io/TuftsCOMP135_Spring2016)
+Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCOMP135_Spring2016](https://github.com/kephale/TuftsCOMP135_Spring2016)  
 
 # Announcement(s):
 
