@@ -30,8 +30,8 @@ Office Hours: By appointment
 
 ## Teaching Assistants:  
 
-Sepideh Sadeghi  
-Hao Cui  
+Sepideh Sadeghi, <A HREF="mailto:sepideh.sadeghi@tufts.edu"> sepideh.sadeghi@tufts.edu</A><br /> Office Hours: Mon noon-1pm, Fri 10am-noon,<br /> Location for Office Hours: Halligan 121<br />  
+Hao Cui, <A HREF="mailto:Hao.Cui@tufts.edu"> Hao.Cui@tufts.edu</A><br /> Office Hours: Tue 4:30-5:30 pm, Thu 4:30-5:30 pm,<br /> Location for Office Hours: Halligan 121<br />  
 
 # Grading  
 
@@ -91,17 +91,20 @@ There are some languages that are particularly useful in the context of machine 
 - Clojure
 - R
 
-[Jupyter](http://jupyter.org/) is a notebook-based programming environment that supports many programming languages. We will use it for numerous in-class demos, and you may want to use it for your homeworks as well.  
+[Jupyter](http://jupyter.org/) is a notebook-based programming environment that supports many programming languages. We will use it for numerous in-class demos, and you may want to use it for your homeworks as well.
+
+- [Jupyter quick start guide](http://jupyter-notebook-beginner-guide.readthedocs.org/en/latest/)
+- [Official Python 2 tutorial](https://docs.python.org/2/tutorial/) and [Python tutorial](http://www.tutorialspoint.com/python/)
 
 # Schedule
 
 Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
 01/21| Introduction to Machine Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01)</li><li>[Assignment 1](#assignment1)</li></ul> | 01/27
-01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03  
-01/28| Decision trees pt 1 | <ul><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li></ul> |
+01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03
+01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li></ul> |
 02/02| Decision trees pt 2 |
-02/04| Naive bayes | <ul><li>[Chapter from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li></ul> |
+02/04| Naive bayes | <ul><li>[Chapter from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
 02/09| Measuring ML success pt 1 |
 02/11| Measuring ML success pt 2 |
 02/16| Features |
@@ -158,6 +161,7 @@ query_result = kdtree.query( [0.5, 0.5], k=10 )
 - Setup [Jupyter](http://jupyter.org/) on your computer (use Python for this assignment. This is the default language Jupyter installs)
 - See [Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02) from Lecture 2 for information on the k-Nearest Neighbors algorithm
 - We already have an existing Jupyter [Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb), but it is missing a classic implementation of kNN with exhaustive search!
+- Some Python and Jupyter tutorials are linked in the programming and software section
 
 Submission:  
 - Use 'provide' to submit a text file that links to your pull request on Github  
