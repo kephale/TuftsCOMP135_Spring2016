@@ -137,6 +137,7 @@
 	</section>
 
 	<section>
+	<section>
 	  <h2>Entropy</h2>
 	  <p>Entropy describes how unpredictable information is.</p>
 	  <table>
@@ -156,6 +157,10 @@
 	<section>
 	  <h2>Entropy</h2>
 	  <p>$Entropy(S)$ is the expected number of bits needed to encode a class of a randomly drawn member of the sample set (under the optimal, shortest-length code)</p>
+	</section>
+
+	<section>
+	  <h2>Entropy</h2>
 	  <p>An optimal length code uses $-log_2 p$ bits to encode a message of probability p</p>
 	  <p>i.e. if $p=0.01$, then the optimal code length is $6.64$</p>
 	  <p>and if $p=0.99$, then the optimal code length is $0.01$</p>
@@ -168,7 +173,8 @@
 	  <p>$p_\oplus (-log_2 p_\oplus) + p_\ominus ( -log_2 p_\ominus )$</p>
 	  <p>$Entropy(S) \equiv -p_\oplus log_2 p_\oplus - p_\ominus log_2 p_\ominus$</p>	  
 	  <!--- <small>Go read Claude Shannon's "A Mathematical Theory of Communication" (1948) if this excites you.</small> -->
-	</section>				
+	</section>
+	</section>
 
  	<section>
 	  <h2>Choosing an Attribute</h2>
@@ -188,6 +194,7 @@
 	  <img src="images/Mitchell_humidity_or_wind.png">
 	</section>
 
+	<section>
 	<section>
 	  <h2>Building a Tree Example</h2>
 	  <table>
@@ -243,7 +250,9 @@
 	    </td></tr>	    
 	  </table>
 		</section>
+		</section>
 
+	<section>
 	<section>
 	  <h2>Searching Hypothesis Space with ID3</h2>
 	  <img src="images/Mitchell_ID3_hypothesis_space_search.png" width=40%>
@@ -270,7 +279,9 @@
 	  <p>The bias arises from the search, not the search space</p>
 	  <p>Occam's razor: the simplest hypothesis that fits is the best one</p>
 	</section>
+	</section>
 
+	<section>
 	<section>
 	  <h2>Overfitting</h2>
 	  <p>Let's describe the error of a hypothesis $h$ as $error(h)$</p>
@@ -300,7 +311,9 @@
 	  <p>Not enough examples on some attributes</p>
 	  <p>Noisy data</p>
 	</section>
+	</section>
 
+	<sectino>
 	<section>
 	  <h2>Preventing Overfitting</h2>
 	  <p>Stop growing when a new split isn't statistically significant</p>
@@ -320,6 +333,7 @@
 	<section>
 	  <h2>Reduced-error pruning</h2>
 	  <img src="images/Mitchell_overfitting_pruning.png" width=90%>
+	</section>
 	</section>
 	
  	<section>
