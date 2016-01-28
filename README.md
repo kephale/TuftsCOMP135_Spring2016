@@ -101,8 +101,8 @@ There are some languages that are particularly useful in the context of machine 
 Date | Lecture | Assignments and Notes | Due Date
 -----|---------|-----------------------|----------
 01/21| Introduction to Machine Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01)</li><li>[Assignment 1](#assignment1)</li></ul> | 01/27
-01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03
-01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li></ul> |
+01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Bonus Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03
+01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li><li>Chapter 3 of Mitchell</li></ul> |
 02/02| Decision trees pt 2 |
 02/04| Naive bayes | <ul><li>[Chapter from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
 02/09| Measuring ML success pt 1 |
@@ -153,6 +153,8 @@ Write a one paragraph description of what you can find.
 - If you're feeling adventurous, then try to build a classifier ("Classify"/"Choose"/"weka.classifiers.trees.J48" and choose a nominal attribute to classify over, like "location_name". In the case of "location_name", before building the classifier use "Preprocess" and remove all "location" attributes except "location_name". You will want to use the abbreviated dataset for this.)
 
 ## Assignment2
+
+### This is a bonus for 10% on a quiz, not required.
 
 Git is the current standard for code sharing and collaborative coding. This course is run off of Github using git to control and track the history of changes. For this assignment, clone [this repository](https://github.com/kephale/TuftsCOMP135_Spring2016/), open up Lecture02/notebooks/instance_based_learning.ipynb, complete the assignment by adding new cells to the notebook, and submit a pull request on GitHub. The new cells should implement an exhaustive search implementation of kNN. The current version uses a KD-tree to obtain the nearest-neighbors. The current line of code that you should replace with your exhaustive search implementation is:
 query_result = kdtree.query( [0.5, 0.5], k=10 )  
