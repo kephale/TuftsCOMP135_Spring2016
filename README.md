@@ -166,7 +166,7 @@ query_result = kdtree.query( [0.5, 0.5], k=10 )
 - Some Python and Jupyter tutorials are linked in the programming and software section
 
 Submission:  
-- Submit a pull request to the course website  
+- Submit a pull request to the course github repository (https://github.com/kephale/TuftsCOMP135_Spring2016/)  
  
 ### Additional instructions on submitting a pull request:
 
