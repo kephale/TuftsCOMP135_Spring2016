@@ -96,6 +96,12 @@ There are some languages that are particularly useful in the context of machine 
 - [Jupyter quick start guide](http://jupyter-notebook-beginner-guide.readthedocs.org/en/latest/)
 - [Official Python 2 tutorial](https://docs.python.org/2/tutorial/) and [Python tutorial](http://www.tutorialspoint.com/python/)
 
+## Slides
+
+Slides are made with Reveal.JS. This has some perks that do not exist in Powerpoint/Keynote. They embed into the web more elegantly than PDFs, and because they use HTML5/CSS support essentially all functionality that one can get in a web browser.
+
+When browsing the slides, notice that there is also an "overview" mode (press 'o' after loading a particular set of slides). This will tile the slides in an arrangement that is encoded within the presentation file, and should facilitate rapid browsing.  
+
 # Schedule
 
 Date | Lecture | Assignments and Notes | Due Date
@@ -107,7 +113,7 @@ Date | Lecture | Assignments and Notes | Due Date
 02/04| Naive bayes | <ul><li>[Chapter from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
 02/09| Measuring ML success pt 1 |
 02/11| Measuring ML success pt 2 |
-02/16| Features |
+02/16| Features | <ul><li>Quiz 1</li><ul>
 02/18| No class, Monday Schedule |
 02/23| Features |
 02/25| Linear threshold units pt 1 |
@@ -130,7 +136,7 @@ Date | Lecture | Assignments and Notes | Due Date
 04/26| Project presentations |
 04/28| Project presentations |
 
-# Assignments
+# Assignments, Quizzes, and Exams
 
 ## Assignment1
 
@@ -166,4 +172,14 @@ query_result = kdtree.query( [0.5, 0.5], k=10 )
 - Some Python and Jupyter tutorials are linked in the programming and software section
 
 Submission:  
-- Use 'provide' to submit a text file that links to your pull request on Github  
+- Use 'provide' to submit a text file that links to your pull request on Github
+
+## Quiz1
+
+Quiz 1 will cover:
+
+- kNN
+- Decision trees
+- Naive bayes
+- Measuring success of ML algorithms
+
