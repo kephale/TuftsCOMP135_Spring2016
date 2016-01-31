@@ -172,7 +172,20 @@ query_result = kdtree.query( [0.5, 0.5], k=10 )
 - Some Python and Jupyter tutorials are linked in the programming and software section
 
 Submission:  
-- Use 'provide' to submit a text file that links to your pull request on Github
+
+- Submit a pull request to the course github repository (https://github.com/kephale/TuftsCOMP135_Spring2016/)  
+ 
+### Additional instructions on submitting a pull request:
+
+1. In order to make a pull request, you will need to "fork" the class repository (https://github.com/kephale/TuftsCOMP135_Spring2016/). On the github page, at the top right, you will see a "Fork" button. If you click this, then follow the instructions, it will create a copy of the repository under your username.  
+2. You will need to clone your fork (this will download your version of the class repository).  
+3. Make your changes to the file (this would involve opening Jupyter, editing the file, and resaving it). If you have already changed the file without using git, all you have to do is copy your updated version over the existing file the fork that you just downloaded.  
+4. Add your changed files, commit the changes, and push to the repository.  
+5. Once you have done this, you can open up the webpage for your fork and click on the "New pull request" button. Follow the instructions to send a pull request to the course's repository.  
+
+If you have any issues with Github, then see the Github guides (https://guides.github.com/activities/hello-world/)
+
+Nearly every major corporation (Google, Facebook, Microsoft, Twitter, etc.) and university uses git to manage code for almost all of their open-source projects, if not specifically Github. This is especially true for the open-source machine learning code being released by these corporations and universities. When it comes time to work on final projects, especially with multiple people involved, git will turn out to be one of your most powerful tools.  
 
 ## Quiz1
 
@@ -182,4 +195,3 @@ Quiz 1 will cover:
 - Decision trees
 - Naive bayes
 - Measuring success of ML algorithms
-
