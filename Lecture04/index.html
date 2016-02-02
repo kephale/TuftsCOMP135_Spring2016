@@ -139,7 +139,7 @@
 	    <tr><td>4</td><td>0.451911896627</td><td>0.658980037822</td><td>0.224393254589</td><td>$275,335.16</td></tr>
 	    <tr><td>5</td><td>0.305219682514</td><td>0.507370621777</td><td>0.234428626804</td><td>$334,449.68</td></tr>
 	  </table>
-	  <p>Estimated value of house $\hat{x}$: $185,173.39</p>
+	  <p>Estimated value of house $\hat{x}$:$185,173.39</p>
 	</section>		
 
 	</section>
@@ -203,17 +203,17 @@
 	
 	<section>
 	  <h2>Rule Post-Pruning</h2>
-	  <p>Grow tree, allowing it to overfit</p>
-	  <p>Convert a tree to a collection of rules</p>
-	  <p>Remove each precondition that improves accuracy (on validation set)</p>
-	  <p>Sort rules by estimated accuracy, and maintain sorted order for classification</p>
+	  <img src="images/Mitchell_playTennis_decision_tree.png" width=70%>
+	  <p>$(Outlook=Sunny \wedge Humidity=High) \implies No$</p>
 	</section>
 
 	<section>
 	  <h2>Rule Post-Pruning</h2>
-	  <img src="images/Mitchell_playTennis_decision_tree.png" width=70%>
-	  <p>$(Outlook=Sunny \wedge Humidity=High) \implies No$</p>
-	</section>
+	  <p>Grow tree, allowing it to overfit</p>
+	  <p>Convert a tree to a collection of rules</p>
+	  <p>Remove each precondition that improves accuracy (on validation set)</p>
+	  <p>Sort rules by estimated accuracy, and maintain sorted order for classification</p>
+	</section>	
 
 	<section>
 	  <h2>Rules from Tree</h2>
@@ -298,6 +298,11 @@
 
 	<section>
 	  <h2>Advantages of Rule Pruning</h2>
+	  <p>Why might one like rule pruning over reduced-error pruning?</p>
+	</section>			
+	
+	<section>
+	  <h2>Advantages of Rule Pruning</h2>
 	  <ul>
 	    <li>More specific than removing entire subtrees</li>
 	    <li>Can remove distinctions near the root</li>
@@ -359,7 +364,7 @@
 	  <h2>Using the Deviation</h2>
 	  <p>Put $Dev$ into a chi-square table</p>
 	  <p>How many degrees-of-freedom?</p>
-	  <p>$DF = ( number of attributes - 1 ) ( number of classes - 1 )$</p>
+	  <p>$DF = ( ( number of attribute-values ) - 1 ) ( number of classes - 1 )$</p>
 	  <p><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Chi-square_cdf.svg" width=40%>*</p>	  
 	  <p><small>*Wikipedia, By Geek3 - Own work, CC BY 3.0, $3</small></p>
 	</section>
