@@ -109,26 +109,26 @@ Date | Lecture | Assignments and Notes | Due Date
 01/21| Introduction to Machine Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01)</li><li>[Assignment 1](#assignment1)</li></ul> | 01/27
 01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Bonus Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03
 01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li><li>Chapter 3 of Mitchell</li></ul> |
-02/02| Decision trees pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture04)</li><li></li></ul>
+02/02| Decision trees pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture04)</li></ul>
 02/04| Naive bayes | <ul><li>[Chapter 6 from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
-02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal</li></ul> | 03/07
-02/11| Measuring ML success pt 2 | <ul><li>Assignment 3</li></ul> | 02/17
+02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal <i>(See due date)</i></li></ul> | 03/02
+02/11| Measuring ML success pt 2 | <ul><li>Assignment 3 <i>(See due date)</i></li></ul> | 02/17
 02/16| Features |
 02/18| No class, Monday Schedule |
 02/23| Features | <ul><li>Quiz 1</li><ul>
 02/25| Linear threshold units pt 1 |
-03/01| Linear threshold units pt 2 | <ul><li>Assignment 4</li></ul> | 03/07
+03/01| Linear threshold units pt 2 | <ul><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/07
 03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
 03/08| Clustering pt 2 |
 03/10| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
-03/15| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project</li></ul> | 04/25
+03/15| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 04/25
 03/17| Midterm |
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
 03/29| Computational learning theory | <ul><li>Chapter 7 - Mitchell</li></ul>
 03/31| Perceptron | <ul><li>Chapter 4 - Mitchell</li><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
 04/05| Kernel-based methods |
-04/07| SVM | <ul><li>Assignment 5</li></ul> | 04/13
+04/07| SVM | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/13
 04/12| Active learning |
 04/14| MDPs and Reinforcement Learning | <ul><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li></ul>
 04/19| Reinforcement learning pt 2 | <ul><li>Quiz 2</li></ul> |
