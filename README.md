@@ -66,7 +66,7 @@ Failure to follow these guidelines may result in disciplinary action for all par
 
 We will use a mixture of primary research materials, portions of texts, and online sources. Required reading material will be listed as such. The following is a list of recommended reference material.
 
-- <b>(This is a good default choice!) Machine Learning. Tom M. Mitchell, McGraw-Hill, 1997</b>  
+- <b>(We will often use this one) Machine Learning. Tom M. Mitchell, McGraw-Hill, 1997</b>  
 - Introduction to Machine Learning, Ethem Alpaydin, 2010.  
 - An introduction to support vector machines : and other kernel-based learning methods. N. Cristianini and J. Shawe-Taylor, 2000.  
 - Data Mining: Practical Machine Learning Tools and Techniques. Ian H. Witten, Eibe Frank, 2005.
@@ -91,7 +91,7 @@ There are some languages that are particularly useful in the context of machine 
 - Clojure
 - R
 
-[Jupyter](http://jupyter.org/) is a notebook-based programming environment that supports many programming languages. We will use it for numerous in-class demos, and you may want to use it for your homeworks as well.
+[Jupyter](http://jupyter.org/) is a notebook-based programming environment that supports many programming languages. We will use it for numerous in-class demos, and you may want to use it for your homework and final projects as well.
 
 - [Jupyter quick start guide](http://jupyter-notebook-beginner-guide.readthedocs.org/en/latest/)
 - [Official Python 2 tutorial](https://docs.python.org/2/tutorial/) and [Python tutorial](http://www.tutorialspoint.com/python/)
@@ -109,29 +109,29 @@ Date | Lecture | Assignments and Notes | Due Date
 01/21| Introduction to Machine Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture01)</li><li>[Assignment 1](#assignment1)</li></ul> | 01/27
 01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Bonus Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03
 01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li><li>Chapter 3 of Mitchell</li></ul> |
-02/02| Decision trees pt 2 |
-02/04| Naive bayes | <ul><li>[Chapter from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
-02/09| Measuring ML success pt 1 |
-02/11| Measuring ML success pt 2 |
-02/16| Features | <ul><li>Quiz 1</li><ul>
+02/02| Decision trees pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture04)</li><li></li></ul>
+02/04| Naive bayes | <ul><li>[Chapter 6 from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
+02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal</li></ul> | 03/07
+02/11| Measuring ML success pt 2 | <ul><li>Assignment 3</li></ul> | 02/17
+02/16| Features |
 02/18| No class, Monday Schedule |
-02/23| Features |
+02/23| Features | <ul><li>Quiz 1</li><ul>
 02/25| Linear threshold units pt 1 |
-03/01| Linear threshold units pt 2 |
+03/01| Linear threshold units pt 2 | <ul><li>Assignment 4</li></ul> | 03/07
 03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
 03/08| Clustering pt 2 |
 03/10| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
-03/15| Association rules |
+03/15| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project</li></ul> | 04/25
 03/17| Midterm |
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
-03/29| Computational learning theory |
-03/31| Kernel-based methods |
-04/05| Perceptron | <ul><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
-04/07| SVM |
+03/29| Computational learning theory | <ul><li>Chapter 7 - Mitchell</li></ul>
+03/31| Perceptron | <ul><li>Chapter 4 - Mitchell</li><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
+04/05| Kernel-based methods |
+04/07| SVM | <ul><li>Assignment 5</li></ul> | 04/13
 04/12| Active learning |
-04/14| MDPs and Reinforcement Learning | <ul><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li></ul>
-04/19| Reinforcement learning pt 2 |
+04/14| MDPs and Reinforcement Learning | <ul><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li></ul>
+04/19| Reinforcement learning pt 2 | <ul><li>Quiz 2</li></ul> |
 04/21| Aggregation methods |
 04/26| Project presentations |
 04/28| Project presentations |
@@ -174,7 +174,7 @@ query_result = kdtree.query( [0.5, 0.5], k=10 )
 Submission:  
 
 - Submit a pull request to the course github repository (https://github.com/kephale/TuftsCOMP135_Spring2016/)  
- 
+
 ### Additional instructions on submitting a pull request:
 
 1. In order to make a pull request, you will need to "fork" the class repository (https://github.com/kephale/TuftsCOMP135_Spring2016/). On the github page, at the top right, you will see a "Fork" button. If you click this, then follow the instructions, it will create a copy of the repository under your username.  
