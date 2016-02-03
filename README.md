@@ -9,7 +9,15 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-None
+If you have an issue with running assignment 2 and are using python 3 (check the top right corner of your Jupyter notebook), then replace:
+
+dataset = np.matrix( zip(points_x,points_y) )
+
+with
+
+dataset = np.matrix( list( zip(points_x,points_y) ) )
+
+This arises because in Python3 the zip() function returns an iterator, that is not fully-evaluated and numpy has issues with that. By calling list() on zip() we can force the iterator to be converted into a list.  
 
 # What is this course about?  
 
