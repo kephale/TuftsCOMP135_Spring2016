@@ -80,29 +80,7 @@
 	  <p>$P(h|D) =$ probability of hypothesis $h$ given $D$</p>
 	  <p>Describes how confident we are in $h$ after seeing our training data $D$</p>
 	  <p>Why is this exciting?</p>
-	</section>
-	
- 	<section>
-	  <h2><i>maximum a posteriori</i></h2>
-	  <p>A hypothesis that maximizes $P(h|D)$</p>
-	  <p>$h_{MAP} \equiv \displaystyle argmax_{h \in H} P(h|D)$</p>
-	  <p>$= \displaystyle argmax_{h \in H} \frac{P(D|h)P(h)}{P(D)}$</p>
-	  <p>$= \displaystyle argmax_{h \in H} P(D|h) P(h)$</p>
-	  <p>$H$ is our hypothesis space</p>
 	</section>	
-
-	<section>
-	  <h2>Likelihood</h2>
-	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>
-	  <p>Then what about the MAP hypothesis?</p>
-	</section>
-
-	<section>
-	  <h2>Maximum Likelihood</h2>
-	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>	  
-	  <p>Then what about the MAP hypothesis?</p>
-	  <p>$h_{ML} \equiv argmax_{h \in H} P(D|h)$</p>
-	</section>
 	</section>
 
 	<section>
@@ -145,6 +123,28 @@
 	  <p>How can we use Bayes theorem to search a hypothesis space?</p>
 	  <p>$P(h|D) = \frac{ P(D|h) P(h) }{ P(D) }$</p>
 	</section>
+
+ 	<section>
+	  <h2><i>maximum a posteriori</i></h2>
+	  <p>A hypothesis that maximizes $P(h|D)$</p>
+	  <p>$h_{MAP} \equiv \displaystyle argmax_{h \in H} P(h|D)$</p>
+	  <p>$= \displaystyle argmax_{h \in H} \frac{P(D|h)P(h)}{P(D)}$</p>
+	  <p>$= \displaystyle argmax_{h \in H} P(D|h) P(h)$</p>
+	  <p>$H$ is our hypothesis space</p>
+	</section>	
+
+	<section>
+	  <h2>Likelihood</h2>
+	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>
+	  <p>Then what about the MAP hypothesis?</p>
+	</section>
+
+	<section>
+	  <h2>Maximum Likelihood</h2>
+	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>	  
+	  <p>Then what about the MAP hypothesis?</p>
+	  <p>$h_{ML} \equiv argmax_{h \in H} P(D|h)$</p>
+	</section>	
 	  
  	<section>
 	  <h2>MAP learning</h2>
