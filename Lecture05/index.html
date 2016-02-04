@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	  <p><small>Some slides adapted from Tom Mitchell</small></p>
+	</section>
+
+	<section>
+ 	<section>
+	  <h2>Bayes Theorem</h2>
+	  <p>$P(h|D) = \frac{ P(D|h) P(h) }{ P(D) }$</p>
+	  <p>$P(h) =$ prior probability of hypothesis $h$</p>
+	  <p>$P(D) =$ prior probability of training data $D$</p>
+	  <p>$P(h|D) =$ probability of $h$ given $D$</p>
+	  <p>$P(D|h) =$ probability of $D$ given $h$</p>
+	</section>
+
+ 	<section>
+	  <h2>Priors</h2>
+	  <p>$P(h) =$ prior probability of hypothesis $h$</p>
+	  <p>$P(D) =$ prior probability of training data $D$</p>
+	</section>
+
+	<section>
+	  <h2>Likelihood</h2>
+	  <p>$P(D|h) =$ probability of $D$ given $h$</p>
+	  <p>Describes how likely the data is given the hypothesis</p>	  
+	</section>
+	
+ 	<section>
+	  <h2>Posterior Probability</h2>
+	  <p>$P(h|D) =$ probability of hypothesis $h$ given $D$</p>
+	  <p>Describes how confident we are in $h$ after seeing our training data $D$</p>
+	  <p>Why is this exciting?</p>
+	</section>
+	
+ 	<section>
+	  <h2><i>maximum a posteriori</i></h2>
+	  <p>A hypothesis that maximizes $P(h|D)$</p>
+	  <p>$h_{MAP} \equiv \displaystyle argmax_{h \in H} P(h|D)$</p>
+	  <p>$= \displaystyle argmax_{h \in H} \frac{P(D|h)P(h)}{P(D)}$</p>
+	  <p>$= \displaystyle argmax_{h \in H} P(D|h) P(h)$</p>
+	  <p>$H$ is our hypothesis space</p>
+	</section>	
+
+	<section>
+	  <h2>Likelihood</h2>
+	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>
+	  <p>Then what about the MAP hypothesis?</p>
+	</section>
+
+	<section>
+	  <h2>Maximum Likelihood</h2>
+	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>	  
+	  <p>Then what about the MAP hypothesis?</p>
+	  <p>$h_{ML} \equiv argmax_{h \in H} P(D|h)$</p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Gold detection!</h2>
+	  <p>Testing marbles during the gold rush</p>
+	  <p>$P(gold) = 0.01$ and $P(junk) = 0.99$</p>
+	  <p>Prof. Khardon's gold detector, $D$:</p>
+	  <p>$P(D_{yes}|gold) = 0.98$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $P(D_{yes}|junk) = 0.04$</p>
+	  <p>If a marble tests $D_{yes}$, should we buy it?</p>
+	  <small>Adapted from Roni Khardon</small>
+	</section>
+
+	<section>
+	  <h2>Gold detection!</h2>
+	  <p>Testing marbles during the gold rush</p>
+	  <p>$P(gold) = 0.01$ and $P(junk) = 0.99$</p>
+	  <p>Prof. Khardon's gold detector, $D$:</p>
+	  <p>$P(D_{yes}|gold) = 0.98$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $P(D_{yes}|junk) = 0.04$</p>
+	  <p>$P(gold|D_{yes}) = P(gold) P(D_{yes}|gold)$</p>
+	  <p>$P(junk|D_{yes}) = P(junk) P(D_{yes}|junk)$</p>
+	  <small>Adapted from Roni Khardon</small>
+	</section>
+
+	<section>
+	  <h2>Gold detection!</h2>
+	  <p>Testing marbles during the gold rush</p>
+	  <p>$P(gold) = 0.01$ and $P(junk) = 0.99$</p>
+	  <p>Prof. Khardon's gold detector, $D$:</p>
+	  <p>$P(D_{yes}|gold) = 0.98$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $P(D_{yes}|junk) = 0.04$</p>
+	  <p>$P(gold|D_{yes}) = 0.01 * 0.98 = 0.0098 \implies 0.198$</p>
+	  <p>$P(junk|D_{yes}) = 0.99 * 0.04 = 0.0396 \implies 0.802$</p>
+	  <small>Adapted from Roni Khardon</small>
+	</section>	
+	</section>
+	
+	<section>
+ 	<section>
+	  <h2>MAP learning</h2>
+	  <p>Brute force algorithm:</p>
+	  <p>For each $h \in H$, calculate posterior probability:</p>
+	  <p>$P(h|D) = \frac{P(D|h) P(h)}{P(D)}$</p>
+	  <p>Then,</p>
+	  <p>$h_{MAP} = argmax_{h \in H} P(h|D)$</p>
+	</section>
+
+ 	<section>
+	  <h2>MAP learning</h2>
+	  <p>We need to specify some values:</p>
+	  <p>$P(h)$ and $P(D|h)$</p>
+	</section>
+
+ 	<section>
+	  <h2>MAP learning</h2>
+	  <p>Let's choose $P(h)$ and $P(D|h)$ based on the assumptions:</p>
+	  <p>$D$ is noise-free</p>
+	  <p>Target concept $c$ is contained in $H$</p>
+	  <p>We have no <i>a priori</i> reason to favor any hypothesis</p>
+	</section>
+
+	<section>
+	  <h2>MAP learning</h2>
+	  <p>Let's start with $P(h)$</p>
+	  <p>$c$ is contained in $H$ $\implies$ $\sum$ probabilities $ = 1$</p><br>
+	  <p>We have no <i>a priori</i> reason to favor any hypothesis</p>
+	  <p>$P(h) = \frac{1}{|H|}$ for all $h \in H$</p>
+	</section>
+
+ 	<section>
+	  <h2>MAP learning</h2>
+	  <p>Now $P(D|h)$</p>
+	  <p>$D$ is noise-free</p>	  
+	  <p>The probability of observing class $d_i$ given $h$ is 1 if $d_i=h(x_i)$, where $x_i$ is a tuple of attribute-values</p>
+	  <p>otherwise, 0 if $d_i \neq h(x_i)$</p> 
+	</section>	
+	</section>
+
+	<section>
+ 	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>Used to learn a function that maps a tuple of attribute values $(a_1, a_2, ... a_n)$ to a finite set of outputs $V$</p>
+	  <p>Classify new instances to the MAP class/value given the attributes</p>
+	</section>
+
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>Classification is the most probable value (MAP)</p>
+	  <p>$v_{MAP} = argmax_{v_j \in V} P(v_j | a_1, a_2, ... a_n )$</p>
+	</section>
+
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>$v_{MAP} = argmax_{v_j \in V} P(v_j | a_1, a_2, ... a_n )$</p>	  
+	  <p>Rewrite according Bayes theorem</p>
+	  <p>$v_{MAP} = argmax_{v_j \in V} \frac{ P(a_1, a_2, ... a_n | v_j ) P(v_j) }{ P(a_1, a_2, ... a_n ) }$</p>
+	  <p>$v_{MAP} = argmax_{v_j \in V} P(a_1, a_2, ... a_n | v_j ) P(v_j)$</p>
+	  <p>How do we get $P(a_1, a_2, ... a_n | v_j )$ and $P(v_j)$?</p>
+	</section>
+
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>How do we get $P(a_1, a_2, ... a_n | v_j )$ and $P(v_j)$?</p>
+	  <p>$P(v_j)$ is straight-forward</p>
+	  <p>$P(v_j) = \frac{ |v_j \in D| }{ |D| }$, for dataset $D$</p>
+	</section>	
+
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>How do we get $P(a_1, a_2, ... a_n | v_j )$ and $P(v_j)$?</p>
+	  <p>Why is estimating $P(a_1, a_2, ... a_n | v_j )$ the same way we did for $P(v_j)$ hard?</p>
+	</section>	
+
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>Estimating $P(a_1, a_2, ... a_n | v_j )$</p>
+	  <p>This is where <i>naive</i> comes in</p>
+	  <p>Naive Bayes assumes conditional independence!</p>
+	</section>	
+
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>Estimating $P(a_1, a_2, ... a_n | v_j )$</p>
+	  <p>Conditional independence means the probability of observing a combination of attribute-values is the product of observing each attribute-value independently</p>
+	  <p>$P(a_1, a_2, ... a_n | v_j ) = \displaystyle \prod_i P( a_i | v_j )$</p>
+	</section>	
+	
+	<section>
+	  <h2>Naive Bayes</h2>
+	  <p>Going back to our naive Bayes equation</p>
+	  <p>$v_{MAP} = argmax_{v_j \in V} P(a_1, a_2, ... a_n | v_j ) P(v_j)$</p>
+	  <p>Rewrite using our estimates:</p>
+	  <p>$v_{NB} = argmax_{v_j \in V} P(v_j) \displaystyle \prod_i P( a_i | v_j )$</p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <p>Should we play tennis today?</p>
+	  <img src="images/weather_today.png">
+	  <p>Let's call this: ( Outlook = rainy, Temperature = cool, Humidity = high, Wind = weak )</p>
+	</section>
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <p>Do we play tennis today?</p>
+	  <p>( Outlook = rainy, Temperature = cool, Humidity = high, Wind = weak )</p>
+	  <p>$v_{NB} = argmax_{v_j \in V} P(v_j) \displaystyle \prod_i P( a_i | v_j )$</p>
+	</section>		
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td>
+	      <td>
+		<p>$P( play_{yes} ) = $ </p>
+		<p>$P( play_{no} ) = $ </p>		
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td>
+	      <td>
+		<p>$P( play_{yes} ) = \frac{9}{14}$ = 0.64</p>
+		<p>$P( play_{no} ) = \frac{5}{14} = 0.36$ </p>		
+	      </td>
+	    </tr>
+	  </table>
+	</section>	
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <p>Do we play tennis today?</p>
+	  <p>( Outlook = rainy, Temperature = cool, Humidity = high, Windy = false )</p>
+	  <p>$v_{NB} = argmax_{v_j \in V} P(v_j) \displaystyle \prod_i P( a_i | v_j )$</p>
+	  <p>Now we have our $P(v_j)$s</p>
+	</section>
+	
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td>
+	      <td>
+		<p>$P( outlook_{rainy} | play_{yes} ) =$</p>
+		<p>$P( outlook_{rainy} | play_{no} ) =$</p>		
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td>
+	      <td>
+		<p>$P( outlook_{rainy} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p>$P( outlook_{rainy} | play_{no} ) = \frac{2}{5} = 0.4$</p>		
+	      </td>
+	    </tr>
+	  </table>
+	</section>			
+	
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td>
+	      <td>
+		<p style="font-size:22px">$P( outlook_{rainy} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( outlook_{rainy} | play_{no} ) = \frac{2}{5} = 0.4$</p>
+		
+		<p style="font-size:22px">$P( temp_{cool} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( temp_{cool} | play_{no} ) = \frac{1}{5} = 0.2$</p>
+		
+		<p style="font-size:22px">$P( humidity_{high} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( humidity_{high} | play_{no} ) = \frac{4}{5} = 0.8$</p>
+		
+		<p style="font-size:22px">$P( windy_{false} | play_{yes} ) = \frac{6}{9} = 0.67$</p>
+		<p style="font-size:22px">$P( windy_{false} | play_{no} ) = \frac{2}{5} = 0.4$</p>
+		
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<p>Do we play tennis today?</p>
+		<p>$v_{NB} = argmax_{v_j \in V} P(v_j) \displaystyle \prod_i P( a_i | v_j )$</p>
+	      </td>
+	      <td>
+		<p style="font-size:22px">$P( play_{yes} ) = \frac{9}{14}$ = 0.64</p>
+		<p style="font-size:22px">$P( play_{no} ) = \frac{5}{14} = 0.36$ </p>
+		
+		<p style="font-size:22px">$P( outlook_{rainy} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( outlook_{rainy} | play_{no} ) = \frac{2}{5} = 0.4$</p>
+		
+		<p style="font-size:22px">$P( temp_{cool} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( temp_{cool} | play_{no} ) = \frac{1}{5} = 0.2$</p>
+		
+		<p style="font-size:22px">$P( humidity_{high} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( humidity_{high} | play_{no} ) = \frac{4}{5} = 0.8$</p>
+		
+		<p style="font-size:22px">$P( windy_{false} | play_{yes} ) = \frac{6}{9} = 0.67$</p>
+		<p style="font-size:22px">$P( windy_{false} | play_{no} ) = \frac{2}{5} = 0.4$</p>
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Example: Naive Bayes</h2>
+	  <table>
+	    <tr><td>
+		<p>Do we play tennis today?</p>
+		<p style="font-size:24px">$v_{NB} = argmax_{v_j \in V} P(v_j) \displaystyle \prod_i P( a_i | v_j )$</p>
+		<p style="font-size:22px">$play_{yes}: P( play_{yes})$<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;$P( outlook_{rainy} | play_{yes} )$<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;$P( temp_{cool} | play_{yes} )$<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;$P( humidity_{high} | play_{yes} )$<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp;$P( windy_{false} | play_{yes} )$</p>
+		<p>$play_{yes} = 0.01541$</p>
+		<p>$play_{no} = 0.00922$</p>
+	      </td>
+	      <td>
+		<p style="font-size:22px">$P( play_{yes} ) = \frac{9}{14}$ = 0.64</p>
+		<p style="font-size:22px">$P( play_{no} ) = \frac{5}{14} = 0.36$ </p>
+		
+		<p style="font-size:22px">$P( outlook_{rainy} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( outlook_{rainy} | play_{no} ) = \frac{2}{5} = 0.4$</p>
+		
+		<p style="font-size:22px">$P( temp_{cool} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( temp_{cool} | play_{no} ) = \frac{1}{5} = 0.2$</p>
+		
+		<p style="font-size:22px">$P( humidity_{high} | play_{yes} ) = \frac{3}{9} = 0.33$</p>
+		<p style="font-size:22px">$P( humidity_{high} | play_{no} ) = \frac{4}{5} = 0.8$</p>
+		
+		<p style="font-size:22px">$P( windy_{false} | play_{yes} ) = \frac{6}{9} = 0.67$</p>
+		<p style="font-size:22px">$P( windy_{false} | play_{no} ) = \frac{2}{5} = 0.4$</p>
+	      </td>
+	    </tr>
+	  </table>
+	</section>		
+	</section>
+
+	<section>
+	  <h2>Bayesian ML in Real-life</h2>
+	  <p>Text-to-speech: What is the most likely word to follow another?</p>
+	  <p>Image analysis: What objects are near other objects?</p>
+	  <p>Medical diagnostics: What patient outcomes are most probable given the result of some tests?</p>
+	</section>
+
+	<section>
+ 	<section>
+	  <h2>Final Projects</h2>
+	  <p>Proposal due: March 7</p>
+	  <p>Study a novel dataset with an advanced algorithm</p>
+	  <p>Extend a ML algorithm</p>
+	  <p>Do a comparative study of multiple algorithms</p>
+	</section>
+
+ 	<section>
+	  <h2>Final Projects</h2>
+	  <p>Due: April 25</p>
+	  <p>Turn in a write-up (8-12 pages)</p>
+	  <ul>
+	    <li>Background on problem</li>
+	    <li>Related work</li>
+	    <li>Your method</li>
+	    <li>Results</li>
+	    <li>Conclusion and future work</li>
+	    <li>References</li>
+	  </ul>
+	  <p>Should have at least 10 references</p>
+	  <p>If multiple people, then more work is expected</p>
+	</section>
+	</section>
+	
+ 	<section>
+	  <h2>What Next?</h2>
+	  <p>Measuring the success of a ML algorithm</p>
+	  <img src="http://www.isye.gatech.edu/~brani/isyebayes/bank/bayesfun.jpg">
+	</section>			
+	
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }                 
+      ]
+      });
+      
+    </script>
+    
+  </body>
+</html>
+
