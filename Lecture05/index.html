@@ -90,6 +90,7 @@
 	  <p>$P(gold) = 0.01$ and $P(junk) = 0.99$</p>
 	  <p>Prof. Khardon's gold detector, $D$:</p>
 	  <p>$P(D_{yes}|gold) = 0.98$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $P(D_{yes}|junk) = 0.04$</p>
+	  <br>
 	  <p>If a marble tests $D_{yes}$, should we buy it?</p>
 	  <small>Adapted from Roni Khardon</small>
 	</section>
@@ -100,6 +101,7 @@
 	  <p>$P(gold) = 0.01$ and $P(junk) = 0.99$</p>
 	  <p>Prof. Khardon's gold detector, $D$:</p>
 	  <p>$P(D_{yes}|gold) = 0.98$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $P(D_{yes}|junk) = 0.04$</p>
+	  <br>
 	  <p>$P(gold|D_{yes}) = P(gold) P(D_{yes}|gold)$</p>
 	  <p>$P(junk|D_{yes}) = P(junk) P(D_{yes}|junk)$</p>
 	  <small>Adapted from Roni Khardon</small>
@@ -111,6 +113,7 @@
 	  <p>$P(gold) = 0.01$ and $P(junk) = 0.99$</p>
 	  <p>Prof. Khardon's gold detector, $D$:</p>
 	  <p>$P(D_{yes}|gold) = 0.98$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $P(D_{yes}|junk) = 0.04$</p>
+	  <br>
 	  <p>$P(gold|D_{yes}) = 0.01 * 0.98 = 0.0098 \implies 0.198$</p>
 	  <p>$P(junk|D_{yes}) = 0.99 * 0.04 = 0.0396 \implies 0.802$</p>
 	  <small>Adapted from Roni Khardon</small>
@@ -133,19 +136,6 @@
 	  <p>$H$ is our hypothesis space</p>
 	</section>	
 
-	<section>
-	  <h2>Likelihood</h2>
-	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>
-	  <p>Then what about the MAP hypothesis?</p>
-	</section>
-
-	<section>
-	  <h2>Maximum Likelihood</h2>
-	  <p>If $P(h_i) = P(h_j)$ for all $h_i, h_j \in H$</p>	  
-	  <p>Then what about the MAP hypothesis?</p>
-	  <p>$h_{ML} \equiv argmax_{h \in H} P(D|h)$</p>
-	</section>	
-	  
  	<section>
 	  <h2>MAP learning</h2>
 	  <p>Brute force algorithm:</p>
