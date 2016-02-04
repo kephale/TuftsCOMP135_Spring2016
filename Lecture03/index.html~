@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	</section>
+
+	<section>
+	  <h2>Instance-based Learning</h2>
+	  <p>Easy! Just use the existing data for prediction.</p>
+	  <p>How?</p>
+	  <p></p>
+	</section>
+
+	<section>
+	<section>
+	  <h2>The problem</h2>
+	  <p><img src="images/instance_based_learning_001.png"></p>
+	  <p><a href="notebooks/instance_based_learning.ipynb">Notebook</a></p>
+	  <p></p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>k-Nearest Neighbors</h2>
+	  <p>Lazy classifier: only does work when classifying</p>
+	  <p>Parametric: must choose a 'k' parameter</p>
+	  <p>In the limit of fully-sampled data, can be fairly accurate</p>
+	  <p></p>
+	</section>
+	<section>
+	  <h2>kNN: Algorithm</h2>
+	  <p>Training: N/A</p>
+	  <p>Classification:</p>
+	  <p>For each new observation to classify</p>
+	  <ul>
+	    <li>Find k nearest neighbors</li>
+	    <li>Label observation with majority class of neighbors</li>
+	  </ul>
+	  <p>Note: distance is generally Euclidean</p>
+	</section>
+	<section>
+	  <h2>kNN: Limitations</h2>
+	  <p>Speed of classification</p>
+	  <p>Choosing K</p>
+	  <p>Noisy data</p>
+	  <p>Nonuniform samples</p>
+	</section>		
+	<section>
+	  <h2>kNN: Exercise</h2>
+	  <p><img src="images/instance_based_learning_002.png"></p>
+	  <p><a href="notebooks/instance_based_learning.ipynb">Notebook</a></p>	  
+	  <p><b><a href="http://kephale.github.io/TuftsCOMP135_Spring2016/#assignment2">Assignment 2</a>:</b></p>
+	  <p>Submit a pull request on Github for kNN with exhaustive search</p>
+	</section>
+	</section>
+	
+	<section>
+	<section>
+	  <h2>KD-trees</h2>
+	  <p>kNN isn't lazy enough: O(n) work is for chumps!</p>
+	  <p>Let's organize our data into a tree to get O(log n) lookups</p>
+	  <p></p>
+	</section>
+	<section>
+	  <h2>KD-tree: Algorithm</h2>
+	  <p>Constructing a KD-tree</p>
+	  <pre><code class="hljs" data-trim contenteditable>
+numDimensions : comes from dataset	    
+def buildTree(points, depth):
+  axis = depth % numDimensions
+  pointSort = sorted([{points[i][axis]:i} for i in range(len(points))])
+  splitIdx = pointSort[int(len(points)/2)]
+  tree = {}
+  tree['location'] = points[splitIdx]
+  tree['left'] = buildTree( points[:(splitIdx-1)], depth + 1 )
+  tree['right'] = buildTree( points[splitIdx:], depth + 1 )
+  return tree  
+	  </code></pre>
+	  <p></p>
+	</section>	
+	<section>
+	  <h2>Exercise: KD-trees</h2>
+	  <p><img src="images/instance_based_learning_003.png" width=40%><img src="images/instance_based_learning_004.png" width=40%></p>
+	  <p><a href="notebooks/instance_based_learning.ipynb">Notebook</a></p>	  	  
+	  <p></p>
+	</section>
+	<section>
+	  <h2>Interlude</h2>
+	  <p><img src="images/swarm_neighborhood_KDtree.png" width=50%></p>
+	  <p>Quick demo of real-time KD-trees (brevis.example.swarm.neighborhood-line-swarm)</p>	  	  
+	  <p></p>
+	</section>
+
+	
+	</section>
+
+	<section>
+	  <h2>Generalization</h2>
+	  <p>What if our data isn't well-sampled?</p>
+	  <p>What if we have to classify an alien (presumably we haven't seen those before)?</p>
+	  <p></p>
+	</section>
+
+ 	<section>
+	  <h2>Assignment 1</h2>
+	  <p><a href="http://kephale.github.io/TuftsCOMP135_Spring2016/#assignment1">Posted</a> in the assignments section</p>
+	  <p>Quick Weka recap</p>
+	  <p>Due: Jan 27</p>
+	</section>
+
+ 	<section>
+	  <h2>Assignment 2</h2>
+	  <p><a href="http://kephale.github.io/TuftsCOMP135_Spring2016/#assignment2">Posted</a> in the assignments section</p>
+	  <p>Due: Feb 03</p>
+	</section>			
+
+ 	<section>
+	  <h2>What Comes Next?</h2>
+	  <p>Decision Trees</p>
+	</section>			
+	
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+                 
+      ]
+      });
+      
+    </script>
+    
+  </body>
+</html>
+
