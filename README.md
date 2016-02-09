@@ -195,6 +195,40 @@ If you have any issues with Github, then see the Github guides (https://guides.g
 
 Nearly every major corporation (Google, Facebook, Microsoft, Twitter, etc.) and university uses git to manage code for almost all of their open-source projects, if not specifically Github. This is especially true for the open-source machine learning code being released by these corporations and universities. When it comes time to work on final projects, especially with multiple people involved, git will turn out to be one of your most powerful tools.  
 
+## FinalProjects
+
+The final project for this course is an opportunity to apply what you've learned about machine learning to a real-world problem, to extend an existing machine learning algorithm, or to implement and explore a cutting-edge ML technique.
+
+Collaboration is an option, but this should be discussed with Kyle a priori. A clear delineation of work should be proposed ahead of time. Github is strongly encouraged for collaborative projects to make it easier to measure each person's contribution.
+
+If you would like a suggestion for a project contact Kyle 2 weeks before the proposal deadline to schedule a meeting. We will talk through problems/data that may be of interest to you.  
+
+### Proposals
+
+Due: March 7
+
+Write a 300-500 word abstract describing your proposed project. This should include 2-3 references of papers you expect to include in your final paper.
+
+### Project
+
+Due: April 25
+
+Turn in a 8-12 page paper. A rough outline is:
+- Background on problem
+- Related work
+- Your method
+- Results
+- Conclusion and future work
+- References
+
+There should be at least 10 references.
+
+### Resources
+
+- Ask faculty around the department if they have datasets that might be interesting for Machine Learning
+- [Google Scholar](http://scholar.google.com) - Search for articles published in "ICML", "NIPS", or "Machine Learning"; or search for keywords relevant to problems/algorithms that interest you  
+- [Huge list of datasets](https://github.com/caesar0301/awesome-public-datasets?utm_content=buffer43079&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)  
+
 ## Quiz1
 
 Quiz 1 will cover:

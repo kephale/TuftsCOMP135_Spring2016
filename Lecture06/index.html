@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	  <p><small>Some slides adapted from Roni Khardon and Tom Mitchell</small></p>
+	</section>
+
+	<section>
+
+	  
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <p>If we believe something about our data,</p>
+	  <p>how do we express the accuracy of this belief?</p>	  
+	</section>
+
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <table>
+	    <tr>
+	      <td>
+		<table style="font-size:20px">
+		  <tr><td>Previous morning</td><td>Previous day</td><td>Previous night</td><td>Early morning</td><td>Closed?</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Light</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Heavy</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Heavy</td><td>Heavy</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Medium</td><td>TRUE</td></tr>
+		  </table>
+	      </td>
+	      <td>
+		<br>
+		<img src="images/snowdaytree_depth1.png">
+	      </td>
+	    </tr>
+	  </table>
+	  <p>How accurate is this decision tree?</p>
+	</section>
+
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <table>
+	    <tr>
+	      <td>
+		<table style="font-size:20px">
+		  <tr><td>Previous morning</td><td>Previous day</td><td>Previous night</td><td>Early morning</td><td>Closed?</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Light</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Heavy</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Heavy</td><td>Heavy</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Medium</td><td>TRUE</td></tr>
+		  </table>
+	      </td>
+	      <td>
+		<br>
+		<img src="images/snowdaytree_depth1.png">
+	      </td>
+	    </tr>
+	  </table>
+	  <p>Correct: 11, Incorrect: 1</p>
+	</section>	
+	</section>
+
+	<section>
+	<section>
+	  <h2>Confusion Matrix</h2>
+	  <table>
+	    <tr><td></td><td>+</td><td>-</td><td>Prediction</td></tr>
+	    <tr><td>+</td><td>TP</td><td>FN</td><td></td></tr>
+	    <tr><td>-</td><td>FP</td><td>TN</td><td></td></tr>
+	    <tr><td>Reality</td><td></td><td></td><td></td></tr>	      	    
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Accuracy</h2>
+	  <table>
+	    <tr><td></td><td>+</td><td>-</td><td>Prediction</td></tr>
+	    <tr><td>+</td><td>TP</td><td>FN</td><td></td></tr>
+	    <tr><td>-</td><td>FP</td><td>TN</td><td></td></tr>
+	    <tr><td>Reality</td><td></td><td></td><td></td></tr>	      	    
+	  </table>
+	  <p>$Acc = \frac{TP+TN}{TP+TN+FP+FN}$</p>
+	</section>
+
+	<section>
+	  <h2>Accuracy</h2>
+	  <p>$Acc = \frac{TP+TN}{TP+TN+FP+FN}$</p>
+	  <p>What if we calculated a snowday predictor over the entire academic year?</p>
+	  <p>Should we optimize with respect to $Acc$?</p>
+	</section>
+
+	<section>
+	  <h2>Precision and Recall</h2>
+	  <p>In information retrieval, we search to satisfy some $Query$</p>
+	  <p>Goal is to optimize positive query responses</p>
+	  <p>$Precision = \frac{TP}{TP+FP}$</p>
+	  <p>$Recall = \frac{TP}{TP+FN}$</p>
+	  <p>This is often combined into the F-score</p>
+	  <p>$F = \frac{2 * P * R}{P + R}$</p>
+	</section>
+
+	<section>
+	  <h2>Sensitivity and Specificity</h2>
+	  <p>In medicine, we want accurate diagnoses</p>
+	  <p>$Sensitivity = \frac{TP}{TP+FN}$ (same as recall)</p>	  
+	  <p>$Specificity = \frac{TN}{TN+FP}$</p>
+	  <p>How "accurate" the trues and falses are</p>
+	</section>
+
+	<section>
+	  <h2>True and False Positives</h2>
+	  <p>In signal detection, we want to find a signal within data</p>
+	  <p>$TPrate = \frac{TP}{TP+FN}$ (same as recall)</p>	  
+	  <p>$FPrate = \frac{FP}{TN+FP}$ ( $ 1 - Specificity $)</p>
+	  <p>Often represented graphically as ROC (receiver operator characteristic) curve plots</p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <table>
+	    <tr>
+	      <td>
+		<table style="font-size:20px">
+		  <tr><td>Previous morning</td><td>Previous day</td><td>Previous night</td><td>Early morning</td><td>Closed?</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Light</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Heavy</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Heavy</td><td>Heavy</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Medium</td><td>TRUE</td></tr>
+		  </table>
+	      </td>
+	      <td>
+		<br>
+		<p>Let's consider a linear regression:</p>
+		<p style="font-size:24px">$Closed = w_1 * P_m + w_2 * P_d + w_3 * P_n + w_4 * E_m$</p>
+		<br>
+		<p>We need everything to be a number, so lets find-and-replace:</p>
+		<p>Light = 0, Medium = 1, Heavy = 2</p>
+		<p>TRUE = 1, FALSE = 0</p>
+	      </td>
+	    </tr>
+	  </table>
+	</section>		  
+
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <table>
+	    <tr>
+	      <td>
+		<table style="font-size:20px">
+		  <tr><td>Previous morning</td><td>Previous day</td><td>Previous night</td><td>Early morning</td><td>Closed?</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Light</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Heavy</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Heavy</td><td>Heavy</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Medium</td><td>TRUE</td></tr>
+		  </table>
+	      </td>
+	      <td>
+		<br>
+		<p>Let's consider a linear regression:</p>
+		<p style="font-size:24px">$Closed = w_1 * P_m + w_2 * P_d + w_3 * P_n + w_4 * E_m$</p>
+		<p style="font-size:24px">Previous morning, $w_1 = -0.18649558$</p>
+		<p style="font-size:24px">Previous day, $w_2 = 0.07225614$</p>
+		<p style="font-size:24px">Previous night, $w_3 = 0.15659649$</p>
+		<p style="font-size:24px">Early morning, $w_4 = 0.39815622$</p>
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <table>
+	    <tr>
+	      <td>
+		<table style="font-size:20px">
+		  <tr><td>Previous morning</td><td>Previous day</td><td>Previous night</td><td>Early morning</td><td>Closed?</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Light</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Heavy</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Heavy</td><td>Heavy</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Medium</td><td>TRUE</td></tr>
+		  </table>
+	      </td>
+	      <td>
+		<br>
+		<p>Let's consider a linear regression:</p>
+		<p style="font-size:24px">$Closed = w_1 * P_m + w_2 * P_d + w_3 * P_n + w_4 * E_m$</p>
+		<p style="font-size:24px">$Closed = w_1 * Light + w_2 * Light$</p>
+		<p style="font-size:24px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$+ w_3 * Light + w_4 * Heavy$</p>
+		<p style="font-size:24px">$1.01 = -0.19 * 0 + 0.07 * 0$</p>
+		<p style="font-size:24px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$+ 0.16 * 0 + 0.40 * 2$</p>
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>How accurate is a hypothesis?</h2>
+	  <table>
+	    <tr>
+	      <td>
+		<table style="font-size:20px">
+		  <tr><td>Previous morning</td><td>Previous day</td><td>Previous night</td><td>Early morning</td><td>Closed?</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Light</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Heavy</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Medium</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Heavy</td><td>Heavy</td><td>TRUE</td></tr>
+		  <tr><td>Light</td><td>Heavy</td><td>Heavy</td><td>Medium</td><td>TRUE</td></tr>
+		  <tr><td>Heavy</td><td>Medium</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Medium</td><td>Medium</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Medium</td><td>Light</td><td>FALSE</td></tr>
+		  <tr><td>Light</td><td>Light</td><td>Light</td><td>Medium</td><td>TRUE</td></tr>
+		  </table>
+	      </td>
+	      <td>
+		<br>
+		<p>Let's consider a linear regression:</p>
+		<p style="font-size:24px">$Closed = w_1 * P_m + w_2 * P_d + w_3 * P_n + w_4 * E_m$</p>
+		<p style="font-size:24px">$Closed = w_1 * Heavy + w_2 * Heavy$</p>
+		<p style="font-size:24px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$+ w_3 * Light + w_4 * Light$</p>
+		<p style="font-size:24px">$-0.02 = -0.19 * 2 + 0.07 * 2$</p>
+		<p style="font-size:24px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$+ 0.16 * 0 + 0.40 * 0$</p>
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>ROC Curve</h2>
+	  <p>When we did a regression we created an equation of the form:</p>
+	  <p>$Closed = w_1 * P_m + w_2 * P_d + w_3 * P_n + w_4 * E_m$</p>
+	  <p>$Closed$ is a number that we <b>convert</b> into True/False</p>
+	</section>
+
+	<section>
+	  <h2>ROC Curve</h2>
+	  <p>$Closed = w_1 * P_m + w_2 * P_d + w_3 * P_n + w_4 * E_m$</p>
+	  <p>Example values of $Closed$ might actually be:</p>
+	  <table>
+	    <tr><td>Reality</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+	    <tr><td>Predictions</td><td>0.8</td><td>0.5</td><td>0.45</td><td>0.5</td><td>-0.35</td><td>-0.05</td></tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>ROC Curve</h2>
+	  <table>
+	    <tr><td>Reality</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+	    <tr><td>Predictions</td><td>0.8</td><td>0.5</td><td>0.45</td><td>0.5</td><td>-0.35</td><td>-0.05</td></tr>
+	  </table>
+	  <img src="images/snowday_ROC.gif">
+	 
+	</section>			
+	
+	<section>
+	  <h2>ROC Curves</h2>
+	  <img src="http://scikit-learn.org/stable/_images/plot_roc_001.png" width=60%>
+	  <p>An ROC curve taken over a larger test set.</p>
+	</section>	
+	</section>	
+
+	<section>
+	<section>
+	  <h2>Different types of accuracy</h2>
+	  <p>Sample error - Error measured on a subset of data</p>
+	  <p>True error - Error measured on the underlying dataset (probably can't be measured)</p>
+	</section>
+	
+	<section>
+	  <h2>Sample error</h2>
+	  <img src="images/snowdaytree_depth1.png">
+	  <p>If we measured error by using the decision tree for each day this week, then we would have a sample error</p>
+	</section>
+
+	<section>
+	  <h2>True error</h2>
+	  <img src="images/snowdaytree_depth1.png">
+	  <p>If there was no noise in deciding snow days <b>and</b> we had data for all permutations of attribute-values:</p>
+	  <p style="font-size:28px">Previous morning, Previous day, Previous night, Early morning</p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Validation Datasets</h2>
+	  <ul>
+	    <li>Partition the dataset into training and testing</li>
+	    <li>Train model on training set</li>
+	    <li>Measure performance on testing set</li>
+	  </ul>
+	  <p>If we repeat this $N$ times for some ML algorithm and average performance,</p>
+	  <p>Then we might get a decent estimate of the performance</p>
+	  <p>What could go wrong?</p>
+	</section>
+
+	<section>
+	  <h2>Validation Datasets</h2>
+	  <p>What could go wrong?</p>
+	  <p>We might have correlation between our train/test sets across runs</p>
+	</section>	
+
+	<section>
+	  <h2>Cross-Validation</h2>
+	  <ul>
+	    <li>Divide data into $k$ subsets (called folds)</li>
+	    <li>For each k:
+	      <ul>
+		<li>Train on all folds except $k$</li>
+		<li>Test on $k$</li>
+	    </ul></li>
+	    <li>Report average performance over all $k$</li>
+	  </ul>
+	  <p>Test sets do not overlap!</p>
+	</section>
+
+	<section>
+	  <h2>Cross-Validation</h2>
+	  <p>Consider a dataset where $N=100$, split into 4 folds</p>
+	  <img src="images/class_proportion_4fold.png">
+	</section>	
+	
+	<section>
+	  <h2>Stratified Cross-Validation</h2>
+	  <ul>
+	    <li>Split classes into sets</li>
+	    <li>Partition class sets into $k$ folds</li>
+	    <li>Join folds from each class</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Leave One Out</h2>
+	  <p>k-fold cross-validation, where $k=N$</p>
+	  <ul>
+	    <li>Effective</li>
+	    <li>High variance for each fold test</li>
+	    <li>Expensive</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Cross-validation</h2>
+	  <p>Wait, why did we talk about this?</p>
+	</section>
+
+	<section>
+	  <h2>Cross-validation</h2>
+	  <p>Cross-validation gives a more reliable estimate of algorithm performance</p>
+	  <p>We can use this to compare ML algorithms!</p>
+	</section>		
+	</section>
+
+ 	<section>
+	  <h2>What Next?</h2>
+	  <p>Model selection</p>	  
+	  <p>Then features!</p>
+	</section>				
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }                 
+      ]
+      });
+      
+    </script>
+    
+  </body>
+</html>
+
