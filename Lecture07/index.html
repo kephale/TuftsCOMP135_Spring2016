@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	  <p><small>Some slides adapted from Roni Khardon and Tom Mitchell</small></p>
+	</section>
+	
+ 	<section>
+	  <h2>Model Selection</h2>
+	  <p>Multiple models can often describe the same data,</p>
+	  <p>How do we choose which one to use?</p>
+	</section>
+
+	<section>
+ 	<section>
+	  <h2>Model Selection</h2>
+	  <p>We may favor the one with lower error/higher accuracy</p>
+	  <p>Even so, is the model with the lowest error on a particular set of data the one that we want?</p>
+	</section>
+	  
+	<section>
+	  <h2>True error</h2>
+	  <img src="images/snowdaytree_depth1.png">
+	  <p>$error_D(h) \equiv Pr_{x \in D} [f(x) \neq h(x)]$</p>
+	  <ul>
+	    <li>f is our target function</li>
+	    <li>D is the complete distribution/dataset</li>
+	  </ul>
+	</section>
+	  
+	<section>
+	  <h2>Sample error</h2>
+	  <img src="images/snowdaytree_depth1.png">
+	  <p>$error_S(h) \equiv \frac{1}{n} \displaystyle \sum_{x \in S} \delta(f(x) \neq h(x))$</p>
+	  <ul>
+	    <li>S is the sample dataset</li>
+	    <li>$\delta(f(x) \neq h(x)) = 1$ if the condition is true, otherwise $0$</li>
+	  </ul>	  
+	</section>
+
+ 	<section>
+	  <h2>True error v. Sample error</h2>
+	  <p>How well does $error_S(h)$ estimate $error_D(h)$?</p>
+	</section>
+
+ 	<section>
+	  <h2>True error v. Sample error</h2>
+	  <p>Consider the case where $S$ is our training set:</p>
+	  <p>$bias \equiv E[error_S(h)] - error_D(h)$</p>
+	  <p>For any training set, we expect that bias will be negative because $h$ and $S$ are not independent</p>
+	  <p>What other complications beyond $bias$ might arise?</p>
+	</section>
+
+ 	<section>
+	  <h2>True error v. Sample error</h2>
+	  <p>Even if $S$ and $h$ are independent, $error_S(h)$ may vary from $error_D(h)$</p>
+	</section>
+
+ 	<section>
+	  <h2>Sample error</h2>
+	  <p>$error_S(h)$ is a random variable</p>
+	  <p>If we rerun with a different randomly drawn $S$, where $|S| = n$</p>
+	  <img src="images/mitchell_binomial_n40_p0.3.png" width=50%>	  
+	  <p>$P( n * error_S(h) ) = P(r) = \frac{ n! } { r! ( n - r )! } p^r ( 1 - p )^{n-r}$,</p>
+	  <p> where $p = error_D(h)$</p>
+	</section>			
+	</section>
+	
+	<section>
+ 	<section>
+	  <h2>Samples and Stats</h2>
+	  <p>A random variable, $Y$, has a value representing the outcome of an experiment (a coin lands heads up)</p>
+	  <p>Probability distribution for a random variable is the probability $Pr(Y=y_i)$ that Y will be $y_i$ for each possible $y_i$</p>
+	</section>	
+
+ 	<section>
+	  <h2>Samples and Stats</h2>
+	  <p>Expected value (aka mean) - $\mu_Y = E[Y] = \displaystyle \sum_i y_i Pr(Y=y_i)$</p>
+	  <p>Variance - $Var(Y) = E[(Y-\mu_Y)^2]$ - How far the distribution spreads about the mean</p>
+	  <p>Standard deviation - $\sigma_Y = \sqrt{ Var(Y) }$</p>
+	</section>
+	</section>
+
+ 	<section>
+ 	<section>
+	  <h2>Normal Distribution</h2>
+	  <p>Bell curve described by a mean and standard deviation</p>
+	  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Empirical_Rule.PNG" width=60%>
+	</section>
+
+ 	<section>
+	  <h2>Normal Distributions</h2>
+	  <p>90% of area (probability) lies in $\mu \pm 1.64 \sigma$</p>
+	  <p>N% of area (probability) lies in $\mu \pm z_N \sigma$</p> 
+	  <table style="font-size:28px">
+	    <tr><td>N%</td><td>50%</td><td>68%</td><td>80%</td><td>90%</td><td>95%</td><td>98%</td><td>99%</td></tr>
+	    <tr><td>$z_N$</td><td>0.67</td><td>1.00</td><td>1.28</td><td>1.64</td><td>1.96</td><td>2.33</td><td>2.58</td></tr>
+	  </table>
+	</section>
+
+ 	<section>
+	  <h2>Normal Distributions to Probabilities</h2>
+	  <!-- <p>N% of area (probability) lies in $\mu \pm z_N \sigma$, describes an estimate</p> -->
+	  <p>$x \in \mu \pm z_N \sigma$, translates to: "with probability N%"</p>
+	  <p>$\mu \in x \pm z_N \sigma$, translates to: "with confidence N%"</p>
+	</section>
+
+ 	<section>
+	  <h2>Normal distributions to Probabilities</h2>
+	  <p>Consider $x$, drawn from $\mathcal{N}(\mu,\sigma)$</p>
+	  <p>We say: with confidence 95%, $\mu \in x \pm 1.96 \sigma$</p>
+	</section>
+
+ 	<section>
+	  <h2>Normal distributions to Probabilities</h2>
+	  <p>If sample data $S$ contains $n \geq 30$ samples drawn independent of $h$ and each other,</p>
+	  <p>Then with approx. 95% probability $error_S(h)$ lies in interval</p>
+	  <p>$error_D(h) \pm 1.96 \sqrt{\frac{error_D(h) (1 - error_D(h))}{n}}$</p>
+	</section>	
+	</section>
+
+	<section>
+	<section>
+	  <h2>Central Limit Theorem</h2>
+	  <p>Consider a set of independent, identically distributed random variables $Y_1 ... Y_n$, drawn from an arbitrary probability distribution with mean $\mu$ and finite variance $\sigma^2$. The sample mean is</p>
+	  <p>$\bar{Y} \equiv \frac{1}{n} \displaystyle \sum^{n}_{i=1} Y_i$</p>
+	</section>
+
+	<section>
+	  <h2>Central Limit Theorem</h2>
+	  <p>$\bar{Y} \equiv \frac{1}{n} \displaystyle \sum^{n}_{i=1} Y_i$</p>
+	  <p>As $n \rightarrow \infty$, the distribution governing $\bar{Y}$ approaches a Normal distribution with mean $\mu$ and variance $\frac{\sigma^2}{n}$</p>
+	</section>
+
+	<section>
+	  <h2>Central Limit Theorem</h2>
+	  <img src="images/weibull-1.JPG" width=35%>
+	  <p>Yellow indicates the shape of underlying distribution (Weibull), blue bars are 50 averages of 1 sample</p>
+	</section>
+
+	<section>
+	  <h2>Central Limit Theorem</h2>
+	  <img src="images/weibull-5.JPG" width=35%>
+	  <p>Yellow indicates the shape of underlying distribution, blue bars are 50 averages of 5 samples</p>
+	</section>
+
+	<section>
+	  <h2>Central Limit Theorem</h2>
+	  <img src="images/weibull-25.JPG" width=35%>
+	  <p>Yellow indicates the shape of underlying distribution, blue bars are 50 averages of 25 samples</p>
+	  <p><small><a href="http://blog.gembaacademy.com/2007/07/16/explaining-the-central-limit-theorem/">Detailed explanation</a></small></p>
+	</section>		
+
+	<section>
+	  <h2>From Binomial to Normal</h2>
+	  <p>By applying the central limit theorem we can approximate a binomial distribution with a normal distribution</p>
+	  <p>We can then say:</p>
+	  <ul>
+	    <li>$\mu_{error_S(h)} = error_S(h)$</li>
+	    <li>$\sigma_{error_S(h)} \approx \sqrt{ \frac{error_S(h) (1 - error_S(h)) } {n} }$</li>
+	  </ul>
+	</section>	
+	</section>
+
+	<section>	  
+ 	<section>
+	  <h2>Measuring Classifier Performance</h2>
+	  <p>If we use a classifier on a test set with $n$ samples</p>
+	  <p>We estimate the error rate as $\hat{p} = \frac{|incorrect|}{n}$</p>
+	  <p>If $n \geq 30$, (use C.L.T.) $\hat{p}$ is approx. distributed as $\hat{p} = \mathcal{N}(\mu, \sigma)$</p>
+	</section>
+	
+ 	<section>
+	  <h2>Measuring Classifier Performance</h2>
+	  <p>If $n \geq 30$, (use C.L.T.) $\hat{p}$ is approx. distributed as $\hat{p} = \mathcal{N}(\mu, \sigma)$</p>
+	  <p>$\mu$ is $error_D(h)$, and $\sigma$ is $\sqrt{ \frac{error_D(h) (1-error_D(h)) }{n} }$</p>
+	  <p>Oi, we're stuck with $error_D(h)$'s in our expression!</p>
+	</section>
+
+	</section>
+
+	<section>
+	  <section>
+	  <h2>Comparing Algorithms</h2>
+	  <p>Consider 2 hypotheses $h_1$ and $h_2$, each tested on an independenly generated sample set from the same distribution</p>
+	  <p>It would be interesting to know the difference in error</p>
+	  <p>$d \equiv error_D(h_1) - error_D(h_2)$</p>
+	  </section>
+
+	  <section>
+	  <h2>Comparing Algorithms</h2>
+	  <p>Target: $d \equiv error_D(h_1) - error_D(h_2)$</p>
+	  <p>Estimate with: $\hat{d} \equiv error_{S_1}(h_1) - error_{S_2}(h_2)$</p>	  
+	  </section>
+
+	  <section>
+	    <h2>Comparing Algorithms</h2>
+	    <p>Estimate with: $\hat{d} \equiv error_{S_1}(h_1) - error_{S_2}(h_2)$</p>	  	    
+	    <p>Use C.L.T., to estimate the distribution</p>
+	    <p>$\sigma_{\hat{d}} = \sqrt{ \frac{error_{S_1}(h_1) (1 - error_{S_1}(h_1))}{ n_1} + \frac{ error_{S_2}(h_2) ( 1 - error_{S_2}(h_2) ) }{n_2} }$</p>
+	  </section>
+
+	  <section>
+	    <h2>Comparing Algorithms</h2>
+	    <p>Find the lower and upper limit of the interval such that N% of probability mass is within the interval:</p>
+	    <p>$\hat{d} \pm z_N \sqrt{ \frac{error_{S_1}(h_1) (1 - error_{S_1}(h_1))}{ n_1} + \frac{ error_{S_2}(h_2) ( 1 - error_{S_2}(h_2) ) }{n_2} }$</p>
+	    <p>Lookup in the table of $N%$ to $z_N$ values</p>
+	  </section>
+
+	  <section>
+	    <h2>Comparing Algorithms</h2>
+	    <p>Now consider hypotheses $h_A$ and $h_B$</p>
+	    <p>Partition into k-folds, $T_1 ... T_k$, of equal size $\geq 30$</p>
+	    <p>For $i$ from $1$ to $k$: $\delta_i \leftarrow error_{T_i}(h_A) - error_{T_i}(h_B)$</p>
+	  </section>
+
+	  <section>
+	    <h2>Comparing Algorithms</h2>
+	    <p>For $i$ from $1$ to $k$: $\delta_i \leftarrow error_{T_i}(h_A) - error_{T_i}(h_B)$</p>
+	    <p>N% confidence interval estimate:</p>
+	    <p>$\bar{ \delta } \pm t_{N,k-1} s_{\bar{\delta}}$</p>
+	    <p>$s_{\bar{\delta}} \equiv \sqrt{ \frac{1}{k(k-1)} \displaystyle \sum_{i=1}^k (\delta_i - \bar{ \delta })^2 }$</p>
+	    <p>Where did $t_{N,k-1}$ come from?</p>
+	  </section>
+
+	  <section>
+	    <h2>Comparing Algorithms</h2>
+	    <img src="images/t_table.png" width=55%><br>
+	    <small><a href="http://www.sjsu.edu/faculty/gerstman/StatPrimer/t-table.pdf">Table source</a></small>
+	  </section>
+
+	  <section>
+	    <h2>Comparing Algorithms</h2>
+	    <p>Now consider hypotheses $h_A$ and $h_B$</p>
+	    <p>Target: $d \equiv error_D(h_A) - error_D(h_B)$</p>
+	    <p>N% confidence interval estimate:</p>
+	    <p>$\bar{ \delta } \pm t_{N,k-1} s_{\bar{\delta}}$</p>
+	    <p>$s_{\bar{\delta}} \equiv \sqrt{ \frac{1}{k(k-1)} \displaystyle \sum_{i=1}^k (\delta_i - \bar{ \delta })^2 }$</p>
+	  </section>	  
+	</section>
+
+	<section>
+	  <section>
+	    <h2>Model Selection</h2>
+	    <p>What did we just do?</p>
+	  </section>
+
+	  <section>
+	    <h2>Model Selection</h2>
+	    <ul>
+	      <li>Estimating true error from a sample set</li>
+	      <li>Sample error follows a binomial distribution</li>
+	      <li>Using the Central Limit Theorem, sampling can lead to a normal distribution</li>
+	      <li>Hypotheses can be compared with a t-test</li>
+	    </ul>
+	  </section>	  
+	</section>
+
+ 	<section>
+	  <h2>Assignment 3 is posted</h2>
+	  <p>Turn in hardcopy on 02/16</p>
+	</section>				
+	
+ 	<section>
+	  <h2>What Next?</h2>
+	  <p>Features! (reading listed on site)</p>
+	</section>				
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }                 
+      ]
+      });
+      
+    </script>
+    
+  </body>
+</html>
+
