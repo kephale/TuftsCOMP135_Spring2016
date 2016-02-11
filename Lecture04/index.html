@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	  <p><small>Some slides adapted from Tom Mitchell and Ryan Adams</small></p>
+	</section>
+
+	<section>
+	  <h2>Weka</h2>
+	  <p>A powerful ML package with long-history</p>
+	  <p>Implements many of the algorithms we will study</p>
+	  <p>Using Weka early on helps get an idea of what ML <i>can</i> do</p>
+	</section>			
+
+	<section>
+	  <h2>Course Logistics</h2>
+	  <p>We'll be sticking to the Mitchell textbook for the most part</p>
+	  <p>My office hours: by appointment, generally Thursday is best</p>
+	</section>
+
+	<section>
+	<section>
+	  <h2>k-Nearest Neighbors</h2>
+	  <p>Given a dataset $D$ with $N$ observations and $p$ dimensions</p>
+	  <p>Every point $i$ is expressed as:</p>
+	  <p>$x^i = ( x^i_1, x^i_2, ..., x^i_p )$</p>
+	  <p>(Euclidean) distance between 2 points $i$ and $j$:</p>
+	  <p>$d(x^i,x^j) = ( \displaystyle \sum^p_{m=1} ( x^i_m - x^j_m )^2 )^{1/2}$</p>
+	</section>
+
+	<section>
+	  <h2>k-Nearest Neighbors</h2>
+	  <p>For some unseen observation $\hat{x}$</p>
+	  <img src="images/kNN_few_points.png">
+	  <p>$k=5$</p>
+	</section>	
+
+	<section>
+	  <h2>Decision Boundaries kNN</h2>
+	  <img src="images/kNN_voronoi_decision_boundary.png" width=70%>
+	  <p>Decision boundaries are defined over the Voronoi diagram</p>
+	  <small>Image by Cynthia Rudin</small>
+	</section> 
+	
+	<section>
+	  <h2>k-Nearest Neighbors</h2>
+	  <p>For some unseen observation $\hat{x}$</p>
+	  <img src="images/kNN_few_points_on_edge.png">
+	  <p>$k=9$</p>
+	  <p>Do we want the majority in this case?</p>
+	</section>	
+
+	<section>
+	  <h2>Distance-weighted kNN</h2>
+	  <table style="font-size:22px">
+	    <tr><td>idx</td><td>X</td><td>Y</td><td>$d(\hat{x},x_i)$</td><td>Blue?</td></tr>
+	    <tr><td>1</td><td>0.549097186162</td><td>0.362677386832</td><td>0.0884316415625</td><td>False</td></tr>
+	    <tr><td>2</td><td>0.655390965303</td><td>0.548725980881</td><td>0.158017656472</td><td>False</td></tr>
+	    <tr><td>3</td><td>0.485782640555</td><td>0.249828988661</td><td>0.205057654261</td><td>False</td></tr>
+	    <tr><td>4</td><td>0.451911896627</td><td>0.658980037822</td><td>0.224393254589</td><td>True</td></tr>
+	    <tr><td>5</td><td>0.305219682514</td><td>0.507370621777</td><td>0.234428626804</td><td>True</td></tr>
+	    <tr><td>6</td><td>0.429995633684</td><td>0.667751973208</td><td>0.241064874734</td><td>True</td></tr>
+	    <tr><td>7</td><td>0.619841102463</td><td>0.204366698701</td><td>0.260279623299</td><td>False</td></tr>
+	    <tr><td>8</td><td>0.254019391038</td><td>0.480744029655</td><td>0.28012416478</td><td>True</td></tr>
+	    <tr><td>9</td><td>0.262776335089</td><td>0.55080811249</td><td>0.288019748099</td><td>True</td></tr>
+	  </table>
+	  <p>Blue distances: 1.26803066901<br>
+	  Red distances: 0.711786575594</p>
+	</section>
+
+	<section>
+	  <h2>kNN in Practice</h2>
+	  <p>Housing prices</p>
+	  <p>Attributes of houses:</p>
+	  <ul>
+	    <li>location</li>
+	    <li>bedrooms, bathrooms</li>
+	    <li>square footage</li>
+	  </ul>
+	  <p>What if we used the hexidecimal color of the house?</p>
+	</section>
+	
+	<section>
+	  <h2>Regression with kNN</h2>
+	  <p>For some house that hasn't gone on the market $\hat{x}$</p>
+	  <table style="font-size:22px">
+	    <tr><td>Index</td><td>X</td><td>Y</td><td>$d(\hat{x},x_i)$</td><td>House value</td></tr>
+	    <tr><td>1</td><td>0.549097186162</td><td>0.362677386832</td><td>0.0884316415625</td><td>$67,807.65</td></tr>
+	    <tr><td>2</td><td>0.655390965303</td><td>0.548725980881</td><td>0.158017656472</td><td>$165,240.34</td></tr>
+	    <tr><td>3</td><td>0.485782640555</td><td>0.249828988661</td><td>0.205057654261</td><td>$83,034.13</td></tr>
+	    <tr><td>4</td><td>0.451911896627</td><td>0.658980037822</td><td>0.224393254589</td><td>$275,335.16</td></tr>
+	    <tr><td>5</td><td>0.305219682514</td><td>0.507370621777</td><td>0.234428626804</td><td>$334,449.68</td></tr>
+	  </table>
+	  <p>Estimated value of house $\hat{x}$:$185,173.39</p>
+	</section>		
+
+	</section>
+
+	<section>
+	<section>
+	  <h2>An Ode to ID3</h2>
+	  <p>An ID3</p>
+	  <p>Decision tree</p>
+	  <p>Is built greedily</p>
+	  <p>So either stop soon*</p>
+	  <p>Or eventually prune</p>
+	  <p>Otherwise you're probably overfitting</p>
+	  <p><small>*where soon is statistically significant</small></p>
+	</section>
+
+	<section>
+	  <h2>Decision Trees</h2>
+	  <img src="images/Mitchell_playTennis_decision_tree.png" width=90%>
+	</section>
+	</section>
+
+	<section>
+ 	<section>
+	  <h2>Handling Continuous Values</h2>
+	  <img src="images/Mitchell_temperature_table.png">
+	  <p>Make it discrete!</p>
+	  <p>$(Temperature > \frac{( 48 + 60 )}{2}  )$</p>
+<p>Consider each boundary (i.e. $\frac{a+b}{2}$)</p>
+<p>Use information gain to choose node as usual</p>
+	</section>
+	
+	<section>
+	  <h2>Handling Missing Values</h2>
+	  <p>Some observations may not have values for all attributes</p>
+	  <p>That's OK, we'll use it anyway</p>
+	  <p>Multiple options:</p>
+	  <ul>
+	    <li>When we get to the relevant node, $N$, assign the most common value of $A$ at $N$</li>
+	    <li>Assign most common value of $A$ at $N$ that maps to class $C$</li>
+	    <li>Use probabilities based on distribution of $A$ at $N$</li>
+	  </ul>
+	</section>	
+</section>
+
+	
+	<section>
+	<section>
+	  <h2>Overfitting</h2>
+	  <img src="images/Mitchell_overfitting.png" width=90%>
+	</section>
+	
+	<section>
+	  <h2>Reduced-error pruning</h2>
+	  <ul>
+	    <li>Build a tree as usual, potentially overfitting</li>
+	    <li>Use a validation dataset</li>
+	    <li>Greedily remove nodes that improve the accuracy on the validation data</li>
+	  </ul>
+	</section>	
+	
+	<section>
+	  <h2>Rule Post-Pruning</h2>
+	  <img src="images/Mitchell_playTennis_decision_tree.png" width=70%>
+	  <p>$(Outlook=Sunny \wedge Humidity=High) \implies No$</p>
+	</section>
+
+	<section>
+	  <h2>Rule Post-Pruning</h2>
+	  <p>Grow tree, allowing it to overfit</p>
+	  <p>Convert a tree to a collection of rules</p>
+	  <p>Remove each precondition that improves accuracy (on validation set)</p>
+	  <p>Sort rules by estimated accuracy, and maintain sorted order for classification</p>
+	</section>	
+
+	<section>
+	  <h2>Rules from Tree</h2>
+	  <p>$(Outlook=Sunny \wedge Humidity=High) \implies No$</p>
+	  <p>$(Outlook=Sunny \wedge Humidity=Low) \implies Play$</p>
+	  <p>$(Outlook=Overcast) \implies Play$</p>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>	  
+	  <p>$(Outlook=Rain \wedge Wind=Strong) \implies No$</p>
+	</section>
+
+	<section>
+	  <h2>Pruning Preconditions</h2>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>	  
+	  <p>$(Outlook=Rain \wedge Wind=Strong) \implies No$</p>
+	  <table style='color: #8888ff'>
+	    <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+	    <tr><td>Rainy</td><td>Low</td><td>High</td><td>Weak</td><td>No</td></tr>
+	    <tr><td>Rainy</td><td>High</td><td>High</td><td>Strong</td><td>No</td></tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Pruning Preconditions</h2>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>	  
+	  <p>$(Outlook=Rain \wedge Wind \neq Strong) \implies No$</p>
+	  <table style='color: #8888ff'>
+	    <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+	    <tr><td>Rainy</td><td>Low</td><td>High</td><td>Weak</td><td>No</td></tr>
+	    <tr><td>Rainy</td><td>High</td><td>High</td><td>Strong</td><td>No</td></tr>	    
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Pruning Preconditions</h2>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>	  
+	  <p>$(Outlook=Rain) \implies No$</p>
+	  <table style='color: #8888ff'>
+	    <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+	    <tr><td>Rainy</td><td>Low</td><td>High</td><td>Weak</td><td>No</td></tr>
+	    <tr><td>Rainy</td><td>High</td><td>High</td><td>Strong</td><td>No</td></tr>	    	    
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Sorting Rules by Accuracy</h2>
+	  <p>$(Outlook=Rain) \implies No$</p>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>	  
+	  <table style='color: #8888ff'>
+	    <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+	    <tr><td>Rainy</td><td>Low</td><td>High</td><td>Weak</td><td>No</td></tr>
+	    <tr><td>Rainy</td><td>High</td><td>High</td><td>Strong</td><td>No</td></tr>	    	    	    
+	  </table>
+	</section>	
+
+	<section>
+	  <h2>Sorted rules</h2>
+	  <p>$(Outlook=Sunny \wedge Humidity=High) \implies No$</p>
+	  <p>$(Outlook=Sunny \wedge Humidity=Low) \implies Play$</p>
+	  <p>$(Outlook=Overcast) \implies Play$</p>
+	  <p>$(Outlook=Rain) \implies No$</p>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>
+	  <table style='color: #8888ff'>
+	    <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+	    <tr><td>Rainy</td><td>Low</td><td>High</td><td>Weak</td><td>No</td></tr>
+	    <tr><td>Rainy</td><td>High</td><td>High</td><td>Strong</td><td>No</td></tr>	    	    	    	    
+	  </table>	  
+	</section>
+
+	<section>
+	  <h2>Classification with rules</h2>
+	  <p>$(Outlook=Sunny \wedge Humidity=High) \implies No$</p>
+	  <p>$(Outlook=Sunny \wedge Humidity=Low) \implies Play$</p>
+	  <p>$(Outlook=Overcast) \implies Play$</p>
+	  <p>$(Outlook=Rain) \implies No$</p>
+	  <p>$(Outlook=Rain \wedge Wind=Weak) \implies Play$</p>
+	  <table style='color: #8888ff'>
+	    <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+	    <tr><td>Sunny</td><td>Low</td><td>Low</td><td>Weak</td><td>?</td></tr>
+	    <tr><td>Rainy</td><td>High</td><td>High</td><td>Weak</td><td>?</td></tr>	    	    	    	    
+	  </table>	  
+	</section>
+
+	<section>
+	  <h2>Advantages of Rule Pruning</h2>
+	  <p>Why might one like rule pruning over reduced-error pruning?</p>
+	</section>			
+	
+	<section>
+	  <h2>Advantages of Rule Pruning</h2>
+	  <ul>
+	    <li>More specific than removing entire subtrees</li>
+	    <li>Can remove distinctions near the root</li>
+	  </ul>
+	  <p>Used in C4.5 (J48)</p>
+	</section>			
+	</section>
+
+	<section>
+	<section>
+	  <h2>Growing a tree with chi-squared</h2>
+	  <p>Before making a split, test if the split is statistically significant</p>
+	</section>
+
+	<section>
+	  <h2>Proposing a split</h2>
+	  <p>Given training dataset $D$</p>
+	  <p>Propose a split on attribute $A$</p>
+	  <p>Notation:</p>
+	  <ul>
+	    <li>$N_c$ is number of instances with class $c$</li>
+	    <li>$D_x$ is data with value $x$ for attribute $A$</li>
+	    <li>$N_x$ is the number of instances in $D_x$</li>
+	    <li>$N_{xc}$ is the number of instances in $D_x$ with class $c$</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Null Hypothesis</h2>
+	  <p>Null hypothesis: $A$ is irrelevant</p>
+	  <p>The total proportion of class $c$ in $D$ is $N_c/N$</p>
+	  <p>If the null hypothesis is true, then on average:</p>
+	  <p>$\hat{N}_{xc} = \frac{N_c}{N} |D_x|$</p>
+	</section>
+
+	<section>
+	  <h2>Deviation from Null</h2>
+	  <p>Even if null hypothesis is true,</p>
+	  <p>it will rarely be exactly $=$ to average</p>
+	  <p>Measure deviation as:</p>
+	  <p>$Dev=\displaystyle \sum_x \displaystyle \sum_c \frac{ ( N_{xc} - \hat{N}_{xc} )^2 } {\hat{N}_{xc}}$</p>
+	</section>
+
+	<section>
+	  <h2>Deviation from Null</h2>
+	  <p>Measure deviation as:</p>
+	  <p>$Dev=\displaystyle \sum_x \displaystyle \sum_c \frac{ ( N_{xc} - \hat{N}_{xc} )^2 } {\hat{N}_{xc}}$</p>
+	  <p>How far is our observed proportion from the expected proportion (based on the distribution within the dataset)</p>
+	</section>	
+
+	<section>
+	  <h2>Using the Deviation</h2>
+	  <p>Deviation is the chi-squared statistic</p>
+	  <p>The larger the deviation, the further we are from the null hypothesis that an attribute is irrelevant</p>
+	  <p>If $Dev$ is small, then we don't want the branch</p>
+	</section>
+
+	<section>
+	  <h2>Using the Deviation</h2>
+	  <p>Put $Dev$ into a chi-square table</p>
+	  <p>How many degrees-of-freedom?</p>
+	  <p>$DF = ( ( \mbox{# of attribute-values} ) - 1 ) ( \mbox{# of classes} - 1 )$</p>
+	  <p><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Chi-square_cdf.svg" width=40%>*</p>	  
+	  <p><small>*Wikipedia, By Geek3 - Own work, CC BY 3.0, $3</small></p>
+	</section>
+
+	<section>
+	  <h2>Using the Deviation</h2>
+	  <p>Chi-square table will give a probability</p>
+	  <p>A large Dev leads to a small probability $\implies$ the pattern is rare relative to the null hypothesis</p>
+	  <p>Split if $probability < \alpha$</p>
+	  <p>What should $\alpha$ be? 0.05 is a default</p>
+	</section>
+
+	<section>
+	  <h2>Reflecting on chi-squared</h2>
+	  <p>Doesn't require separate validation data</p>
+	  <p>Statistical tests become less valid with less data</p>
+	  <p>$\alpha$ is a parameter</p>
+	</section>
+	</section>
+	
+ 	<section>
+	  <h2>Assignment 2 is not required, just bonus</h2>
+	  <p><a href="http://kephale.github.com/TuftsCOMP135_Spring2016/">Posted</a> in the assignments section</p>
+	  <p>Due: Feb 03</p>
+	  <p>What do you get? +10% on the first quiz</p>
+	</section>			
+
+	<section>
+ 	<section>
+	  <h2>Final Projects</h2>
+	  <p>Proposal due: March 7</p>
+	  <p>Study a novel dataset with an advanced algorithm</p>
+	  <p>Extend a ML algorithm</p>
+	  <p>Do a comparative study of multiple algorithms</p>
+	</section>
+
+ 	<section>
+	  <h2>Final Projects</h2>
+	  <p>Due: April 25</p>
+	  <p>Turn in a write-up (8-12 pages)</p>
+	  <ul>
+	    <li>Background on problem</li>
+	    <li>Related work</li>
+	    <li>Your method</li>
+	    <li>Results</li>
+	    <li>Conclusion and future work</li>
+	    <li>References</li>
+	  </ul>
+	  <p>Should have at least 10 references</p>
+	  <p>If multiple people, then more work is expected</p>
+	</section>
+	</section>
+	
+ 	<section>
+	  <h2>What Next?</h2>
+	  <p>Naive Bayes (you may want to skim some of the probability tutorials)</p>
+	</section>			
+	
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }                 
+      ]
+      });
+      
+    </script>
+    
+  </body>
+</html>
+
