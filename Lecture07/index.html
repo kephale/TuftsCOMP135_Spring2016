@@ -62,7 +62,7 @@
 	<section>
  	<section>
 	  <h2>Model Selection</h2>
-	  <p>We may favor the one with lower error/higher accuracy</p>
+	  <p>We may favor the model with lower error/higher accuracy</p>
 	  <p>Even so, is the model with the lowest error on a particular set of data the one that we want?</p>
 	</section>
 	  
@@ -123,9 +123,9 @@
 
  	<section>
 	  <h2>Samples and Stats</h2>
-	  <p>Expected value (aka mean) - $\mu_Y = E[Y] = \displaystyle \sum_i y_i Pr(Y=y_i)$</p>
-	  <p>Variance - $Var(Y) = E[(Y-\mu_Y)^2]$ - How far the distribution spreads about the mean</p>
-	  <p>Standard deviation - $\sigma_Y = \sqrt{ Var(Y) }$</p>
+	  <p>Expected value (aka mean) : $\mu_Y = E[Y] = \displaystyle \sum_i y_i Pr(Y=y_i)$</p>
+	  <p>Variance : $Var(Y) = E[(Y-\mu_Y)^2]$ - How far the distribution spreads about the mean</p>
+	  <p>Standard deviation : $\sigma_Y = \sqrt{ Var(Y) }$</p>	  
 	</section>
 	</section>
 
@@ -237,7 +237,7 @@
 
 	  <section>
 	  <h2>Comparing Algorithms</h2>
-	  <p>Target: $d \equiv error_D(h_1) - error_D(h_2)$</p>
+	  <p>Target: $d = error_D(h_1) - error_D(h_2)$</p>
 	  <p>Estimate with: $\hat{d} \equiv error_{S_1}(h_1) - error_{S_2}(h_2)$</p>	  
 	  </section>
 
@@ -256,14 +256,14 @@
 	  </section>
 
 	  <section>
-	    <h2>Comparing Algorithms</h2>
+	    <h2>A Method for Comparing Algorithms</h2>
 	    <p>Now consider hypotheses $h_A$ and $h_B$</p>
 	    <p>Partition into k-folds, $T_1 ... T_k$, of equal size $\geq 30$</p>
 	    <p>For $i$ from $1$ to $k$: $\delta_i \leftarrow error_{T_i}(h_A) - error_{T_i}(h_B)$</p>
 	  </section>
 
 	  <section>
-	    <h2>Comparing Algorithms</h2>
+	    <h2>A Method for Comparing Algorithms</h2>
 	    <p>For $i$ from $1$ to $k$: $\delta_i \leftarrow error_{T_i}(h_A) - error_{T_i}(h_B)$</p>
 	    <p>N% confidence interval estimate:</p>
 	    <p>$\bar{ \delta } \pm t_{N,k-1} s_{\bar{\delta}}$</p>
@@ -272,15 +272,15 @@
 	  </section>
 
 	  <section>
-	    <h2>Comparing Algorithms</h2>
+	    <h2>A Method for Comparing Algorithms</h2>
 	    <img src="images/t_table.png" width=55%><br>
 	    <small><a href="http://www.sjsu.edu/faculty/gerstman/StatPrimer/t-table.pdf">Table source</a></small>
 	  </section>
 
 	  <section>
-	    <h2>Comparing Algorithms</h2>
+	    <h2>A Method for Comparing Algorithms</h2>
 	    <p>Now consider hypotheses $h_A$ and $h_B$</p>
-	    <p>Target: $d \equiv error_D(h_A) - error_D(h_B)$</p>
+	    <p>Target: $d = error_D(h_A) - error_D(h_B)$</p>
 	    <p>N% confidence interval estimate:</p>
 	    <p>$\bar{ \delta } \pm t_{N,k-1} s_{\bar{\delta}}$</p>
 	    <p>$s_{\bar{\delta}} \equiv \sqrt{ \frac{1}{k(k-1)} \displaystyle \sum_{i=1}^k (\delta_i - \bar{ \delta })^2 }$</p>
