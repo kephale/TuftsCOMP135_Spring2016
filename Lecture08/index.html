@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid 
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	  <p><small>Some slides adapted from Roni Khardon</small></p>
+	</section>
+
+ 	<section>
+	  <img src="images/ML_blackbox.jpg">
+	  <p><small>Image from <a href="http://www.slideshare.net/AlexPoon1/machine-learning-31769605">Alex Poon</a></small></p>
+	</section>
+	
+ 	<section>	  
+	  <h2>Features</h2>
+	  <p>The input to a ML algorithm/model is composed features (aka attributes)</p>
+	  <p>The output is a class or a value</p>
+	  <!-- <img src="images/ML_blackbox.svg" />	  -->
+	</section>
+
+	<section>
+	  <h2>The Black Box Delusion</h2>
+	  <img src="images/ML_blackbox.jpg" width=50%>
+	  <p>Can we just take tons of measurements, feed them into our ML algorithm, and start making predictions?</p>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Features</h2>
+	  <ul>
+	    <li>More features generally slow ML algorithms down</li>
+	    <li>Irrelevant features can inhibit performance</li>
+	  </ul>
+	  <p>What can we do about this?</o>
+	</section>
+	  
+	<section>
+	  <h2>Feature Selection</h2>
+	  <ul>
+	    <li>Eliminate features</li>
+	    <li>Choose subsets of features that work well</li>
+	    <li>Build it into the ML algorithm</li>
+	  </ul>
+	</section>
+	</section>
+	
+	<section>
+	<section>
+	  <h2>Instance Transformation</h2>
+	  <p>Our dataset $D$ has $N$ dimensions, for $N$ features</p>
+	  <p>Instance transformations reduce the number of dimensions by transforming the features themselves</p>
+	</section>
+
+	<section>
+	  <h2>Instance Transformation</h2>
+	  <p>If we had a dataset with red, green, blue, and yellow features (N=4),</p>
+	  <p>Then we might transform the dataset to $( red - green ) / (red + green)$ and $ (blue-yellow) / (blue + yellow)$</p>
+	</section>	
+	
+	<section>
+	  <h2>Principle Component Analysis</h2>
+	  <p>Principle component analysis (PCA) maps from one set of axes to orthogonal axes</p>
+	  <p>Roughly speaking, project onto the axes of highest variation</p>
+	</section>
+
+	<section>
+	  <h2>Principle Component Analysis</h2>
+	  <p>Eigenface reduces faces to low-dimensional space</p>
+	  <table>
+	    <tr>
+	      <td>Bases</td>
+	      <td>Generated faces</td>
+	    </tr>
+	    <tr>
+	      <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Eigenfaces.png/220px-Eigenfaces.png"></td>
+	      <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/FaceMachine_screenshots_collage.jpg/1024px-FaceMachine_screenshots_collage.jpg" width=50%></td>
+	    </tr>
+	  </table>
+	</section>	
+	
+	<section>
+	  <h2>Manifold Methods</h2>
+	  <p>Datasets can be thought of as manifolds</p>
+	  <img src="images/manifold_methods.png"><small>(Saul and Roweis, 2003)</small><br>
+	  <p>Embed data in a low dimensional space, while preserving distance between points</p>
+        </section>
+	
+	<section>
+	  <h2>Instance Transformation</h2>
+	  <p>Instance transformations reduce the number of dimensions by transforming the features themselves</p>
+	  <p>Most methods of instance transformation are unsupervised</p>
+	</section>	
+	
+	</section>
+
+	<section>
+	<section>
+	  <h2>Filter Methods</h2>
+	  <p>Filter irrelevant features based upon the dataset</p>
+	</section>
+
+	<section>
+	  <h2>Filter Methods</h2>
+	  <ul>
+	    <li>Assign a score to each feature with a heuristic</li>
+	    <li>Filter out useless features</li>
+	  </ul>
+	</section>	
+	  
+	<section>
+	  <h2>Filter Methods</h2>
+	  <p>Ranking features based upon correlation between feature and class</p>
+	  <p>$Rank(f) = \frac{ E[( X_f - \mu_{X_f} ) ( Y - \mu_Y ) ] }{ \sigma_{X_f} \sigma_Y }$</p>
+	  <p>where $f$ is the feature of interest, and $Y$ is the class</p>
+	</section>
+
+	<section>
+	  <h2>Filter Methods</h2>
+	  <p>Mutual information between a feature and class</p>
+	  <p>$Rank(f) = \displaystyle \sum_{X_f} \displaystyle \sum_Y p(X_f,Y) log \frac{ p(X_f,Y) }{ p(X_f) p(Y) }$</p>
+	  <p>where $f$ is the feature of interest, and $Y$ is the class</p>	  
+	</section>
+
+	<section>
+	  <h2>Filter Methods</h2>
+	  <ul>
+	    <li>Assign a score to each feature with a heuristic</li>
+	    <li>Filter out useless features</li>
+	  </ul>
+	  <p>What issues could there be?</p>
+	  <p>How necessary is this?</p>
+	</section>
+	
+	<section>
+	  <h2>Filter Methods</h2>
+	  <p>Issues:</p>
+	  <ul>
+	    <li>How many features do we keep?</li>
+	    <li>Heuristics are only applied to 1 feature</li>
+	  </ul>
+	</section>			
+	</section>
+
+	<section>
+	<section>
+	  <h2>Wrapper Method</h2>
+	  <ol>
+	    <li>Select a subset of features</li>
+	    <li>Run a ML algorithm</li>
+	    <li>Use performance of ML algorithm to choose best subset</li>
+	  </ol>
+	  <p>What is appealing about this?</p>
+	</section>
+
+	<section>
+	  <h2>Wrapper Method</h2>
+	  <p>Advantages of using validation sets</p>
+	  <p>Features are tailored to ML algorithm</p>
+	  <p>Considers different ways of combining features</p>
+	</section>	
+	  
+	<section>
+	  <h2>Wrapper Method: Forward Selection</h2>
+	  <p>Start with subsets of only 1 feature</p>
+	  <p>Grow subset of features by adding 1 new feature per iteration</p>
+	</section>
+
+	<section>
+	  <h2>Wrapper Method: Backward Elimination</h2>
+	  <p>Start with the full set of features</p>
+	  <p>Eliminate 1 feature per iteration</p>
+	</section>
+
+	<section>
+	  <h2>Wrapper Method: Alternatives</h2>
+	  <p>Exhaustive search (consider all subsets)</p>
+	  <p>Alternative AI methods (simulated annealing, genetic algorithms, ...)</p>
+	  <p>Feature subset search is NP-hard</p>
+	</section>		
+	</section>
+
+	<section>
+	  <h2>Comparing Filter and Wrapper Methods</h2>
+	  <p>Filtering: 1-step process, considers features independently</p>
+	  <p>Wrapper: iterates through subsets of features, selects subset that matches ML algorithm</p>
+	</section>
+	
+	<section>
+	  <h2>Feature Selection within ML Algorithm</h2>
+	  <p>When searching/optimizing, provide an incentive to be simple (sparse) by penalizing complexity</p>	  
+	  <p>Will be covered later (L1 regularization)</p>
+	</section>
+	
+	<section>
+	<section>
+	  <h2>Feature Preprocessing</h2>
+	  <p>The range of values for a given feature can impact an algorithm's performance</p>
+	  <p>Remember using the value of the year directly on assignment 1?</p>
+	</section>
+
+	<section>
+	  <h2>Linear scaling</h2>
+	  <p>Scale the values into the range $[0,1]$</p>
+	  <p>$x \leftarrow \frac{ x - x_{min} }{ x_{max} - x_{min} }</p>
+	  <p>Scale based on training set only</p>
+	</section>
+
+	<section>
+	  <h2>Z-normalization</h2>
+	  <p>Scale the distribution to have mean=0 and std=1</p>
+	  <p>$x \leftarrow \frac{ x - \mu_X }{ \sigma_X }</p>
+	  <p>Scale based on training set only</p>
+	</section>			  
+
+	<section>
+	  <h2>Feature Discretization</h2>
+	  <p>Some algorithms only work on discrete features</p>
+	  <p>We may need to discretize real-valued features</p>	  
+	</section>
+
+	<section>
+	  <h2>Feature Discretization</h2>
+	  <p>Calculate the histogram</p>
+	  <p>This divides the values into bins</p>
+	  <ul>
+	    <li>Equal bin sizes</li>
+	    <li>Equal # of instances per bin</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Feature Discretization</h2>
+	  <p>Alternatively, use a heuristic/ad-hoc method to discretize in a useful way</p>
+	  <p>E.G. Build a decision tree, let the DT algorithm discretize, and use the split values of the optimized tree</p>
+	</section>
+
+	<section>
+	  <h2>From Discrete to Numerical</h2>
+	  <p>Some features are unordered (i.e. Browsers = [ Firefox, Chrome, Safari ])</p>
+	  <p>Most common approach is to use unit vectors:</p>
+	  <table>
+	    <tr><td>Firefox</td><td>Chrome</td><td>Safari</td></tr>
+	    <tr><td>1</td><td>0</td><td>0</td></tr>
+	    <tr><td>0</td><td>1</td><td>0</td></tr>
+	    <tr><td>0</td><td>0</td><td>1</td></tr>
+	  </table>
+	</section>
+	</section>	
+	
+ 	<section>
+	  <h2>Quiz 1</h2>
+	  <p>Similar assignment 3</p>
+	  <p>Covers: kNN, Decision trees, Naive Bayes, Measuring ML algorithms</p>
+	</section>				
+	
+ 	<section>
+	  <h2>What Next?</h2>
+	  <p>Quiz 1</p>
+	  <p>Hands-on with Features</p>
+	</section>				
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }      
+    </script>
+    
+  </body>
+</html>
+
