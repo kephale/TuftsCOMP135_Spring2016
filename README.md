@@ -9,9 +9,9 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-Solutions to assignment 3 are [posted](https://github.com/kephale/TuftsCOMP135_Spring2016/Assignment3-solutions.pdf)  
+Solutions to assignment 3 are [posted](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment3-solutions.pdf)  
 
-Note: Temporary change to Sepideh's office hours will be on Monday, Feb 22 to 1pm-2pm  
+Note: Temporary change to Sepideh's office hours: Monday, Feb 22 will now be 1pm-2pm  
 
 # What is this course about?  
 
