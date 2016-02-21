@@ -13,6 +13,8 @@ Solutions to assignment 3 are [posted](https://github.com/kephale/TuftsCOMP135_S
 
 Note: Temporary change to Sepideh's office hours: Monday, Feb 22 will now be 1pm-2pm  
 
+Note: Due to the new faculty searching, I have to change my office hour to 1:50 - 2:50, only for 02/23 and 03/03 -- Hao
+
 # What is this course about?  
 
 Machine learning is the study of algorithmic methods for learning and prediction based upon data. Approaches range from extracting patterns from large collections of data, such as social media and scientific datasets, to online learning in real-time, for applications like active robots. ML is becoming increasingly widespread because of the increase and accessibility of computational power and datasets, as well as recent advances in ML algorithms. It is now commonplace for ML to produce results that have not been achieved by humans.
