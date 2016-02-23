@@ -119,8 +119,8 @@ Date | Lecture | Assignments and Notes | Due Date
 02/11| Measuring ML success pt 2 | <ul><li>[Assignment 3](http://kephale.github.io/TuftsCOMP135_Spring2016/Assignment3.pdf)<i>(See due date)</i></li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture07)</li></ul> | 02/16
 02/16| Features | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture08)</li><li>[An Introduction to Variable and Feature Selection](http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf). Isabelle Guyon and Andre Elisseeff, Journal of Machine Learning Research 3 (2003) 1157-1182 .</li><li>[Supervised and unsupervised discretization of continuous features](http://robotics.stanford.edu/~ronnyk/disc.ps). James Dougherty, Ron Kohavi, and Mehran Sahami. International Conference on Machine Learning, 1995.</li><li>Chapter 6 of Introduction to Machine Learning, Second Edition, by Ethem Alpaydin</li><li>Chapter 10 of Machine Learning: The Art and Science of Algorithms that Make Sense of Data, Peter Flach</li></ul> |
 02/18| No class, Monday Schedule |
-02/23| Features | <ul><li>Quiz 1</li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture08=9)</li><ul>
-02/25| Linear threshold units pt 1 | 
+02/23| Features | <ul><li>Quiz 1</li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture09)</li><ul>
+02/25| Linear threshold units pt 1 |
 03/01| Linear threshold units pt 2 | <ul><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/07
 03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
 03/08| Clustering pt 2 |
