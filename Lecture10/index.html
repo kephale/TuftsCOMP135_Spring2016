@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3>Neurocomputing</h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+    <small>Some slides adapted from Geoffrey Hinton</small>
+	</section>
+
+
+  <section>
+    <h2>Starting with Neuroscience</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/PurkinjeCell.jpg" width=40%>
+    <small>Drawing of Purkinje cells (A) and granule cells (B) from pigeon cerebellum by Santiago Ramón y Cajal, 1899; Instituto Cajal, Madrid, Spain. Public domain.</small>
+	</section>
+
+
+  <section>
+  <section>
+    <h2>From Neuron to Calculation</h2>
+    <!-- <br><br><br> -->
+    <p>The nervous system is a net of neurons each having a soma and an axon</p>
+    <!-- <br><br><br> -->
+    <small>McCulloch, W.S. and Pitts, W., 1943. A logical calculus of the ideas immanent in nervous activity. The bulletin of mathematical biophysics, 5(4), pp.115-133.</small>
+    <br><br><br><br><br><br><br><br><br>
+	</section>
+
+  <section>
+    <h2>From Neuron to Calculation</h2>
+    <p>Their adjunctions, or synapses, are always between the axon of one neuron and the soma of another</p>
+    <small>McCulloch, W.S. and Pitts, W., 1943. A logical calculus of the ideas immanent in nervous activity. The bulletin of mathematical biophysics, 5(4), pp.115-133.</small>
+    <br><br><br><br><br><br><br><br><br>
+	</section>
+
+  <section>
+    <h2>From Neuron to Calculation</h2>
+    <p>At any instant a neuron has some threshold, which excitation must exceed to initiate an impulse</p>
+    <small>McCulloch, W.S. and Pitts, W., 1943. A logical calculus of the ideas immanent in nervous activity. The bulletin of mathematical biophysics, 5(4), pp.115-133.</small>
+    <br><br><br><br><br><br><br><br><br>
+	</section>
+
+  <section>
+    <h2>From Neuron to Calculation</h2>
+    <p>$y_k = \phi ( \displaystyle \sum_{j=1}^m w_{kj} x_j + x_0)$</p>
+    <br><br><br><br><br><br><br><br><br>
+	</section>
+
+  <section>
+    <h2>From Neuron to Computation</h2>
+    <p>$x_1 \textbf{ AND } x_2$</p>
+    <br><br><br><br><br><br><br><br><br>
+	</section>
+
+  <section>
+    <h2>From Neuron to Computation</h2>
+    <p>$x_1 \textbf{ OR } x_2$</p>
+    <br><br><br><br><br><br><br><br><br>
+  </section>
+
+  <section>
+    <h2>From Neuron to Computation</h2>
+    <p>$\textbf{NOT } x_1$</p>
+    <br><br><br><br><br><br><br><br><br>
+  </section>
+
+  <section>
+    <h2>From Neuron to Computation</h2>
+    <br><br><br>
+    <img src="images/linear_decision_boundary.png" width=60%>
+    <br><br><br><br><br>
+  </section>
+
+  <section>
+    <h2>From Neuron to Computation</h2>
+    <p>$x_1 \textbf{ XOR } x_2$</p>
+    <br><br><br><br><br><br><br><br><br>
+  </section>
+
+</section>
+
+<section>
+  <section>
+    <h2>From Growth to Learning</h2>
+    <p>How do we set the weights?</p>
+    <br><br><br><br><br><br><br><br><br>
+  </section>
+
+<section>
+  <h2>From Growth to Learning</h2>
+  <p>The assumption, in brief, is that a growth process accompanying synaptic activity makes the synapse more readily traversed.</p>
+  <small>Hebb, Donald Olding. The organization of behavior: A neuropsychological theory. Psychology Press, 1949.</small>
+  <br><br><br><br><br><br><br><br><br>
+</section>
+
+<section>
+  <h2>From Growth to Learning</h2>
+  <p>When an axon in cell A is near enough to excite cell B and repeatedly
+  and persistently takes part in firing it, some growth process
+  or metabolic change takes place in one or both cells such that A’s
+  efficiency in firing B is increased.</p>
+  <small>Hebb, Donald Olding. The organization of behavior: A neuropsychological theory. Psychology Press, 1949.</small>
+  <br><br><br><br><br><br><br><br><br>
+</section>
+
+<section>
+  <h2>From Growth to Learning</h2>
+  <p>Hebb's learning rule: fire together, wire together</p>
+  <br><br><br><br><br><br><br><br><br>
+</section>
+
+
+<section>
+  <h2>Hebbian Learning</h2>
+  <p>$\Delta w_{kj} = \eta x_j y_k$</p>
+  <p>change weight $i$ proportinally to the product of the input and the output</p>
+  <br><br><br><br><br><br><br><br><br>
+</section>
+
+<section>
+  <h2>Hebbian Learning</h2>
+  <p>$\Delta w_{kj} = \eta x_j y_k$</p>
+  <p>Problems?</p>  
+  <br><br><br><br><br><br><br><br><br>
+</section>
+
+</section>
+
+
+<section>
+
+  <section>
+  <h2>Supervised Method</h2>
+  <p>How do we find weights that can produce a particular output?</p>
+  <br><br><br><br><br><br><br><br><br>
+  </section>
+
+<section>
+<h2>Hinton's Fish and Chips</h2>
+<ul>
+  <li>Diet of multiple portions of fish, chips, and ketchup</li>
+  <li>Cashier only gives total price of meal</li>
+</ul>
+<br><br><br><br><br><br><br><br><br>
+</section>
+
+<section>
+<h2>Hinton's Fish and Chips</h2>
+<ul>
+  <li>Start with random guesses for the price of each portion</li>
+  <li>After multiple days, should be able to know prices of individual portions</li>
+</ul>
+<br><br><br><br><br><br><br><br><br>
+</section>
+
+<section>
+<h2>Delta-rule</h2>
+<p>$\Delta w_{kj} = \eta ( t_k - o_k ) i_k$</p>
+<br><br><br><br><br><br><br><br><br>
+</section>
+
+</section>
+
+ 	<section>
+	  <h2>What Next?</h2>
+    <p>More linear threshold units</p>
+    <p>And more learning methods</p>
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>
