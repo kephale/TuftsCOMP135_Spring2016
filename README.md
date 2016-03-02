@@ -9,7 +9,7 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-Solutions to assignment 3 are [posted](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment3-solutions.pdf)  
+Final project proposal is due March 7.
 
 Note: Temporary change to Sepideh's office hours: Monday, Feb 22 will now be 1pm-2pm  
 
@@ -115,15 +115,15 @@ Date | Lecture | Assignments and Notes | Due Date
 01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li><li>Chapter 3 of Mitchell</li></ul> |
 02/02| Decision trees pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture04)</li></ul>
 02/04| Naive bayes | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture05)</li><li>[Chapter 6 from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
-02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal <i>(See due date)</i></li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture06)</li></ul> | 03/02
+02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal <i>(See due date)</i></li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture06)</li></ul> | 03/07
 02/11| Measuring ML success pt 2 | <ul><li>[Assignment 3](http://kephale.github.io/TuftsCOMP135_Spring2016/Assignment3.pdf)<i>(See due date)</i></li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture07)</li></ul> | 02/16
 02/16| Features | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture08)</li><li>[An Introduction to Variable and Feature Selection](http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf). Isabelle Guyon and Andre Elisseeff, Journal of Machine Learning Research 3 (2003) 1157-1182 .</li><li>[Supervised and unsupervised discretization of continuous features](http://robotics.stanford.edu/~ronnyk/disc.ps). James Dougherty, Ron Kohavi, and Mehran Sahami. International Conference on Machine Learning, 1995.</li><li>Chapter 6 of Introduction to Machine Learning, Second Edition, by Ethem Alpaydin</li><li>Chapter 10 of Machine Learning: The Art and Science of Algorithms that Make Sense of Data, Peter Flach</li></ul> |
 02/18| No class, Monday Schedule |
 02/23| Features | <ul><li>Quiz 1</li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture09)</li><ul>
 02/25| Linear threshold units pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture10)</li><ul>
-03/01| Linear threshold units pt 2 | <ul><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/07
+03/01| Linear threshold units pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture11)</li><li>[Generalized delta rule](https://web.stanford.edu/group/pdplab/originalpdphandbook/Chapter%205.pdf)</li><li>[L1 and L2 regularization](http://cs.nyu.edu/~rostami/presentations/L1_vs_L2.pdf)</li><li>[Stochastic Gradient Descent](http://alex.smola.org/teaching/cmu2013-10-701/slides/3_Recitation_StochasticGradientDescent.pdf)<ul>
 03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
-03/08| Clustering pt 2 |
+03/08| Clustering pt 2 | <ul><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/15
 03/10| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
 03/15| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 04/25
 03/17| Midterm |
@@ -233,3 +233,5 @@ Quiz 1 will cover:
 - Decision trees
 - Naive bayes
 - Measuring success of ML algorithms
+
+### License
