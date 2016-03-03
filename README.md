@@ -205,6 +205,8 @@ Due: March 7
 
 Write a 300-500 word abstract describing your proposed project. This should include 2-3 references of papers you expect to include in your final paper.
 
+See an example project proposal [here](https://github.com/kephale/complexfeaturesbcell/blob/master/Proposal.md)  
+
 ### Project
 
 Due: April 25
