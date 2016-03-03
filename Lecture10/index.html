@@ -698,8 +698,8 @@
 
 <section>
   <section>
-  <h2>Logistic Regression</h2>
-  <p>Learn the weights, $w$:</p>
+  <h2>Regularization</h2>
+  <p>Learn the weights with a penalty, $w$:</p>
   <p>$\text{argmax}_{w} \displaystyle \sum^m_{i=1} P(y_i=1|x_i, w ) - \alpha R(w) $</p>
   </section>
 
@@ -708,6 +708,7 @@
   <p>Regularization term, $R(w)$, forces parameters to be small when $\alpha>0$</p>
   <p>L1: $R(w) = ||w||_1 = \displaystyle \sum^n_{i=1} |w_i|$</p>
   <p>L2: $R(w) = ||w||_2 = \displaystyle \sum^n_{i=1} w_i^2$</p>
+  <small>L2 tends to be better at shrinking weights</small>
   </section>
 
 
