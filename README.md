@@ -9,6 +9,8 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
+
+
 Final project proposal is due March 7.
 
 Note: Temporary change to Sepideh's office hours: Monday, Feb 22 will now be 1pm-2pm  
@@ -202,6 +204,8 @@ If you would like a suggestion for a project contact Kyle 2 weeks before the pro
 ### Proposals
 
 Due: March 7
+
+Submission: Email a *PDF* of your proposal to Kyle  
 
 Write a 300-500 word abstract describing your proposed project. This should include 2-3 references of papers you expect to include in your final paper.
 
