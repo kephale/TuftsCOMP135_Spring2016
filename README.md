@@ -9,13 +9,7 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-
-
-Final project proposal is due March 7.
-
-Note: Temporary change to Sepideh's office hours: Monday, Feb 22 will now be 1pm-2pm  
-
-Note: Due to the new faculty searching, I have to change my office hour to 1:50 - 2:50, only for 02/23 and 03/03 -- Hao
+None at the moment
 
 # What is this course about?  
 
@@ -124,19 +118,19 @@ Date | Lecture | Assignments and Notes | Due Date
 02/23| Features | <ul><li>Quiz 1</li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture09)</li><ul>
 02/25| Linear threshold units pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture10)</li><ul>
 03/01| Linear threshold units pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture11)</li><li>[Generalized delta rule](https://web.stanford.edu/group/pdplab/originalpdphandbook/Chapter%205.pdf)</li><li>[L1 and L2 regularization](http://cs.nyu.edu/~rostami/presentations/L1_vs_L2.pdf)</li><li>[Stochastic Gradient Descent](http://alex.smola.org/teaching/cmu2013-10-701/slides/3_Recitation_StochasticGradientDescent.pdf)<ul>
-03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
-03/08| Clustering pt 2 | <ul><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/15
-03/10| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
-03/15| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 04/25
+03/03| Clustering pt 1 | <ul></ul> |
+03/08| Clustering pt 2 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/15
+03/10| Reinforcement Learning and Games | <ul><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li><li><a href="http://gizmodo.com/google-ai-will-compete-against-go-world-champion-lee-se-1757289813">AlphaGo v Wold Champion Lee Sedo in Go</a></ul>
+03/15| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
 03/17| Midterm |
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
-03/29| Computational learning theory | <ul><li>Chapter 7 - Mitchell</li></ul>
-03/31| Perceptron | <ul><li>Chapter 4 - Mitchell</li><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
-04/05| Kernel-based methods |
-04/07| SVM | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/13
-04/12| Active learning |
-04/14| MDPs and Reinforcement Learning | <ul><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li></ul>
+03/29| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 04/25
+03/31| Computational learning theory | <ul><li>Chapter 7 - Mitchell</li></ul>
+04/05| Perceptron | <ul><li>Chapter 4 - Mitchell</li><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
+04/07| Kernel-based methods |
+04/12| SVM | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/13
+04/14| Active learning |
 04/19| Reinforcement learning pt 2 | <ul><li>Quiz 2</li></ul> |
 04/21| Aggregation methods |
 04/26| Project presentations |
