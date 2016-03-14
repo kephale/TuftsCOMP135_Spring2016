@@ -17,6 +17,8 @@ For question 2 in assignment 4, using the correlation filter method requires som
 
 For question 3 in assignment 4 the example row from the dataset should contain the z-normalized values as opposed to the current values which come directly from the dataset.  
 
+Also for question 3, show the weights after a full iteration over the 150 instances, i.e. 10 rows of weights.  
+
 # What is this course about?  
 
 Machine learning is the study of algorithmic methods for learning and prediction based upon data. Approaches range from extracting patterns from large collections of data, such as social media and scientific datasets, to online learning in real-time, for applications like active robots. ML is becoming increasingly widespread because of the increase and accessibility of computational power and datasets, as well as recent advances in ML algorithms. It is now commonplace for ML to produce results that have not been achieved by humans.
