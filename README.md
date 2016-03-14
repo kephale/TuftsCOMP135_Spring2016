@@ -9,6 +9,12 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
+For question 2 in assignment 4, using the correlation filter method requires some fine tuning for a discrete class with more than 2 labels. The thing to do here is:
+
+- Create a new binary class label for each species (as described in Q3)
+- For each label, calculate the rank by correlation
+- The total correlation rank = sum for all 3 species: ( rank for species ) / ( # of species )
+
 For question 3 in assignment 4 the example row from the dataset should contain the z-normalized values as opposed to the current values which come directly from the dataset.  
 
 # What is this course about?  
@@ -121,7 +127,7 @@ Date | Lecture | Assignments and Notes | Due Date
 03/03| Clustering pt 1 | <ul></ul> |
 03/08| Clustering pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture12)</li><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment4.pdf">Assignment 4</a> <i>(See due date)</i></li></ul> | 03/15
 03/10| Reinforcement Learning and Games | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture13/#/)</li><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li><li><a href="http://gizmodo.com/google-ai-will-compete-against-go-world-champion-lee-se-1757289813">AlphaGo v Wold Champion Lee Sedo in Go</a></ul>
-03/15| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
+03/15| Unsupervised learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture14/#/)</li><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
 03/17| Midterm |
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
