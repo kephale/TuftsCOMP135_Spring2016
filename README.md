@@ -9,11 +9,7 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-For question 2 in assignment 4, using the correlation filter method requires some fine tuning for a discrete class with more than 2 labels. The thing to do here is:
-
-- Create a new binary class label for each species (as described in Q3)
-- For each label, calculate the rank by correlation
-- The total correlation rank = sum for all 3 species: ( rank for species ) / ( # of species )
+For question 2 in assignment 4, you only need to use mutual information when filtering the features. When doing this, treat numerical values as if they are discrete (i.e. "5.0" occurs 7 times for the first feature when the class is Iris setosa)  
 
 For question 3 in assignment 4 the example row from the dataset should contain the z-normalized values as opposed to the current values which come directly from the dataset.  
 
