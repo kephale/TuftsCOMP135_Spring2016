@@ -126,7 +126,7 @@ Date | Lecture | Assignments and Notes | Due Date
 03/08| Clustering pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture12)</li><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment4.pdf">Assignment 4</a> <i>(See due date)</i></li></ul> | 03/15
 03/10| Reinforcement Learning and Games | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture13/#/)</li><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li><li><a href="http://gizmodo.com/google-ai-will-compete-against-go-world-champion-lee-se-1757289813">AlphaGo v Wold Champion Lee Sedo in Go</a></ul>
 03/15| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
-03/17| Midterm | <ul><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/MidtermExam.zip">Exam</a></li><li><a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">Amazing visualization of decision trees</a></li></ul>
+03/17| Midterm | <ul><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/MidtermExam.zip">Exam</a></li><li><a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">Amazing visualization of decision trees</a></li></ul> | Due before class on 03/31
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
 03/29| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 05/05
