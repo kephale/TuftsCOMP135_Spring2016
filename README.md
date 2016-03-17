@@ -11,6 +11,8 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 MidtermExam:
 
+[Update: there was an adjustment to this fix, please use this new version. Thanks Sara!]
+
 A couple of Windows users have noticed that when running the Jupyter notebook there is an error when reading in the datafile. Specifically:
 
 ValueError: could not convert string to float:  
@@ -37,7 +39,7 @@ with open( datafilename ) as f:
     lines = f.readlines()
 
     for line in lines:
-        els = line[:-3].split(' ')[:-1]
+        els = line[:-2].split(' ')
         inputs += [ [ float(s) for s in els[:numFeatures] ] ]
         outputs += [ [ float(s) for s in els[numFeatures:] ] ]
         outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
