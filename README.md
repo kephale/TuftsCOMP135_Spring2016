@@ -9,11 +9,39 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-For question 2 in assignment 4, you only need to use mutual information when filtering the features. When doing this, treat numerical values as if they are discrete (i.e. "5.0" occurs 7 times for the first feature when the class is Iris setosa)  
+MidtermExam:
 
-For question 3 in assignment 4 the example row from the dataset should contain the z-normalized values as opposed to the current values which come directly from the dataset.  
+A couple of Windows users have noticed that when running the Jupyter notebook there is an error when reading in the datafile. Specifically:
 
-Also for question 3, show the weights after a full iteration over the 150 instances, i.e. 10 rows of weights.  
+ValueError: could not convert string to float:  
+
+To fix this, change:
+
+```
+# Open and read the dataset
+with open( datafilename ) as f:
+    lines = f.readlines()
+
+    for line in lines:
+        els = line[:-3].split(' ')
+        inputs += [ [ float(s) for s in els[:numFeatures] ] ]
+        outputs += [ [ float(s) for s in els[numFeatures:] ] ]
+        outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
+```
+
+to
+
+```
+# Open and read the dataset
+with open( datafilename ) as f:
+    lines = f.readlines()
+
+    for line in lines:
+        els = line[:-3].split(' ')[:-1]
+        inputs += [ [ float(s) for s in els[:numFeatures] ] ]
+        outputs += [ [ float(s) for s in els[numFeatures:] ] ]
+        outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
+```
 
 # What is this course about?  
 
@@ -134,8 +162,8 @@ Date | Lecture | Assignments and Notes | Due Date
 04/05| Perceptron | <ul><li>Assignment 5 <i>(See due date)</i></li><li>Chapter 4 - Mitchell</li></ul> | 04/13
 04/07| Kernel-based methods |
 04/12| SVM | <ul></ul> |
-04/14| Active learning | <ul><li>Quiz 2</li></ul>
-04/19| Reinforcement learning pt 2 |
+04/14| Active learning |
+04/19| Reinforcement learning pt 2 | <ul><li>Quiz 2</li></ul>
 04/21| Aggregation methods |
 04/26| Project presentations |
 04/28| Project presentations |
