@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3></h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br>
+    <p><small>Some slides adapted from Roni Khardon, Andrew Moore, Mohand Said Allili, David Sontag, Frank Dellaert, Michael Jordan, Yair Weiss</small></p>
+	</section>
+
+  <section data-markdown>
+    ## Logistics
+
+    Make up class: May 5?
+
+    Quiz 2 moved to 04/12
+
+    Midterm Questions
+
+    [Early handwriting recognition](http://jackschaedler.github.io/handwriting-recognition/)
+
+  </section>
+
+  <section>
+
+    <section data-markdown>
+      ## Limitations of K-means
+
+      K-means has limitations for some data.
+
+      ![K-means fails to separate 2 clusters](images/kmeans_k=2_incorrect.svg)
+
+      What do we do?
+    </section>
+
+    <section data-markdown>
+      ## Probabilistic Membership
+
+      We could assign cluster labels probabilistically using distance.
+
+      $p(x \in \textbf{cluster i}) = \frac{ d(x,C_i) }{ \displaystyle \sum^{k}_j d(x,C_j) }$
+
+      where $d(x,C_i)$ is the distance from instance x to centroid of cluster i.
+
+    </section>
+
+    <section data-markdown>
+      ##  Probabilistic Membership
+
+      ![Ambiguity of K-means clear from distance map](images/kmeans_k=2_incorrect_dists.svg)
+
+      Problem solved?
+
+    </section>
+
+    <section data-markdown>
+      ## Distribution Approximation
+
+      - We have a set of samples that were drawn from some unknown distribution.
+
+      - What if we want to know the probability that a sample came from a distribution?
+
+      - We need to know or approximate the underlying distribution.
+
+    </section>
+
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Gaussian
+
+      We know Gaussian's from 1D:
+
+      $f(\mu,\sigma) = \frac{1}{\sigma \sqrt{2 \pi}}  e^{ -\frac{1}{2} ( \frac{x-\mu}{\sigma})^2}$
+
+      ![Example 1D Gaussian. mean = 0, std = 1](images/example_gaussian_1D.svg)
+
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      Most distributions don't look like a single Gaussian.
+
+      Use multiple Gaussians to describe a distribution.
+
+      A Gaussian mixture model uses k-Gaussians, each with a weight, mean, and the entire model uses a covariance matrix.
+
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      - k Gaussians
+      - mixing weights for each Gaussian
+      - mean for each Gaussian
+      - covariance matrix
+
+    </section>
+
+<!--       <p>Mixing weights, means, and covariance matrices</p>
+      <p>Use a set of $K$ Gaussians to describe a probability distribution</p>
+      <p>$p(x) = \displaystyle \sum^{K}_{j=1} w_j N(x | \mu_j, \Sigma_j) $</p>
+      <p>where $w_j$ is the weight of the $j$th Gaussian such that $\displaystyle \sum^K_{j=1} w_j = 1$, $0 \leq w_j \leq 1$</p>
+-->
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      GMM can be written as
+
+      $N(x | \mu, \Sigma) = \frac{e^{-1/2(x - \mu)^T \Sigma^{-1} (x - \mu)}}{(2 \pi)^{d/2} \sqrt{ |\Sigma| }}$</p>
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      - Covariance matrix describes the shape of the gaussian in each direction
+
+
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      Spherical covariance: 1 variance for all Gaussians
+
+      ![GMM spherical covariance matrix](images/em_k=2_cov_spherical.svg)
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      Diagonal covariance: 1 variance for each Gaussian
+
+      ![GMM spherical covariance matrix](images/em_k=2_cov_diag.svg)
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      Full covariance: variance is dependent on all dimensions for all dimensions
+
+      ![GMM spherical covariance matrix](images/em_k=2_cov_full.svg)
+    </section>
+
+    <section data-markdown>
+      ## Gaussian Mixture Models
+
+      GMMs can generative!
+
+      Pick Gaussian $k$ with probability $w_k$, and generate a point from the corresponding Gaussian
+    </section>
+
+    <section>
+      <h2>Gaussian mixture model</h2>
+      <p>Given some data $D$ drawn from an unknown distribution</p>
+      <p>Estimate the parameters $\theta$ of a GMM that fits the data</p>
+      <p>How do we find the Gaussian parameters?</p>
+    </section>
+
+
+</section>
+
+<section>
+
+  <section>
+    <h2>Flipping coins</h2>
+    <p>2 coins, A and B, with bias to land on heads: $\theta_A$ and $\theta_B$</p>
+    <p>Repeat for $i$ = 1 to 5:</p>
+    <ul>
+      <li>Randomly choose a coin, store as class label $z_i$</li>
+      <li>['b', 'b', 'a', 'a', 'b']</li>
+      <li>Flip the coin 10 times, store number of heads as $x_i$</li>
+      <li>[4, 8, 4, 4, 7]</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Flipping coins</h2>
+    <p>We can calculate the bias from these observations directly:</p>
+    <p>$\dot{\theta}_A = \frac{ \textit{# heads using A}}{ \textit{# flips using A}}$</p>
+    <p>$\dot{\theta}_A = \frac{8}{20}$</p>
+    <p>$\dot{\theta}_B = \frac{ \textit{# heads using B}}{ \textit{# flips using B}}$</p>
+    <p>$\dot{\theta}_B = \frac{19}{30}$</p>
+    <p>This information was recorded as # heads in $x$ and coin identifier in $z$</p>
+    <p>What if we didn't have $z$?</p>
+  </section>
+
+  <section>
+    <h2>Flipping coins</h2>
+    <p>What if we didn't have $z$ (the coin flipped to produce a certain # of heads)?</p>
+    <p>$z$ is now a "hidden", "latent" variable</p>
+    <p>How do we find $\theta_A$ and $\theta_B$?</p>
+  </section>
+
+  <section data-markdown>
+    ## Flipping coins
+
+    Start with initial estimates $\dot{\theta} = ( \dot{\theta}_A^{(0)}$, $\dot{\theta}_B^{(0)} )$
+
+    For each set of 10 coin flips, where we know the # of heads as $x_i$
+
+    i.e. [4, 8, 4, 4, 7]
+
+    - Determine which coin was most likely using $\dot{\theta}^{(t)}$
+    - Assume these were the coins that generated the data, and use maximum likelihood to update $\dot{\theta}^{(t+1)}$
+
+    Repeat until convergence
+  </section>
+</section>
+
+<section>
+  <section>
+    <h2>Maximum Likelihood Estimation</h2>
+    <p>We know $x_1$, $x_2$, ..., $x_R$ which follow some $N( \mu, \sigma^2 )$</p>
+    <p>How do we find $\mu$ (assume we know $\sigma^2$)?</p>
+  </section>
+
+  <section>
+    <h2>Maximum Likelihood Estimation</h2>
+    <p>We know $x_1$, $x_2$, ..., $x_R$ which follow some $N( \mu, \sigma^2 )$</p>
+    <p>How do we find $\mu$ (assume we know $\sigma^2$)?</p>
+    <p>Maximum Likelihood Estimation: For which $\mu$ is $x_1, x_2, ... x_R$ most likely?</p>
+    <p>Maximum <i>a posteriori</i>: Which $\mu$ maximizes $p(\mu | x_1, x_2, ... x_R, \sigma^2 )$?</p>
+  </section>
+
+  <!-- <section>
+    <h2>Maximum Likelihood estimation</h2>
+    <p>Given some data $D$ drawn from an unknown distribution</p>
+    <p>Estimate the parameters $\theta$ of a GMM that fits the data</p>
+    <p>Maximize the likelihood $p(D|\theta)$ of the data with respect to the parameters</p>
+    <p>$\theta^{*} = argmax_{\theta} p(D|\theta) = argmax_{\theta} \prod^{N}_{i=1} p(x_i|\theta)$</p>
+  </section> -->
+
+  <section>
+    <h2>Expectation-maximization</h2>
+    <p>Expectation-Maximization (EM) algorithm is an approach to maximize likelihood</p>
+  </section>
+
+  <section>
+    <h2>Expectation-maximization</h2>
+    <p>Iterate:</p>
+    <ul>
+      <li>E-Step: <b>Estimate</b> the distribution given the data and current parameters</li>
+      <li>M-Step: <b>Maximize</b> the distribution
+    </ul>
+  </section>
+
+  <section data-markdown>
+    ## Expectation-maximization
+
+    Expectation step: Calculate the expected log likelihood, $E[log L(\Theta | X,Z)]$
+
+    $E[L( \Theta^{(t)} | X, Z )] = p(X|\Theta^{(t)}) = \displaystyle \sum_Z p(X,Z | \Theta^{(t)})$
+
+  </section>
+
+  <section data-markdown>
+    ## Expectation-maximization
+
+    Maximization step: Find the parameters that maximize the log likelihood
+
+    $\Theta^{(t+1)} = argmax_{\Theta} E[log L(\Theta | X,Z)]$
+
+  </section>
+
+  <section>
+    <h2>Expectation-maximization</h2>
+    <p>Initialization:</p>
+    <ul>
+      <li>Mean of data + random offset</li>
+      <li>Use K-means to get a good initialization</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Expectation-maximization</h2>
+    <p>Termination:</p>
+    <ul>
+      <li>Maximum number of iterations</li>
+      <li>Threshold change in log-likelihood</li>
+      <li>Threshold change in parameters</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Expectation-maximization</h2>
+    <p>Limitations</p>
+    <ul>
+      <li>Prone to local maxima</li>
+      <li>Numerical stability of covariance matrix (add noise to stabilize)</li>
+    </ul>
+  </section>
+
+  <section data-markdown>
+    ## Choosing number of components
+
+    Can use Bayesian Information Criterion to score GMMs
+
+    $BIC = -2 ln( L(\Theta | X ) ) + k \cdot ln( n )$
+
+    where $L$ is the likelihood, $k$ is the degrees of freedom (number of free parameters), and $n$ is the number of datapoints.
+
+
+
+  </section>
+  </section>
+
+<section>
+  <section data-markdown>
+    ## EM Example
+
+    Step 1
+
+    ![Step 1 of EM](images/em_k=2_cov_full_step=1.svg)
+  </section>
+
+  <section data-markdown>
+    ## EM Example
+
+    Step 2
+
+    ![Step 2 of EM](images/em_k=2_cov_full_step=2.svg)
+  </section>
+
+  <section data-markdown>
+    ## EM Example
+
+    Step 3
+
+    ![Step 3 of EM](images/em_k=2_cov_full_step=3.svg)
+  </section>
+
+  <section data-markdown>
+    ## EM Example
+
+    Step 4
+
+    ![Step 4 of EM](images/em_k=2_cov_full_step=4.svg)
+  </section>
+</section>
+
+ 	<section>
+	  <h2>What Next?</h2>
+    <p>Guest Lecture on Aggregation</p>
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>
