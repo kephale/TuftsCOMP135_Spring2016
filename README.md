@@ -9,15 +9,41 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-If you have an issue with running assignment 2 and are using python 3 (check the top right corner of your Jupyter notebook), then replace:
+MidtermExam:
 
-dataset = np.matrix( zip(points_x,points_y) )
+[Update: there was an adjustment to this fix, please use this new version. Thanks Sara!]
 
-with
+A couple of Windows users have noticed that when running the Jupyter notebook there is an error when reading in the datafile. Specifically:
 
-dataset = np.matrix( list( zip(points_x,points_y) ) )
+ValueError: could not convert string to float:  
 
-This arises because in Python3 the zip() function returns an iterator, that is not fully-evaluated and numpy has issues with that. By calling list() on zip() we can force the iterator to be converted into a list.  
+To fix this, change:
+
+```
+# Open and read the dataset
+with open( datafilename ) as f:
+    lines = f.readlines()
+
+    for line in lines:
+        els = line[:-3].split(' ')
+        inputs += [ [ float(s) for s in els[:numFeatures] ] ]
+        outputs += [ [ float(s) for s in els[numFeatures:] ] ]
+        outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
+```
+
+to
+
+```
+# Open and read the dataset
+with open( datafilename ) as f:
+    lines = f.readlines()
+
+    for line in lines:
+        els = line[:-2].split(' ')
+        inputs += [ [ float(s) for s in els[:numFeatures] ] ]
+        outputs += [ [ float(s) for s in els[numFeatures:] ] ]
+        outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
+```
 
 # What is this course about?  
 
@@ -122,28 +148,28 @@ Date | Lecture | Assignments and Notes | Due Date
 01/26| Instance learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture02)</li><li>[Notebook](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Lecture02/notebooks/instance_based_learning.ipynb)</li><li>[Bonus Assignment 2](#assignment2)</li><li>[kNN:Scholarpedia](http://www.scholarpedia.org/article/K-nearest_neighbor)</li><li>[Andrew Moore's KD tree tutorial](https://www.ri.cmu.edu/pub_files/pub1/moore_andrew_1991_1/moore_andrew_1991_1.pdf)</li></ul> | 02/03
 01/28| Decision trees pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03)</li><li>[C4.5 for continuous values](http://www.jair.org/media/279/live-279-1538-jair.pdf)</li><li>[Scikit learn:Decision trees](http://scikit-learn.org/stable/modules/tree.html)</li><li>Chapter 3 of Mitchell</li></ul> |
 02/02| Decision trees pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture04)</li></ul>
-02/04| Naive bayes | <ul><li>[Chapter 6 from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
-02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal <i>(See due date)</i></li></ul> | 03/02
-02/11| Measuring ML success pt 2 | <ul><li>Assignment 3 <i>(See due date)</i></li></ul> | 02/17
-02/16| Features |
+02/04| Naive bayes | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture05)</li><li>[Chapter 6 from Mitchell](http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf)</li><li>[Stanford:Intro to Probability slides](http://www.stanford.edu/class/cs109/slides/IntroProbability.pdf)</li><li>[Stanford:Conditional Probability + Bayes Theorem](http://web.stanford.edu/class/cs109/slides/ConditionalProbability.pdf)</li></ul> |
+02/09| Measuring ML success pt 1 | <ul><li>Chapter 5 - Mitchell</li><li>Final project proposal <i>(See due date)</i></li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture06)</li></ul> | 03/07
+02/11| Measuring ML success pt 2 | <ul><li>[Assignment 3](http://kephale.github.io/TuftsCOMP135_Spring2016/Assignment3.pdf)<i>(See due date)</i></li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture07)</li></ul> | 02/16
+02/16| Features | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture08)</li><li>[An Introduction to Variable and Feature Selection](http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf). Isabelle Guyon and Andre Elisseeff, Journal of Machine Learning Research 3 (2003) 1157-1182 .</li><li>[Supervised and unsupervised discretization of continuous features](http://robotics.stanford.edu/~ronnyk/disc.ps). James Dougherty, Ron Kohavi, and Mehran Sahami. International Conference on Machine Learning, 1995.</li><li>Chapter 6 of Introduction to Machine Learning, Second Edition, by Ethem Alpaydin</li><li>Chapter 10 of Machine Learning: The Art and Science of Algorithms that Make Sense of Data, Peter Flach</li></ul> |
 02/18| No class, Monday Schedule |
-02/23| Features | <ul><li>Quiz 1</li><ul>
-02/25| Linear threshold units pt 1 |
-03/01| Linear threshold units pt 2 | <ul><li>Assignment 4 <i>(See due date)</i></li></ul> | 03/07
-03/03| Clustering pt 1 | <ul><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li></ul> |
-03/08| Clustering pt 2 |
-03/10| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
-03/15| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 04/25
-03/17| Midterm |
+02/23| Features | <ul><li>Quiz 1</li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture09)</li><ul>
+02/25| Linear threshold units pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture10)</li><ul>
+03/01| Linear threshold units pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture11)</li><li>[Generalized delta rule](https://web.stanford.edu/group/pdplab/originalpdphandbook/Chapter%205.pdf)</li><li>[L1 and L2 regularization](http://cs.nyu.edu/~rostami/presentations/L1_vs_L2.pdf)</li><li>[Stochastic Gradient Descent](http://alex.smola.org/teaching/cmu2013-10-701/slides/3_Recitation_StochasticGradientDescent.pdf)<ul>
+03/03| Clustering pt 1 | <ul></ul> |
+03/08| Clustering pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture12)</li><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment4.pdf">Assignment 4</a> <i>(See due date)</i></li></ul> | 03/15
+03/10| Reinforcement Learning and Games | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture13/#/)</li><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li><li><a href="http://gizmodo.com/google-ai-will-compete-against-go-world-champion-lee-se-1757289813">AlphaGo v Wold Champion Lee Sedo in Go</a></ul>
+03/15| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
+03/17| Midterm | <ul><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/MidtermExam.zip">Exam</a></li><li><a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">Amazing visualization of decision trees</a></li></ul> | Due before class on 03/31
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
-03/29| Computational learning theory | <ul><li>Chapter 7 - Mitchell</li></ul>
-03/31| Perceptron | <ul><li>Chapter 4 - Mitchell</li><li>[Playing Go with Neural Nets](http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html) link suggested by Will Oxman</li></ul>
-04/05| Kernel-based methods |
-04/07| SVM | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/13
-04/12| Active learning |
-04/14| MDPs and Reinforcement Learning | <ul><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li></ul>
-04/19| Reinforcement learning pt 2 | <ul><li>Quiz 2</li></ul> |
+03/29| Association rules | <ul><li>Chapter 10 - Mitchell</li><li>Final project <i>(See due date)</i></li></ul> | 05/05
+03/31| Computational learning theory | <ul><li>Chapter 7 - Mitchell</li></ul>
+04/05| Perceptron | <ul><li>Assignment 5 <i>(See due date)</i></li><li>Chapter 4 - Mitchell</li></ul> | 04/13
+04/07| Kernel-based methods |
+04/12| SVM | <ul></ul> |
+04/14| Active learning |
+04/19| Reinforcement learning pt 2 | <ul><li>Quiz 2</li></ul>
 04/21| Aggregation methods |
 04/26| Project presentations |
 04/28| Project presentations |
@@ -199,6 +225,44 @@ If you have any issues with Github, then see the Github guides (https://guides.g
 
 Nearly every major corporation (Google, Facebook, Microsoft, Twitter, etc.) and university uses git to manage code for almost all of their open-source projects, if not specifically Github. This is especially true for the open-source machine learning code being released by these corporations and universities. When it comes time to work on final projects, especially with multiple people involved, git will turn out to be one of your most powerful tools.  
 
+## FinalProjects
+
+The final project for this course is an opportunity to apply what you've learned about machine learning to a real-world problem, to extend an existing machine learning algorithm, or to implement and explore a cutting-edge ML technique.
+
+Collaboration is an option, but this should be discussed with Kyle a priori. A clear delineation of work should be proposed ahead of time. Github is strongly encouraged for collaborative projects to make it easier to measure each person's contribution.
+
+If you would like a suggestion for a project contact Kyle 2 weeks before the proposal deadline to schedule a meeting. We will talk through problems/data that may be of interest to you.  
+
+### Proposals
+
+Due: March 7
+
+Submission: Email a *PDF* of your proposal to Kyle  
+
+Write a 300-500 word abstract describing your proposed project. This should include 2-3 references of papers you expect to include in your final paper.
+
+See an example project proposal [here](https://github.com/kephale/complexfeaturesbcell/blob/master/Proposal.md)  
+
+### Project
+
+Due: May 5
+
+Turn in a 8-12 page paper. A rough outline is:
+- Background on problem
+- Related work
+- Your method
+- Results
+- Conclusion and future work
+- References
+
+There should be at least 10 references.
+
+### Resources
+
+- Ask faculty around the department if they have datasets that might be interesting for Machine Learning
+- [Google Scholar](http://scholar.google.com) - Search for articles published in "ICML", "NIPS", or "Machine Learning"; or search for keywords relevant to problems/algorithms that interest you  
+- [Huge list of datasets](https://github.com/caesar0301/awesome-public-datasets?utm_content=buffer43079&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)  
+
 ## Quiz1
 
 Quiz 1 will cover:
@@ -207,3 +271,5 @@ Quiz 1 will cover:
 - Decision trees
 - Naive bayes
 - Measuring success of ML algorithms
+
+### License

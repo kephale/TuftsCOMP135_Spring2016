@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3>Clustering</h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+    <p><small>Some slides adapted from Roni Khardon</small></p>
+	</section>
+
+  <section>
+    <section>
+      <h2>Unsupervised learning</h2>
+      <p>Machine learning on unlabeled data</p>
+      <p>Techniques include: clustering, expectation-maximization, some signal processing (PCA), etc.</p>
+    </section>
+
+    <section>
+      <h2>Clustering</h2>
+      <p>Grouping instances/objects into sets/clusters based on similarity</p>
+      <img src="images/example_unclustered.png">
+    </section>
+
+    <section>
+      <h2>Clustering: Notation</h2>
+      <p>Partition data into clusters $C_1,...,C_k$</p>
+      <p>Centroid of cluster $j$: $\mu_j = \frac{1}{|C_j|} \displaystyle \sum_{x \in C_j} x$</p>
+      <p>Centroid of dataset: $\mu = \frac{1}{N} \displaystyle \sum_j \displaystyle \sum_{x \in C_j} x$</p>
+    </section>
+
+  </section>
+
+  <section>
+    <section>
+      <h2>Data Clustering</h2>
+      <p>What makes a good cluster?</p>
+      <ul>
+        <li>Does it look reasonable?</li>
+        <li>Does it look reasonable to an expert?</li>
+        <li>Can it be used in another task?</li>
+        <li>Is the result consistent across different clusterings?</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data Clustering</h2>
+      <p>What makes a good cluster?</p>
+      <ul>
+        <li>Cluster scatter</li>
+        <li>Cluster distance</li>
+        <li>Spacing</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Cluster Scatter</h2>
+      <p>For a given clustering, what is the average variance from centroid for all clusters?</p>
+      <p>$CS = \displaystyle \sum_j \displaystyle \sum_{x \in C_j} || x - \mu_j ||^2$</p>
+      <table>
+        <tr>
+          <td><img src="images/example_low_scatter.png" width=75%></td>
+          <td><img src="images/example_high_scatter.png" width=75%></td>
+        </tr>
+        <tr><td align=center>Low</td><td align=center>High</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Cluster Distance</h2>
+      <p>How distinct are cluster centroids from the centroid of the entire dataset?</p>
+      <p>$CS = \displaystyle \sum_j | C_j | \cdot || \mu_j - \mu ||^2$</p>
+      <table>
+        <tr>
+          <td><img src="images/example_low_distance.png" width=75%></td>
+          <td><img src="images/example_high_distance.png" width=75%></td>
+        </tr>
+        <tr><td align=center>Low</td><td align=center>High</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Cluster Spacing</h2>
+      <p>What is the shortest distance between instances of two clusters?</p>
+      <p>$Spacing = min_{i,j} [ min_{x \in C_i, y \in C_j} || x - y ||^2]$</p>
+      <table>
+        <tr>
+          <td><img src="images/example_small_spacing.png" width=75%></td>
+          <td><img src="images/example_large_spacing.png" width=75%></td>
+        </tr>
+        <tr><td align=center>Low</td><td align=center>High</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Potential issues</h2>
+      <ul>
+        <li>Sensitivity to feature scaling</li>
+        <li>Outliers</li>
+      </ul>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>Agglomerative Hierarchical Clustering</h2>
+      <ol>
+        <li>Initialize each point as 1 cluster</li>
+        <li>Iterate:
+          <ul>
+            <li>Find most similar pair of clusters</li>
+            <li>Replace with union of clusters</li>
+          </ul>
+        </li>
+      </ol>
+      <p>How do we determine "most similar"?</p>
+      <p>When are we done?</p>
+    </section>
+
+    <section>
+      <h2>Agglomerative Hierarchical Clustering</h2>
+      <p>Distance functions for clusters:</p>
+      <p>$d_{min} (C_i, C_j) = \displaystyle min_{x \in C_i, y \in C_j} || x - y ||^2$</p>
+      <p>$d_{max} (C_i, C_j) = \displaystyle max_{x \in C_i, y \in C_j} || x - y ||^2$</p>
+      <p>$d_{avg} (C_i, C_j) = \frac{1}{|C_i| \cdot |C_j|} \displaystyle \sum_{x \in C_i} \displaystyle \sum_{y \in C_j} || x - y ||^2$</p>
+      <!-- <p>$d_{min}$ optimizes spacing and yields a minimum spanning tree</p> -->
+    </section>
+
+    <section>
+      <h2>Hierarchical Clustering</h2>
+      <img src="images/agglomerative_clustering_distances.png" width=70%>
+    </section>
+
+
+    <section>
+      <h2>Agglomerative Hierarchical Clustering</h2>
+      <p>The algorithm yields a sequence of clusterings.</p>
+      <p>The user decides which clustering is preferred (num clusters, cluster variance, etc.)</p>
+    </section>
+
+
+    <section>
+      <h2>Divisive Hierarchical Clustering</h2>
+      <ol>
+        <li>Initialize all data in 1 cluster</li>
+        <li>Iterate:
+          <ul>
+            <li>Choose a cluster and its best split</li>
+            <li>Replace cluster with the split</li>
+          </ul>
+        </li>
+      </ol>
+      <p>How do we determine the "best split"?</p>
+    </section>
+
+    <section>
+      <h2>Limitations of Hierarchical Clustering</h2>
+      <p>Speed</p>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>K-means Clustering</h2>
+      <p>Partition the data into $k$ clusters</p>
+      <p>Iteratively update cluster assignments using centroids</p>
+    </section>
+
+    <section>
+      <h2>K-means Clustering</h2>
+      <ol>
+        <li>Initialize centers of $k$ clusters</li>
+        <li>Iterate until convergence:
+          <ul>
+            <li>Label each point as closest cluster</li>
+            <li>Recalculate centers</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>K-means example</h2>
+      <img src="images/example_kmeans_step=0.svg" width=75%>
+    </section>
+
+    <section>
+      <h2>K-means example</h2>
+      <img src="images/example_kmeans_step=1.svg" width=75%>
+    </section>
+
+    <section>
+      <h2>K-means example</h2>
+      <img src="images/example_kmeans_step=2.svg" width=75%>
+    </section>
+
+    <section>
+      <h2>K-means example</h2>
+      <img src="images/example_kmeans_step=3.svg" width=75%>
+    </section>
+
+    <section>
+      <h2>K-means example</h2>
+      <img src="images/example_kmeans_step=4.svg" width=75%>
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>How to pick K?</h2>
+      <p>Run with different values of k, and measure quality</p>
+
+      <table>
+        <tr>
+          <td><img src="images/example_unclustered.png"></td>
+          <td><img src="images/kmeans_k_v_scatter.png"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+        <td><img src="images/kmeans_k=2.png"></td>
+        <td><img src="images/kmeans_k=3.png" width=65%></td>
+        <td><img src="images/kmeans_k=4.png"></td>
+        <td><img src="images/kmeans_k=5.png"></td>
+        <td><img src="images/kmeans_k=6.png"></td>
+      </tr></table>
+    </section>
+
+    <section>
+      <h2>K-means Clustering</h2>
+      <p>Sensitivity to initial conditions</p>
+      <p>Sensitivity to outliers</p>
+    </section>
+
+    <section>
+      <h2>K-means Clustering</h2>
+      <p>Sensitivity to initial conditions: repeat with multiple initial conditions</p>
+      <p>Sensitivity to outliers: use median instead of mean</p>
+    </section>
+
+  </section>
+
+<section>
+  <section>
+    <h2>Comparing Clusterings</h2>
+    <img src="images/clustering_contingency_table.png" width=80%>
+    <p><small>From Vinh, Epps and Bailey, 2010</small></p>
+  </section>
+
+  <section>
+    <h2>Comparing Clusterings</h2>
+    <img src="images/clustering_comparision_MI.png" width=60%>
+    <p><small>From Vinh, Epps and Bailey, 2010</small></p>
+  </section>
+
+  <section>
+    <h2>Comparing Clusterings</h2>
+    <p>Using the mutual information directly is sensitive to the number of clusters, therefore the normalized mutual information must be calculated by dividing by entropy</p>
+    <img src="images/clustering_comparision_nmi.png" width=60%>
+    <p><small>From Vinh, Epps and Bailey, 2010</small></p>
+  </section>
+
+  </section>
+
+  <section>
+    <h2>Assignment 4</h2>
+    <p>Posted <a href="http://kephale.github.io/TuftsCOMP135_Spring2016/Assignment4.pdf">here</a></p>
+    <p>Due: March 15 (hardcopy in class)</p>
+  </section>
+
+ 	<section>
+	  <h2>What Next?</h2>
+    <p>Machine learning in games</p>
+    <p>Go!</p>
+    <p>Suggested reading: <a href="http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html">Mastering the game of Go with deep neural networks and tree search</a></p>
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>
