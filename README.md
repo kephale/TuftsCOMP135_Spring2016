@@ -161,16 +161,16 @@ Date | Lecture | Assignments and Notes | Due Date
 03/24| No class, Spring recess|
 03/29| Distribution Approximation and EM | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture16/#/)</li><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li><li>Final project <i>(See due date)</i></li></ul> | 05/05
 03/31| Aggregation methods |
-04/05| Neural Networks | <ul><li>Chapter 4 - Mitchell</li></ul> |
-04/07| Support Vector Machines | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/14
-04/12| Reinforcement Learning | <ul><li><a href="https://github.com/Rochester-NRT/AlphaGo">Open-source clone of AlphaGo in progress</a></li><li>Quiz 2</li></ul> |
+04/05| Neural Networks | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture17/#/)</li><li>Chapter 4 - Mitchell</li><li>[Touretzky's Backpropagation Slides](https://www.cs.cmu.edu/afs/cs/academic/class/15883-f15/slides/backprop.pdf)</li><li>[Geoff Hinton's Backpropagation Slides](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec3.pdf)</li><li>[Send 5-slide summary of project](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture17/#/7)</li></ul> | 04/12
+04/07| Support Vector Machines | <ul></ul>
+04/12| Reinforcement Learning | <ul><li><a href="https://github.com/Rochester-NRT/AlphaGo">Open-source clone of AlphaGo in progress</a></li><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/26
 04/14| Game Theory |
-04/19| Project presentations |
+04/19| Project presentations | <ul><li>Quiz 2</li></ul> |
 04/21| Project presentations |
 04/26| Project presentations |
 04/28| Project presentations | Randy Olson's TPOT
+05/05| Program Discovery |
 
-04/19| Association rules | <ul><li>Chapter 10 - Mitchell</li></ul>
 
 # Assignments, Quizzes, and Exams
 

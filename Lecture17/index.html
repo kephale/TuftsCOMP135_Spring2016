@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3></h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br>
+    <p><small>Some slides adapted from Geoff Hinton and David Touretzky</small></p>
+	</section>
+
+  <section data-markdown>
+    ## Neural Networks
+
+    - perceptron
+    - multi-layer networks
+    - backpropagation
+    - deep neural networks
+    - recurrent networks
+    - evolutionary neural networks
+
+  </section>
+
+  <section>
+    <section>
+      <h2>Linear Regression</h2>
+
+      <p>Linear-weighting of a N-dimensional instances</p>
+
+      <p>$y = \vec{w} \cdot \vec{x} + b$</p>
+
+      <p>where $| \vec{x} | = N$, $b$ is the intecept, and $\vec{w}$ are real-valued weights.</p>
+
+    </section>
+
+    <section>
+      <h2>Linearity Doesn't Add Up</h2>
+
+      <p>Multiple layers of linear units do not improve performance</p>
+
+      <p>$\vec{y} = V * ( U * \vec{x} ) = ( V * U ) * \vec{x}$</p>
+
+      <p>The weights from both layers, U and V, are equivalent to a single layer, $W = V * U$</p>
+      <br>
+      <p>We suspect we need multiple layers to support higher-order interactions between inputs, what type of units would be better?</p>
+
+    </section>
+
+    <section data-markdown>
+      ## Perceptron
+
+      ![McCullough-Pitts Neuron](images/Mcculloch_pitts.svg)
+
+      $x_i$ input value $i$, $w$ weight, $\sigma$ activation function, $y$ output
+
+    </section>
+
+    <section>
+      <h2>Activation Function</h2>
+
+      <p>The Logistic function:
+      $\sigma( \displaystyle \sum_i w_i x_i ) = y$</p>
+
+      <img width=30% src="http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture11/images/logistic_function.png">
+
+      <p>Logistic: $f(x) = \frac{1}{1+e^-x}, f(x)' = f(x) (1 - f(x))$</p>
+      <p>Alternatively hyperbolic tangent: $f(x) = tanh(x), f(x)' = \frac{1}{cosh(x)^2}$</p>
+
+    </section>
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Neural Networks
+
+      A neural network is a collection of neurons interconnected with directional edges denoting the flow of information from input to output and potentially over time.
+
+      Features:
+      - representing higher-order interactions and dependencies
+      - tolerant to noise
+      - slow to train
+      - fast to evaluate
+
+    </section>
+
+    <section data-markdown>
+      ## Network Topology
+
+      The *topology* of a neural network describes the connectivity of neurons in the network
+
+      - **1-layer**: linear model
+      - **3-layers**: Turing universal complexity
+      - **deep**: higher-order concepts
+      - **recurrent**: memory
+
+    </section>
+
+    <!-- ![Single layer network](images/single_layer_network.png) -->
+    <section data-markdown>
+      ## Single Layer Networks
+
+      ![Single layer network](images/single_layer_classification.png)
+
+    </section>
+
+    <!-- ![Multilayer Feedforward network](images/multilayer_feedforward_network.png) -->
+    <section data-markdown>
+      ## 2 Layer Networks
+
+      ![2-layer Feedforward network](images/two_layer_classification.png)
+
+    </section>
+
+    <section data-markdown>
+      ## 3 Layer Networks
+
+      ![3-layer Feedforward network](images/three_layer_classification.png)
+
+    </section>
+
+    <section data-markdown>
+      ## Example Networks
+
+      ![A Neural Network for Setting Target Corn Yields](http://abe-research.illinois.edu/remote-sensing/Papers/ANN_files/image4.gif)
+
+      A Neural Network for Setting Target Corn Yields (Liu, Goering, Tian, 2001)
+
+    </section>
+
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Training Neural Networks
+
+      - backpropagation (for feedforward NNs)
+      - backpropagation through time (for recurrent NNs)
+      - evolutionary optimization (for discovering topology and parameters)
+
+    </section>
+
+    <!-- <section data-markdown>
+      ## Kernels
+
+      -
+
+    </section>
+
+    <section data-markdown>
+      ## Backpropagation
+
+      ![Error propagation](images/error_propagation.png)
+
+    </section>
+
+    <section>
+      <h2>Backpropagation</h2>
+
+      <p>$E = \frac{1}{2} \displaystyle \sum_i (t_i - y_i)^2$</p>
+
+      <p>$\Delta w_{ij} = -\eta \frac{\delta E}{\delta w_{ij}}$</p>
+
+    </section>
+
+    <section>
+      <h2>Backpropagation</h2>
+
+      <p>Deriving the delta rule for 1 layer</p>
+
+      <p>$y = \displaystyle \sum_i w_i x_i$</p>
+
+      <p>$\frac{d E}{d y} = y - t$</p>
+
+      <p>$\frac{\delta E}{\delta w_i} = \frac{d E}{d y} \cdot \frac{\delta y}{\delta w_i} = ( y - t ) x_i$</p>
+
+      <p>$\Delta w_i = -\eta \frac{\delta E}{\delta w_i} = -\eta ( y - t ) x_i$</p>
+
+      <small>where $y$ is the output, $t$ is the target output, $E$ is error, $w_i$ is weight for input $i$, $x_i$ is input $i$</small>
+
+      <p>Now what about multiple layers?</p>
+
+    </section>
+
+    <section data-markdown>
+      ## Activation Function
+
+      In order to calculate the change in weight with respect to error, the activation function must be differentiable
+
+      Sigmoid function, $\sigma$
+
+      $\sigma$ is a nonlinear activation function
+
+    </section>
+
+    <section data-markdown>
+      ## Sigmoid Function
+
+      ![Logistic function](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture11/images/logistic_function.png)
+
+      - Sigmoid function, $\sigma$
+      - differentiable
+
+    </section>
+
+    <section data-markdown>
+      ## Backpropagation
+
+      ![Chain rule](images/chain_rule.png)
+
+    </section> -->
+
+    <!-- [Touretzky's Backpropagation Slides 7-13](https://www.cs.cmu.edu/afs/cs/academic/class/15883-f15/slides/backprop.pdf) -->
+
+    <section data-markdown>
+      ## Backpropagation
+
+      [Hinton's Backpropagation Slides (Lecture 3d)](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec3.pdf)
+
+    </section>
+
+    <section data-markdown>
+      ## Deep Networks
+
+      ![Deep Feedforward Network](images/deep_network.png)
+
+      Image from [RSIP vision](http://www.rsipvision.com/exploring-deep-learning/)
+
+    </section>
+
+    <section>
+      <h2>Deep Networks</h2>
+
+      <table>
+        <tr>
+          <td width=40%>
+            <br>
+            <img src="images/do_convolutional_need_depth.png" width=60%>
+          </td>
+          <td>
+            <br>
+            Convolutional neural networks perform better at image labeling tasks (object detection) with greater depth.
+          </td>
+        </tr>
+      </table>
+<small>Urban, G., Geras, K.J., Kahou, S.E., Aslan, O., Wang, S., Caruana, R., Mohamed, A., Philipose, M. and Richardson, M., 2016. Do Deep Convolutional Nets Really Need to be Deep (Or Even Convolutional)?. arXiv preprint arXiv:1603.05691.</small>
+    </section>
+
+
+  </section>
+
+  <section>
+
+    <section data-markdown>
+      ## Recurrent Networks
+
+      ![Recurrent Network](images/recurrent_network.png)
+
+    </section>
+
+    <section data-markdown>
+      ## Backpropagation Through Time
+
+      ![Unfolding recurrent network](https://upload.wikimedia.org/wikipedia/en/e/ee/Unfold_through_time.png)
+
+    </section>
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Evolutionary Optimization
+
+      - GNARL, evolution of neural network topology
+      - NEAT, recombination of neural network topology
+      - HyperNEAT, evolution of hyper-NNs for generative weight encoding
+
+    </section>
+
+    <section data-markdown>
+      ## Evolutionary Algorithm
+
+      - Use a population of N models
+
+      Iterate until convergence:
+
+      1. Test/evaluate all models
+      2. Select better models (i.e. fitness proportionate selection)
+      3. Vary/adapt selected models (i.e. adjust weights, add/remove neurons)
+
+    </section>
+
+    <section>
+      <h2>GNARL</h2>
+
+      <p><img src="images/gnarl_evolved_networks.png"></p>
+      <p>Left, network on generation 1, and right, network on generation 765, for an example finite-state problem.</p>
+
+      <small>Angeline, P.J., Saunders, G.M. and Pollack, J.B., 1994. An evolutionary algorithm that constructs recurrent neural networks. Neural Networks, IEEE Transactions on, 5(1), pp.54-65.</small>
+
+    </section>
+
+    <section >
+      <h3>NeuroEvolution of Augmenting Topologies</h3>
+
+      <table><tr>
+        <td><img src="images/NEAT_crossover.png" width="95%"></td>
+        <td>
+          <ul>
+            <li>Tracks novel model changes (i.e. when a neuron is added)</li>
+            <li>Solves the problem of recombining NNs (align NNs and splice)</li>
+            <li>Tracks species of neural networks (groups similar NNs)</li>
+          </ul>
+        </td>
+      </tr></table>
+
+      <small>Stanley, K.O. and Miikkulainen, R., 2002. Evolving neural networks through augmenting topologies. Evolutionary computation, 10(2), pp.99-127.</small>
+
+    </section>
+
+    <section>
+      <h2>Hyper-Neural Networks</h2>
+
+      <p>Problem: Make a 4-legged robot walk as far/fast as possible</p>
+      <table>
+        <tr>
+          <td>
+            <img src="images/HyperNEAT_robot_schematic.png">
+            The robot.
+          </td>
+          <td>
+            <img src="images/HyperNEAT_network.png" width="70%"><br>
+            The control NN.
+          </td>
+        </tr>
+      </table>
+
+      <small>Clune, J., Stanley, K.O., Pennock, R.T. and Ofria, C., 2011. On the performance of indirect encoding across the continuum of regularity. Evolutionary Computation, IEEE Trans. on, 15(3), pp.346-367.</small>
+
+    </section>
+
+    <section>
+      <h2>Hyper-Neural Networks</h2>
+
+      <p>A hyper-neural network (HNN) takes coordinates for each weight in a network and returns the weight's value.</p>
+      <p>$HNN(N_{i},N_{o}) = w_{i,o}$, where $N_i$ and $N_o$ are in/out neurons</p>
+      <img src="images/HyperNEAT_schematic.png" width="60%">
+
+      <small>Stanley, K.O., D'Ambrosio, D.B. and Gauci, J., 2009. A hypercube-based encoding for evolving large-scale neural networks. Artificial life, 15(2), pp.185-212.</small>
+    </section>
+
+    <section>
+      <h2>Hyper-Neural Networks</h2>
+
+      <img src="images/HyperNEAT_NEAT_weights.png" width="65%">
+      <p>Left, weights are generated by a hyper-NN, and right, weights are optimized directly.</p>
+
+      <small>Clune, J., Stanley, K.O., Pennock, R.T. and Ofria, C., 2011. On the performance of indirect encoding across the continuum of regularity. Evolutionary Computation, IEEE Trans. on, 15(3), pp.346-367.</small>
+
+    </section>
+
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Projects
+
+      - Update
+        - Due 04/12
+        - Submit 5 slides
+        - Including: title, 2 1-slide summaries of previous papers, current progress
+      - Presentations
+      - Paper
+
+    </section>
+
+    <section data-markdown>
+      ## Presentations
+
+      - 3.5 days
+      - 6 minutes per person
+      - 3 days that start with 15-min discussion of a recent paper
+
+
+    </section>
+
+  </section>
+
+ 	<section data-markdown>
+	  ## What Next?
+
+    Support vector machines
+
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>
