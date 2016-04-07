@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3>Support Vector Machines</h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br>
+    <p><small>Some slides adapted from Patrick Winston, A. Zisserman, Carlos Guestrin, R. Berwick, Scikit Learn</small></p>
+	</section>
+
+  <section>
+    <section data-markdown>
+      ## Perceptron
+
+      ![McCullough-Pitts Neuron](images/Mcculloch_pitts.svg)
+
+      $x_i$ input value $i$, $w$ weight, $\sigma$ activation function, $y$ output
+
+    </section>
+
+    <section data-markdown>
+      ## Single Layer Networks
+
+      ![Single layer network](images/single_layer_classification.png)
+
+    </section>
+
+    <!-- <section data-markdown>
+      ## Data
+
+      ![Subset of iris data](images/iris_setosa_versicolor.svg)
+
+      Subset of Iris dataset with only *Iris setosa* and *Iris versicolor*
+
+    </section> -->
+
+    <section data-markdown>
+      ## Decision Boundaries
+
+      ![Subset of iris data](images/iris_setosa_versicolor_boundaries.png)
+
+      Which decision boundary is best?
+
+    </section>
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Support Vector Machines
+
+
+      <!-- ![Subset of iris data](images/iris_setosa_versicolor_margin.png) -->
+
+      ![Margin between classes for linearly separable random data](images/random_data_margins.svg)
+
+      - Vladimir Vapnik says "Maximize the margin!"
+      - The edges of the margin are *support vectors*
+
+    </section>
+
+    <section data-markdown>
+      ## Support Vector Machines
+
+
+      <!-- ![Subset of iris data](images/iris_setosa_versicolor_margin.png) -->
+
+      ![Margin between classes for linearly separable random data](images/random_data_margins.svg)
+
+      1. How do we find/learn these lines?
+      2. How do we use these lines for classification?
+
+    </section>
+
+    <section data-markdown>
+      ## SVM Decision Rule
+
+      To classify some unknown point $\vec{U}$, use a vector perpendicular to the support vectors $\vec{w}$ and:
+
+      If $\vec{U} \cdot \vec{W} + b \geq 0$, then $\vec{U}$ belongs to the positive class.
+
+      ![Margin between classes for linearly separable random data](images/svm_decisionrule.png)
+
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h3>Finding the Margin: Constraints</h3>
+
+      <img alt="Margin between classes for linearly separable random data" src="images/random_data_margins.svg" width="40%">
+
+      <p>We constrain $\vec{w}$ and b such that</p>
+
+      <p>$+ cases \geq 1$ and $- cases \leq -1$</p>
+
+      <p>$\vec{w} \cdot \vec{x}_{+} + b \geq 1$ and $\vec{w} \cdot \vec{x}_{-} + b \leq -1$</p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Constraints</h3>
+
+      <p>Now define $y_i = -1 \vee 1$ to indicate class label</p>
+
+      <p>Multiply our previous constraint equations by $y_i$</p>
+
+      <p>$y_i (\vec{w} \cdot \vec{x}_{i} + b ) \geq 1$</p>
+
+      <p>and</p>
+
+      <p>$y_i (\vec{w} \cdot \vec{x}_{i}  + b ) \geq 1$</p>
+
+      <p><i>$y_i$ was negative for this case, hence $\geq \rightarrow \leq$</i></p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Constraints</h3>
+
+      <p>Using the same formulation introduce another constraint:</p>
+
+      <p>For $x_i$ within the margin:</p>
+
+      <p>$y_i (\vec{w} \cdot \vec{x}_{i} + b ) - 1 = 0$</p>
+
+      <p>We still don't know where the lines are, but we have more constraints!</p>
+
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h3>Finding the Margin: Width</h3>
+
+      <p>Support vectors pass through at least 1 point of their respective class.</p>
+
+      <p>Therefore, there is some vector between 2 points along the positive and negative SVs</p>
+
+      <img alt="Margin between classes for linearly separable random data" src="images/svm_vector_within_margin.png" width="40%">
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Width</h3>
+
+      <img alt="Margin between classes for linearly separable random data" src="images/svm_vector_within_margin.png" width="40%">
+
+      <p>We can express the width of the margin as</p>
+
+      <p>$width = ( \vec{x}_{-} - \vec{x}_{+} ) \cdot \frac{ \vec{w} }{|\vec{w}|}$</p>
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Width</h3>
+
+      <p>Apply the constraint for $x_i$ that lie within the margin:</p>
+
+      <p>$y_i (\vec{w} \cdot \vec{x}_{i} + b ) - 1 = 0$</p>
+
+      <p>Rearrange the constraint, and substitute $y_i=1$ (for now, consider only positive cases)</p>
+
+      <p>$y_i (\vec{w} \cdot \vec{x}_{i} + b ) - 1 = 0$</p>
+
+      <p>$\vec{w} \cdot \vec{x}_{i} = 1 - b$</p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Width</h3>
+
+      <p>$width = ( \vec{x}_{-} - \vec{x}_{+} ) \cdot \frac{ \vec{w} }{|\vec{w}|}$</p>
+
+      <p>$width = \frac{ \vec{x}_{+} \cdot \vec{w} }{|\vec{w}|} - \frac{ \vec{x}_{-} \cdot \vec{w} }{|\vec{w}|}$</p>
+
+      <p>Now substitute from our constraint:</p>
+
+      <p>$\frac{ \vec{x}_{+} \cdot \vec{w} }{|\vec{w}|} = \frac{ 1 - b }{|\vec{w}|}$</p>
+
+      <p>For the negative term:</p>
+
+      <p>$\frac{ \vec{x}_{-} \cdot \vec{w} }{|\vec{w}|} = \frac{ -1 - b }{|\vec{w}|}$</p>
+
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Width</h3>
+
+      <p>Now substitute back into the width equation</p>
+
+      <p>$width = \frac{ \vec{x}_{+} \cdot \vec{w} }{|\vec{w}|} - \frac{ \vec{x}_{-} \cdot \vec{w} }{|\vec{w}|}$</p>
+
+      <p>$width = \frac{ 1 - b }{|\vec{w}|} - \frac{ -1 - b }{|\vec{w}|}$</p>
+
+      <p>$width = \frac{2}{|\vec{w}|}$</p>
+
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h3>Finding the Margin: Optimization</h3>
+
+      <p>Our goal is to maximize the width of the margin, therefore we want to maximize $\frac{1}{|\vec{w}|}$ or alternatively, minimize $|\vec{w}|$</p>
+
+      <p>For mathematical convenience let's find the values of $\vec{w}$ and $b$ that minimize $\frac{|\vec{w}|^2}{2}$</p>
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Optimization</h3>
+
+      <p>We also need to maintain our constraints when optimizing:</p>
+
+      <p>$y_i ( \vec{w} \cdot \vec{x}_i + b ) - 1 = 0$</p>
+
+      <p>The Lagrangian:</p>
+
+      <p>$L = \frac{|\vec{w}|^2}{2} - \sum \alpha_i [ y_i ( \vec{w} \cdot \vec{x}_i + b ) - 1]$</p>
+
+      <p>$\frac{\delta L}{\delta \vec{w}} = \vec{w} - \sum \alpha_i y_i \vec{x}_i$</p>
+
+      <p>To find an extrema, $ \frac{\delta L}{\delta \vec{w}}= 0$</p>
+
+      <p>$\vec{w} = \displaystyle \sum_i \alpha_i y_i \vec{x}_i$</p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Optimization</h3>
+
+      <p>We need to differentiate with respect to $b$ as well</p>
+
+      <p>$\frac{\delta L}{\delta b} = - \sum x_i y_i$</p>
+
+      <p>To find an extrema, $\frac{\delta L}{\delta b} = 0$</p>
+
+      <p>$\sum \alpha_i y_i = 0$</p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Optimization</h3>
+
+      <p>Let's return to the expression we're optimizing:</p>
+
+      <p>$L = \frac{|\vec{w}|^2}{2} - \sum \alpha_i [ y_i ( \vec{w} \cdot \vec{x}_i + b ) - 1]$</p>
+
+      <p>The first term can now be rewritten with</p>
+
+      <p>$\vec{w} = \displaystyle \sum_i \alpha_i y_i \vec{x}_i$</p>
+
+      <p>as</p>
+
+      <p>$\frac{|\vec{w}|^2}{2} = \frac{1}{2}( \sum \alpha_i y_i \vec{x}_i ) \cdot ( \sum \alpha_i y_i \vec{x}_i )$</p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Optimization</h3>
+
+      <p>Let's return to the expression we're optimizing:</p>
+
+      <p>$L = \frac{|\vec{w}|^2}{2} - \sum \alpha_i [ y_i ( \vec{w} \cdot \vec{x}_i + b ) - 1]$</p>
+
+      <p>The second term can be rewritten with</p>
+
+      <p>$\vec{w} = \displaystyle \sum \alpha_i y_i \vec{x}_i$</p>
+
+      <p>$\sum \alpha_i y_i \vec{x}_i ( \sum \alpha_i y_i \vec{x}_i ) - \sum \alpha_i y_i b + \sum \alpha_i$</p>
+
+      <p>Rearrange b and apply $\sum \alpha_i y_i = 0$ to remove "$b \sum \alpha_i y_i$":</p>
+
+      <p>$\sum \alpha_i y_i \vec{x}_i ( \sum \alpha_i y_i \vec{x}_i ) + \sum \alpha_i$</p>
+
+    </section>
+
+    <section>
+      <h3>Finding the Margin: Optimization</h3>
+
+      <p>Recombine the previous simplifications:</p>
+
+      <p>$L = \frac{1}{2} ( \sum \alpha_i y_i \vec{x}_i ) \cdot ( \sum \alpha_i y_i \vec{x}_i ) - \sum \alpha_i y_i \vec{x}_i \cdot ( \sum \alpha_i y_i \vec{x}_i ) + \sum \alpha_i$</p>
+
+      <p>More simplification:</p>
+
+      <p>$L = \sum \alpha_i - \frac{1}{2} \displaystyle \sum_i \displaystyle \sum_j \alpha_i \alpha_j y_i y_j \vec{x}_i \cdot \vec{x}_j$</p>
+
+      <p>This is what we want to optimize!</p>
+
+    </section>
+    </section>
+
+
+    <section>
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_1.svg)
+
+      Step 1 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_2.svg)
+
+      Step 2 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_3.svg)
+
+      Step 3 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_4.svg)
+
+      Step 4 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_5.svg)
+
+      Step 5 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_6.svg)
+
+      Step 6 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_7.svg)
+
+      Step 7 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_8.svg)
+
+      Step 8 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_9.svg)
+
+      Step 9 of linear SVM.
+
+    </section>
+
+    <section data-markdown>
+      ## Linear SVM Example
+
+      ![See caption](images/random_data_svm_step_10.svg)
+
+      Step 10 of linear SVM.
+
+    </section>
+
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Linearly inseperable data
+
+      ![Noisy version of our Iris subset](images/iris_setosa_versicolor_noisy.svg)
+
+
+
+    </section>
+
+    <section data-markdown>
+      ## SVM and Linearly Inseparability
+
+      ![Linear SVM on linearly inseparable data](images/iris_setosa_versicolor_noisy_svm.svg)
+
+      *Slack variables* allow errors in the partitioning.
+
+    </section>
+
+    <section data-markdown>
+      ## SVM and Linearly Inseparability
+
+      Another way to approach linear inseparability
+
+    </section>
+
+    <section>
+      <h2>SVM and Kernels</h2>
+
+      <p>Use a transformation $\phi(\vec{x})$ and operate in a different space</p>
+
+      <p>Our optimization target is then:</p>
+
+      <p>$L = \sum \alpha_i - \frac{1}{2} \displaystyle \sum_i \displaystyle \sum_j \alpha_i \alpha_j y_i y_j \phi (\vec{x}_i) \cdot \phi (\vec{x}_j)$</p>
+
+      <p>Our decision rule is then:</p>
+
+      <p>If $\sum \alpha_i y_i \phi( \vec{x}_i ) \cdot \phi( \vec{U} )+ b \geq 0$, then positive class</p>
+
+      <p>Note that $\phi$ only occurs as $\phi (\vec{x}_i) \cdot \phi (\vec{x}_j)$</p>
+
+    </section>
+
+    <section>
+      <h2>SVM and Kernels</h2>
+
+      <p>Now we define a kernel function $K( x_i, x_j ) = \phi (\vec{x}_i) \cdot \phi (\vec{x}_j)$</p>
+
+      <p>We only ever have to compute $K( x_i, x_j )$, not $\phi$</p>
+
+      <p>This is called the <i>kernel trick</i></p>
+
+      <p>Our optimization target is then:</p>
+
+      <p>$L = \sum \alpha_i - \frac{1}{2} \displaystyle \sum_i \displaystyle \sum_j \alpha_i \alpha_j y_i y_j K( x_i, x_j )$</p>
+
+      <p>Our decision rule is then:</p>
+
+      <p>If $\sum \alpha_i y_i K( x_i, x_j )+ b \geq 0$, then positive class</p>
+
+    </section>
+
+    <section>
+      <h2>Kernels</h2>
+
+      <img src="images/svm_kernelexample_linear.svg" width="30%">
+
+      <img src="images/svm_kernelexample_poly.svg" width="30%">
+
+      <img src="images/svm_kernelexample_rbf.svg" width="30%">
+
+      <p>Example kernels:</p>
+
+      <ul>
+
+        <li>Linear: $\vec{U} \cdot \vec{V}$</li>
+
+        <li>Polynomial: $(\vec{U} \cdot \vec{V} + 1)^n$</li>
+
+        <li>Radial basis functions: $e^{-\frac{| U - V |}{\sigma}}$</li>
+
+      </ul>
+
+    </section>
+  </section>
+
+  <!-- Slack variables -->
+
+  <!-- Hinge loss -->
+
+ 	<section data-markdown>
+	  ## What Next?
+
+    Reinforcement Learning
+
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>
