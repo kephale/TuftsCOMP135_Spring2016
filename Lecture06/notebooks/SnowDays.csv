@@ -1,0 +1,12 @@
+Light,Light,Light,Heavy,TRUE
+Light,Light,Heavy,Light,TRUE
+Heavy,Heavy,Light,Light,FALSE
+Heavy,Medium,Medium,Light,FALSE
+Medium,Medium,Medium,Medium,TRUE
+Light,Light,Heavy,Heavy,TRUE
+Light,Heavy,Heavy,Medium,TRUE
+Heavy,Medium,Medium,Light,FALSE
+Medium,Medium,Light,Light,FALSE
+Light,Light,Light,Light,FALSE
+Light,Light,Medium,Light,FALSE
+Light,Light,Light,Medium,TRUE

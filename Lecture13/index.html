@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3>Machine Learning and the Game of Go</h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	</section>
+
+    <section>
+      <h2>The Game of Go</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/FloorGoban.JPG" width=60%>
+    </section>
+
+
+  <section>
+    <h2>The Game of Go</h2>
+    <p>2 players, 19 by 19 board</p>
+    <p>$10^{761}$ possible games (# chess games $\leq 40$ moves $\approx 10^{43}$)</p>
+    <p>Goal: encircle opponent's pieces to claim territory</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Golibs.png" width=30%>
+  </section>
+  </section>
+
+  <section>
+  <section>
+    <h2>AlphaGo</h2>
+    <ul>
+      <li>Made by DeepMind (now owned by Google)</li>
+      <li>AI that uses deep convolutional neural nets to play Go</li>
+      <li>Has already beat a professional player (Fan Hui)</li>
+      <li>Has now won the first 2 of 5 matches against world champion Lee Sedol</li>
+      <li>Published in <a href="http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html">Nature</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>AlphaGo</h2>
+    <p>Uses convolutional neural networks for processing/representing the game</p>
+    <p>Trained with expert data and self-play using reinforcement learning</p>
+  </section>
+
+  <section>
+    <h2>AlphaGo</h2>
+    <p>Day 2 of competition - <a href="https://youtu.be/l-GsfyVCBu0?t=1891">start</a></p>
+  </section>
+
+
+  <section>
+    <h2>AlphaGo</h2>
+    <ol>
+      <li>Supervised learning of expert moves</li>
+      <li>Train a fast player for use in tree search</li>
+      <li>Use reinforcement learning to optimize beyond expert moves (instead of memorize them)</li>
+    </ol>
+  </section>
+  </section>
+
+  <section>
+  <section>
+    <h2>Machine Learning for Games</h2>
+    <p>What are the machine learning questions in gameplay?</p>
+  </section>
+
+  <section>
+    <h2>Machine Learning for Games</h2>
+    <p>What are the machine learning questions in gameplay?</p>
+    <ul>
+      <li>Classifying/learning expert moves</li>
+      <li>Ranking board configurations</li>
+      <li>Learning moves to make</li>
+      <li>...</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Terminology for Agents</h2>
+    <p>Game AI and reinforcement learning use an agent-centric terminology</p>
+    <ul>
+      <li>state, $s$: state of environment/game board</li>
+      <li>action, $a$: agents perform actions which generally lead to changes in state</li>
+      <li>policy, $\pi$: defines an agent's behavior, roughly speaking a mapping from states to actions</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Minimax Tree Search</h2>
+    <p>In 2 player, zero-sum games both players want to win</p>
+    <p>From some state of the game, we can predict a sequence of alternating actions where</p>
+    <ul>
+      <li>Self: maximizes the next state of the board</li>
+      <li>Opponent: minimizes (with respect to self) the next state of the board</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Minimax Tree Search</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Plminmax.gif" width=60%>
+    <p><small>Image from Maschelos at English Wikipedia</small></p>
+  </section>
+
+  <section>
+    <h2>Monte Carlo Tree Search</h2>
+    <p>MCTS is a randomized algorithm to sample possible outcomes</p>
+    <p>Idea: Simulate game play from a relevant board state and store outcome. Do this many times.</p>
+  </section>
+
+  <section>
+    <h2>Monte Carlo Tree Search</h2>
+    <ol>
+      <li>Selection: grow tree in a promising direction to node L</li><br>
+      <li>Expansion: If L is not terminal, choose a child node C</li><br>
+      <li>Simulation: "randomly" play the game starting from C</li><br>
+      <li>Backpropagation: store the result of simulation in the nodes starting at C</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Monte Carlo Tree Search</h2>
+    <p>But what if the game tree is huge?</p>
+    <p>There are about $10^{761}$ possible paths in the Go game tree</p>
+  </section>
+  </section>
+
+  <section>
+
+    <section>
+      <h2>Go and Neural Nets</h2>
+      <p>A Go board is basically an image (2D pixels with value: empty/black/white)</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Gokof.png" width=40%>
+    </section>
+
+
+  <section>
+    <h2>Convolutional Neural Networks</h2>
+    <p>Input neurons in CNNs have "receptive fields" that cover patches of an input</p>
+    <img src="http://ufldl.stanford.edu/tutorial/images/Cnn_layer.png" width=40%>
+    <p><small>Image from <a href="http://ufldl.stanford.edu/tutorial/">UFLDL, Stanford</a></small></p>
+  </section>
+
+  <section>
+    <h2>Convolution</h2>
+    <p>Convolution is the process of taking a kernel, sliding it over an input image, and taking an innner product</p>
+    <img src="http://ufldl.stanford.edu/tutorial/images/Convolution_schematic.gif">
+    <p><small>Image from <a href="http://ufldl.stanford.edu/tutorial/">UFLDL, Stanford</a></small></p>
+  </section>
+
+  <section>
+    <h2>Pooling</h2>
+    <p>Pooling is an aggregation over a pool of units/neurons<p>
+    <img src="http://ufldl.stanford.edu/tutorial/images/Pooling_schematic.gif" width=70%>
+    <p><small>Image from <a href="http://ufldl.stanford.edu/tutorial/">UFLDL, Stanford</a></small></p>
+  </section>
+
+  <section>
+    <h2>Softmax Function</h2>
+    <p>Generalized logistic function, to squash K-dimensional values</p>
+    <p>Choose action $a$ with probability:</p>
+    <p>$\frac{e^{Q_t(a) / \tau}}{\sum^K_{b=1} e^{Q_t(b)/ \tau}}$</p>
+    <p>where $Q_t(a)$ is the value of action $a$ at time $t$</p>
+  </section>
+
+  <section>
+    <h2>Training CNNs</h2>
+    <p>Normal neural network training methods apply</p>
+    <ul>
+      <li>Backpropagation</li>
+      <li>Stochastic gradient descent</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>AlphaGo's Network Structure</h2>
+    <img src="images/alphaGo_NetworkStructure.png" width=50%>
+    <p><small>Image from Silver et al, 2016</small></p>
+  </section>
+  </section>
+
+  <section>
+  <section>
+    <h2>Reinforcement Learning</h2>
+    <p>Agent transitions through states by making actions, while receiving rewards</p>
+    <img src="images/suttonBarto_agentEnvironment.png">
+    <p><small>Image from the RL <a href="https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html">book</a> by Sutton and Barto</small></p>
+  </section>
+
+  <section>
+    <h2>Reinforcement Learning</h2>
+    <p>In RL, agents attempt to maximize reward obtained in the long-term</p>
+    <p>Rewards can be described as a summed sequence:</p>
+    <p>$R_t = r_{t} + r_{t+1} + r_{t+2} + ... + r_{T}$</p>
+  </section>
+
+  <section>
+    <h2>Reinforcement Learning</h2>
+    <p>The core of most RL algorithms is to estimate a value function:</p>
+    <p>$V^{\pi} (s) = E_{\pi} \{ R_t | s_t = s \}$</p>
+  </section>
+
+  <section>
+    <h2>Reinforcement Learning</h2>
+    <p>Learning the value function $V^{\pi}$ is accomplished by trial-and-error and reinforcement via reward signal</p>
+    <p>Dynamic programming is used to do this</p>
+    <p>We'll cover specifics in the RL lectures</p>
+  </section>
+  </section>
+
+  <section>
+    <h2>Midterm</h2>
+    <p>Take home exam, due March 29</p>
+    <p>Will cover everything from kNN to Clustering and Gaussian mixture models (next Tuesday's class)</p>
+  </section>
+
+ 	<section>
+	  <h2>What Next?</h2>
+    <p>More unsupervised learning</p>
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Introduction to Machine Learning and Data Mining</title>
+    
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+    
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Footer header 
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+    
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+  
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+      
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br><br><br><br>
+	  <p><small>Some slides adapted from Mitchell Decision Trees slides</small></p>
+	</section>
+
+ 	<section>
+	  <h2>Marvin Minsky</h2>
+	  <p>Passed on January 24</p>
+	  <p>A founder of Artificial Intelligence</p>
+	  <p>Also invented (confocal) microscopes!</p>
+	  <p>Notorious for causing the "neural network winter"</p>
+	</section>
+
+	<section>
+	  <h2>Who Likes Tennis?</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+	  </table>
+	      </td><td>
+		<br>
+		<p>Class: Play tennis?</p>
+		<p>Attributes:</p>
+		<ul>
+		  <li>Outlook $\in$ [Sunny, Overcast, Rainy]</li>
+		  <li>Temp $\in$ [Hot, Mild, Cool]</li>
+		  <li>Humidity $\in$ [High, Normal]</li>
+		  <li>Windy $\in$ [True, False]</li>
+	  </td></tr></table>
+	</section>
+
+	<section>
+	  <h2>Who Likes Tennis?</h2>
+	  <img src="images/davidLin_Hedberg_tennis.png" width=70%>
+	</section>
+	
+	<section>
+	  <h2>Decision Trees</h2>
+	  <img src="images/Mitchell_playTennis_decision_tree.png" width=90%>
+	</section>
+
+ 	<section>
+	  <h2>Representation of a Decision Tree</h2>
+	  <p>Nodes are attributes</p>
+	  <p>Branches are values of attributes</p>
+	  <p>Leafs are classes</p>
+	  <img src="images/Mitchell_playTennis_decision_tree.png" width=40%>
+	</section>	
+
+ 	<section>
+	  <h2>When to Use a Decision Tree?</h2>
+	  <p>Discrete attribute-values (although continuous-value implementations work as well)</p>
+	  <p>Discrete outputs</p>
+	  <!--- <p>Data is disjunctive</p> --->
+	  <p>It is OK to have noise in training data</p>
+	  <p>It is OK to have missing values</p>	  	  
+	</section>
+
+	<section>
+	  <h2>Decision Trees</h2>
+	  <ol>
+	    <li>Choose the best attribute, $A$, for the next node</li>
+	    <li>Create a node for $A$</li>
+	    <li>Create branches for each possible value of $A$</li>
+	    <li>Sort all observations into leaves</li>
+	    <li>If all observations are perfectly classified,
+	      <br>then stop,
+	      <br>else recur.</li>
+	  </ol>
+	  <p>How do we choose the best attribute?</p>
+	</section>
+
+ 	<section>
+	  <h2>Choosing an Attribute</h2>
+	  <img src="images/Mitchell_choose_a_node.png">
+	  <p>Which is better A1 or A2?</p>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Entropy</h2>
+	  <p>Entropy describes how unpredictable information is.</p>
+	  <table>
+	    <tr><td><img src="images/Mitchell_entropy.png" width></td>
+	      <td>
+		<ul>
+		  <li>$S$ is the sample of training data</li>
+		  <li>$p_\oplus$ is the fraction of positive samples</li>
+		  <li>$p_\ominus$ is the fraction of negative samples</li>
+		  <li>$Entropy(S) \equiv -p_\oplus log_2 p_\oplus - p_\ominus log_2 p_\ominus$</li>
+		</ul>
+	      </td>
+	    </tr>
+	  </table>
+	</section>
+
+	<section>
+	  <h2>Entropy</h2>
+	  <p>$Entropy(S)$ is the expected number of bits needed to encode a class of a randomly drawn member of the sample set (under the optimal, shortest-length code)</p>
+	</section>
+
+	<section>
+	  <h2>Entropy</h2>
+	  <p>An optimal length code uses $-log_2 p$ bits to encode a message of probability p</p>
+	  <p>i.e. if $p=0.01$, then the optimal code length is $6.64$</p>
+	  <p>and if $p=0.99$, then the optimal code length is $0.01$</p>
+	</section>
+
+	<section>
+	  <h2>Entropy</h2>
+	  <p>Recall that our sample set $S$ has $p_\oplus$ and $p_\ominus$ proportions of $\oplus$ and $\ominus$ classes</p>
+	  <p>Hence, to encode a random member of $S$, weigh the probability of drawing a member of the class by the optimal length code of the class:</p>
+	  <p>$p_\oplus (-log_2 p_\oplus) + p_\ominus ( -log_2 p_\ominus )$</p>
+	  <p>$Entropy(S) \equiv -p_\oplus log_2 p_\oplus - p_\ominus log_2 p_\ominus$</p>	  
+	  <!--- <small>Go read Claude Shannon's "A Mathematical Theory of Communication" (1948) if this excites you.</small> -->
+	</section>
+	</section>
+
+ 	<section>
+	  <h2>Choosing an Attribute</h2>
+	  <img src="images/Mitchell_choose_a_node.png">
+	  <p>How can we use entropy in this decision?</p>
+	</section>
+
+	<section>
+	  <h2>Information Gain</h2>
+	  <p>$Gain(S,A)$ is the expected reduction in entropy by sorting on attribute $A$</p>
+	  <p>$Gain(S,A) \equiv Entropy(S) - \displaystyle \sum_{v \in Values(A)} \frac{|S_v|}{|S|} Entropy(S_v)$</p>
+	  <img src="images/Mitchell_choose_a_node.png">
+	</section>
+
+	<section>
+	  <h2>Information Gain Example</h2>
+	  <img src="images/Mitchell_humidity_or_wind.png">
+	</section>
+
+	<section>
+	<section>
+	  <h2>Building a Tree Example</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Day</td><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>D1</td><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>D2</td><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>D3</td><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D4</td><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D5</td><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D6</td><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>D7</td><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>D8</td><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>D9</td><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D10</td><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D11</td><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>D12</td><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>D13</td><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D14</td><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td><td>
+		<br>
+		<img src="images/Mitchell_choose_an_attribute.png">
+	    </td></tr>	    
+	  </table>
+        </section>
+
+		<section>
+	  <h2>Building a Tree Example</h2>
+	  <table>
+	    <tr><td>
+		<table style="font-size:18px">
+		  <tr><td>Day</td><td>Outlook</td><td>Temp</td><td>Humidity</td><td>Windy</td><td>Play</td></tr>
+		  <tr><td>D1</td><td>Sunny</td><td>Hot</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>D2</td><td>Sunny</td><td>Hot</td><td>High</td><td>True</td><td>No</td></tr>
+		  <tr><td>D3</td><td>Overcast</td><td>Hot</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D4</td><td>Rainy</td><td>Mild</td><td>High</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D5</td><td>Rainy</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D6</td><td>Rainy</td><td>Cool</td><td>Normal</td><td>True</td><td>No</td></tr>
+		  <tr><td>D7</td><td>Overcast</td><td>Cool</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>D8</td><td>Sunny</td><td>Mild</td><td>High</td><td>False</td><td>No</td></tr>
+		  <tr><td>D9</td><td>Sunny</td><td>Cool</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D10</td><td>Rainy</td><td>Mild</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D11</td><td>Sunny</td><td>Mild</td><td>Normal</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>D12</td><td>Overcast</td><td>Mild</td><td>High</td><td>True</td><td>Yes</td></tr>
+		  <tr><td>D13</td><td>Overcast</td><td>Hot</td><td>Normal</td><td>False</td><td>Yes</td></tr>
+		  <tr><td>D14</td><td>Rainy</td><td>Mild</td><td>High</td><td>True</td><td>No</td></tr>
+		</table>
+	      </td><td>
+		<br>
+		<img src="images/Mitchell_choose_an_attribute_math.png">
+	    </td></tr>	    
+	  </table>
+		</section>
+		</section>
+
+	<section>
+	<section>
+	  <h2>Searching Hypothesis Space with ID3</h2>
+	  <img src="images/Mitchell_ID3_hypothesis_space_search.png" width=40%>
+	</section>
+		
+ 	<section>
+	  <h2>Properties of ID3</h2>
+	  <p>For any given training set</p>
+	  <p>Is it always possible to build a tree?</p>
+	  <p>If so, will it be a good tree?</p>	  
+	</section>
+
+ 	<section>
+	  <h2>Properties of ID3</h2>
+	  <p>Only 1 hypothesis (decision tree)</p>
+	  <p>If an early split goes wrong, we're stuck with it!</p>
+	  <p>Uses class statistics, robust to noise</p>
+	  <p>Inductive bias of ID3: tends to prefer shorter trees</p>
+	</section>
+		
+ 	<section>
+	  <h2>Inductive Bias of ID3</h2>
+	  <p>Favors shorter trees/more information gain closer to the root</p>
+	  <p>The bias arises from the search, not the search space</p>
+	  <p>Occam's razor: the simplest hypothesis that fits is the best one</p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Overfitting</h2>
+	  <p>Let's describe the error of a hypothesis $h$ as $error(h)$</p>
+	  <p>Now consider specific error measurements:</p>
+	  <ul>
+	    <li>training set, $S$: $error_S(h)$</li>
+	    <li>full dataset, $D$: $error_D(h)$</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h2>Overfitting</h2>
+	  <br>
+	  <p>Hypothesis $h$ overfits if:</p>
+	  <p>$error_S(h) < error_S(h')$</p>
+			   <p>and</p>
+	  <p>$error_D(h) > error_D(h')$</p>
+	</section>
+
+	<section>
+	  <h2>Overfitting</h2>
+	  <img src="images/Mitchell_overfitting.png" width=90%>
+	</section>
+
+	<section>
+	  <h2>Causes of overfitting</h2>
+	  <p>Not enough examples on some attributes</p>
+	  <p>Noisy data</p>
+	</section>
+	</section>
+
+	<section>
+	<section>
+	  <h2>Preventing Overfitting</h2>
+	  <p>Stop growing when a new split isn't statistically significant</p>
+	  <p>Grow and prune post-hoc</p>
+	</section>
+
+	<section>
+	  <h2>Reduced-error pruning</h2>
+	  <ul>
+	    <li>Build a tree as usual, potentially overfitting</li>
+	    <li>Use a validation dataset</li>
+	    <li>Greedily remove nodes that improve the accuracy on the validation data</li>
+	  </ul>
+	  <p>Limitations?</p>
+	</section>
+
+	<section>
+	  <h2>Reduced-error pruning</h2>
+	  <img src="images/Mitchell_overfitting_pruning.png" width=90%>
+	</section>
+	</section>
+	
+ 	<section>
+	  <h2>Handling Continuous Values</h2>
+	  <img src="images/Mitchell_temperature_table.png">
+	  <p>Make it discrete!</p>
+	  <p>$(Temperature > \frac{( 48 + 60 )}{2}  )$</p>
+<p>Consider each boundary (i.e. $\frac{a+b}{2}$)</p>
+<p>Use information gain to choose node as usual</p>
+	</section>
+
+	<section>
+	  <h2>Handling Missing Values</h2>
+	  <p>Some observations may not have values for all attributes</p>
+	  <p>That's OK, we'll use it anyway</p>
+	  <p>Multiple options:</p>
+	  <ul>
+	    <li>When we get to the relevant node, $N$, assign the most common value of $A$ at $N$</li>
+	    <li>Assign most common value of $A$ at $N$ that maps to class $C$</li>
+	    <li>Use probabilities based on distribution of $A$ at $N$</li>
+	  </ul>
+	</section>	
+	
+ 	<section>
+	  <h2>Assignment 2 is not required, just bonus</h2>
+	  <p><a href="http://kephale.github.io/TuftsCOMP135_Spring2016/#assignment2">Posted</a> in the assignments section</p>
+	  <p>Due: Feb 03</p>
+	  <p>What do you get? +10% on the first quiz</p>
+	</section>			
+
+ 	<section>
+	  <h2>What Next?</h2>
+	  <p>For additional reading see Chapter 3 of Mitchell</p>
+	  <p>Naive Bayes (you may want to skim some of the probability tutorials)</p>
+	</section>			
+	
+      </div>
+      
+    </div>
+    
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    
+    <script>
+      
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+      
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }                 
+      ]
+      });
+      
+    </script>
+    
+  </body>
+</html>
+
