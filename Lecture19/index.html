@@ -74,6 +74,8 @@
     <section data-markdown>
       ## Reinforcement Learning
 
+      Learn actions to take using a reward signal to reinforce desired behaviors
+
       Uses:
       - Game playing (i.e. chess, backgammon, go)
       - Control (i.e. regulating components at a factory)
@@ -94,21 +96,6 @@
 
     </section>
 
-    <section data-markdown>
-      ## Reinforcement Learning Variables
-
-      There are a number of variables we'll be using:
-      - $a$, action
-      - $s$, state
-      - $t$, timestep
-      - $r$, reward
-      - $\alpha$, learning rate
-      - $\gamma \in [0,1)$, discounting rate
-      - $V(s)$, state value function
-      - $Q(s,a)$, state-action value function
-      - $\pi(s)$, policy (maps to an action/probability)
-
-    </section>
 
     <section data-markdown>
       ## N-Armed Bandit
@@ -145,6 +132,23 @@
       - *softmax*, use a Boltzmann distribution
 
       A key characteristic of policies is the exploration-exploitation tradeoff.
+
+    </section>
+
+
+    <section data-markdown>
+      ## Reinforcement Learning Variables
+
+      There are a number of variables we'll be using:
+      - $a$, action
+      - $s$, state
+      - $t$, timestep
+      - $r$, reward
+      - $\alpha$, learning rate
+      - $\gamma \in [0,1)$, discounting rate
+      - $V(s)$, state value function
+      - $Q(s,a)$, state-action value function
+      - $\pi(s)$, policy (maps to an action/probability)
 
     </section>
   </section>
