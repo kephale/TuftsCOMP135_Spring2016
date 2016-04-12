@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h3>Reinforcement Learning</h3>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br>
+    <p><small>Some material adapted from Rich Sutton and Andy Barto</small></p>
+	</section>
+
+
+  <section>
+
+    <section data-markdown>
+      ## Reinforcement Learning
+
+      ![Cover of Reinforcement Learning by Sutton and Barto](https://webdocs.cs.ualberta.ca/~sutton/book/cover.gif)
+
+      [Reinforcement Learning: An Introduction by Sutton and Barto](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html)
+
+    </section>
+
+    <section data-markdown>
+      ## Reinforcement Learning
+
+      Uses:
+      - Game playing (i.e. chess, backgammon, go)
+      - Control (i.e. regulating components at a factory)
+      - Navigation (i.e robot vacuum cleaner)
+
+
+    </section>
+
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Agent-Environment
+
+      ![Agent environment](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture13/images/suttonBarto_agentEnvironment.png)
+
+      Agent transitions through states by making actions, while receiving rewards
+
+    </section>
+
+    <section data-markdown>
+      ## N-Armed Bandit
+
+      ![Multi-armed bandit cartoon](http://research.microsoft.com/en-us/projects/bandits/MAB-2.jpg)
+
+      Action, $a$: pull one machine's arm
+
+      Reward, $r$: payoff for that particular machine
+
+      *Given some observations of $a$ and $r$ pairs, what is the best action to take?*
+
+    </section>
+
+    <section>
+      <h2>Action-Value</h2>
+
+      <p>The estimated value of an action after the $t$th observed reward is</p>
+
+      <p>$Q_t(a) = \frac{r_1+r_2+...+r_{k_a}}{k_a}$</p>
+
+      <p>where $k_a$ is the number of times that $a$ has been chosen. The true action value function will be denoted $Q^*(a)$</p>
+
+    </section>
+
+    <section data-markdown>
+      ## Policies
+
+      An agent selects an action, $a$, from a state, $s$, with a policy, $\pi$.
+
+      **Example policies:**
+      - *greedy*, always take the expected best action
+      - *$\epsilon$-greedy*, greedy with $\epsilon$ probability of a random action
+      - *softmax*, use a Boltzmann distribution
+
+      A key characteristic of policies is the exploration-exploitation tradeoff.
+
+    </section>
+  </section>
+
+  <section>
+    <section>
+      <h2>Back to Action-Value</h2>
+
+      <p>The estimated value of an action after the $t$th observed reward is</p>
+
+      <p>$Q_t(a) = \frac{r_1+r_2+...+r_{k_a}}{k_a}$</p>
+
+      <p>where $k_a$ is the number of times that $a$ has been chosen. The true action value function will be denoted $Q^*(a)$</p>
+
+      <p>What happens after billions of observed rewards?</p>
+
+    </section>
+
+    <section>
+      <h2>Incremental Action-Value</h2>
+
+      <p>Never fear, we can calculate $Q_t(a)$ incrementally</p>
+
+      <p>$Q_t(a) = \frac{r_1+r_2+...+r_{k_a}}{k_a}$</p>
+
+      <p>For some Q-value</p>
+
+      <p>$Q_{k+1} = \frac{1}{k+1} \displaystyle \sum_{i=1}^{k+1} r_i$</p>
+
+      <p>...</p>
+
+      <p>$Q_{k+1} = Q_k + \frac{1}{k+1} [ r_{k+1} - Q_k ]$</p>
+
+      <p><small><a href="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node19.html">More reading</a></small></p>
+
+    </section>
+
+    <section>
+      <h2>Incremental Updates</h2>
+
+      <p>A general form of the incremental update rule</p>
+
+      <p>$NewEstimate \leftarrow OldEstimate + StepSize [Target - OldEstimate]$</p>
+
+    </section>
+
+  </section>
+
+
+<section>
+  <section data-markdown>
+    ## Markov Property
+
+    In general, the current state and reward depend on the entire sequence of observations
+
+    ![State-reward depending on all previous states](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp13.png)
+
+    A problem with the *Markov* property only depends on the previous state
+
+    ![State-reward depending on immediately previous state only](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp14.png)
+
+  </section>
+
+
+  <section data-markdown>
+    ## Markov Property
+
+    Consider the task of balancing a pole
+
+    ![Pole balancing](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/figtmp8.png)
+
+  </section>
+
+
+  <section data-markdown>
+    ## Markov Decision Processes
+
+    RL problems that satisfy the Markov property are called Makov decission processes (MDPs)
+
+    If the action and state space are finite, then it is a finite MDP, which is defined by
+
+    Transition probabilities
+
+      ![Transition probabilities](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp15.png)
+
+      and reward function
+
+      ![Expected reward](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp16.png)
+
+    </body>
+
+  </section>
+
+
+  <section data-markdown>
+    ## Value Functions
+
+    Given that a policy, $\pi$, maps from a state-action pair to a probability of taking an action $\pi(s,a)$, the state-value function *under* policy $\pi$ can be written as
+
+    ![State-value function](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp17.png)
+
+    and the action-value function can be written as
+
+    ![Action-value function](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp18.png)
+
+    where $\gamma \in [0,1)$ is the discounting factor
+
+  </section>
+
+  <section data-markdown>
+    ## Optimal Value Functions
+
+    Value functions represent the amount of reward aquired by a policy over the long term.
+
+    We can express the optimal value function as the value function for the best policy
+
+    $V^*(s) = max_{\pi} V^{\pi}(s)$
+
+
+  </section>
+
+  <section data-markdown>
+    ## Bellman Equation
+
+    Let's look at the Bellman equation to ensure that our formulations are self-consistent
+
+    [Bellman optimality equation](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/node35.html)
+
+  </section>
+
+  <!-- <section data-markdown>
+    ## Backup Diagrams
+
+    ![Backup diagrams](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/figtmp13.png)
+
+  </section> -->
+</section>
+
+<section>
+
+  <section data-markdown>
+    ## Iterative Policy Evaluation
+
+    A policy must be evaluated to quantify behavior via its value function.
+
+    ![Iterative policy evaluation](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/pseudotmp0.png)
+
+    Algorithm for calculating $V(s)$ for a polict $\pi$
+
+  </section>
+
+  <section data-markdown>
+    ## Iterative Policy Evaluation
+
+    Consider a 4x4 gridworld example
+
+    ![Gridworld example](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/imgtmp4.png)
+
+    Actions are: left, right, up, and down
+
+  </section>
+
+  <section data-markdown>
+    ## Iterative Policy Evaluation
+
+    ![Gridworld example](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/figtmp15.png)
+
+  </section>
+
+  <section data-markdown>
+    ## Policy Iteration
+
+    The purpose of computing the value function is so we can find better policies.
+
+    We are looking for a new policy, $\pi'$, such that $V^{\pi'}(s) \geq V^{\pi}(s)$
+
+    How can we achieve this?
+
+  </section>
+
+  <section data-markdown>
+    ## Policy Iteration
+
+    ![Policy iteration](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/pseudotmp1.png)
+
+  </section>
+
+</section>
+
+<section>
+  <section >
+    <h2>Temporal-Difference Learning</h2>
+
+    <p>For an episodic or continuous task we use this formulation to update the value function</p>
+
+    <p>We express the sequence of rewards as the "return"</p>
+
+    <p>$R_t = r_t + \gamma * r_{t+1} + \gamma^2 * r_{t+2} ... + \gamma^T * r_{T}$</p>
+
+    <p>where $T$ is the terminal timestep</p>
+
+    <p>Using this, we can write the update to the value function as</p>
+
+    <p><img src="https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp28.png"></p>
+
+  </section>
+
+
+  <section data-markdown>
+    ## Temporal-Difference Learning
+
+    We know that the value function for our next state encodes respective the expected return.
+
+    This suggests that we can learn from the differences values of successive states:
+
+    ![TD update](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp29.png)
+
+    This is the temporal-difference (TD) update rule.
+
+    Similar behavior has been observed in dopamine neurons (Schultz, 1998)
+
+  </section>
+
+
+  <section data-markdown>
+    ## Temporal-Difference Learning
+
+    We can also write a TD update rule for $Q(s,a)$
+
+    ![SARSA update](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp30.png)
+
+    Can we design an on-policy learning algorithm (i.e an algorithm that learns and uses what it has learned to make decisions)?
+
+  </section>
+
+  <section data-markdown>
+    ## SARSA
+
+    The creatively names SARSA (state-action-reward-state-action) algorithm is an on-policy TD algorithm
+
+    ![SARSA code](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/pseudotmp8.png)
+
+    Off-policy alternative to this algorithm are called "Q-learning"
+
+  </section>
+
+
+</section>
+
+<section>
+
+  <section data-markdown>
+    ## Eligibility Traces
+
+    TD-learning only propagates information from the subsequent state, and may be slow.
+
+    ![Backups](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/figtmp36.png)
+
+    How can we resolve this?
+
+  </section>
+
+  <section data-markdown>
+    ## Eligibility Traces
+
+    Eligibility traces are an additional variable associated with each state, encoding the time-since-last-visit as
+
+    ![eligibility trace math](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/numeqtmp36.png)
+
+    which may be visualized as
+
+    ![Eligibility plot](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/imgtmp15.png)
+
+  </section>
+
+  <section data-markdown>
+    ## Eligibility Traces
+
+    We can adapt our learning algorithm to use these traces as
+
+    ![TD lambda](https://webdocs.cs.ualberta.ca/~sutton/book/ebook/pseudotmp11.png)
+
+  </section>
+
+  <section data-markdown>
+    ## Function Approximation
+
+    What about RL in a situation like the game of Go?
+
+    There are $3^{19*19}$ states of a Go board. Can we continue to use a lookup table for our functions?
+
+    [AlphaGo Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture13/#/5/6)
+  </section>
+
+</section>
+
+ 	<section data-markdown>
+	  ## What Next?
+
+    Game Theory and Retrospective
+
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>

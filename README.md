@@ -152,19 +152,18 @@ Date | Lecture | Assignments and Notes | Due Date
 02/23| Features | <ul><li>Quiz 1</li><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture09)</li><ul>
 02/25| Linear threshold units pt 1 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture10)</li><ul>
 03/01| Linear threshold units pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture11)</li><li>[Generalized delta rule](https://web.stanford.edu/group/pdplab/originalpdphandbook/Chapter%205.pdf)</li><li>[L1 and L2 regularization](http://cs.nyu.edu/~rostami/presentations/L1_vs_L2.pdf)</li><li>[Stochastic Gradient Descent](http://alex.smola.org/teaching/cmu2013-10-701/slides/3_Recitation_StochasticGradientDescent.pdf)<ul>
-03/03| Clustering pt 1 | <ul></ul> |
-03/08| Clustering pt 2 | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture12)</li><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment4.pdf">Assignment 4</a> <i>(See due date)</i></li></ul> | 03/15
+03/08| Clustering | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture12)</li><li>[K-means](http://www.labri.fr/perso/bpinaud/userfiles/downloads/hartigan_1979_kmeans.pdf)</li><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment4.pdf">Assignment 4</a> <i>(See due date)</i></li></ul> | 03/15
 03/10| Reinforcement Learning and Games | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture13/#/)</li><li>Chapter 13 - Mitchell</li><li>[Learning to play 49 Atari games with 1 algorithm](http://www.nature.com/nature/journal/v518/n7540/abs/nature14236.html)</li><li><a href="http://gizmodo.com/google-ai-will-compete-against-go-world-champion-lee-se-1757289813">AlphaGo v Wold Champion Lee Sedol in Go</a></ul>
 03/15| Unsupervised learning | <ul><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li></ul> |
 03/17| Midterm | <ul><li><a href="https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/MidtermExam.zip">Exam</a></li><li><a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">Amazing visualization of decision trees</a></li></ul> | Due before class on 03/31
 03/22| No class, Spring recess|
 03/24| No class, Spring recess|
 03/29| Distribution Approximation and EM | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture16/#/)</li><li>[Expectation Maximization algorithm](http://www.eecs.yorku.ca/course_archive/2007-08/W/6328/Reading/EM_tutorial.pdf)</li><li>Final project <i>(See due date)</i></li></ul> | 05/05
-03/31| Aggregation methods |
+03/31| Boosting (Alex Lenail) |
 04/05| Neural Networks | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture17/#/)</li><li>Chapter 4 - Mitchell</li><li>[Touretzky's Backpropagation Slides](https://www.cs.cmu.edu/afs/cs/academic/class/15883-f15/slides/backprop.pdf)</li><li>[Geoff Hinton's Backpropagation Slides](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec3.pdf)</li><li>[Send 5-slide summary of project](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture17/#/7)</li></ul> | 04/12
-04/07| Support Vector Machines | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture18/#/)</li><li>[A practical guide to support vector classification](http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf)</ul>
-04/12| Reinforcement Learning | <ul><li><a href="https://github.com/Rochester-NRT/AlphaGo">Open-source clone of AlphaGo in progress</a></li><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/26
-04/14| Game Theory |
+04/07| Support Vector Machines | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture18/#/)</li><li>[A practical guide to support vector classification](http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf)</li></ul>
+04/12| Reinforcement Learning | <ul><li>[Reinforcement Learning: An Introduction by Sutton and Barto](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html)</li><li><a href="https://github.com/Rochester-NRT/AlphaGo">Open-source clone of AlphaGo in progress</a></li></ul> |
+04/14| Game Theory and Retrospective | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/26
 04/19| Project presentations | <ul><li>Quiz 2</li></ul> |
 04/21| Project presentations |
 04/26| Project presentations |
