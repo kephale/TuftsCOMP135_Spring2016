@@ -5,7 +5,7 @@ Turn in hardcopy in class
 
 Use http://playground.tensorflow.org/ on the two-spirals problem (see Data on left side)
 
-Perturb the following parameters, considering extreme values as well as moderate ones (with respect to the available parameter settings):
+### Perturb the following parameters, considering extreme values as well as moderate ones (with respect to the available parameter settings):
 
 1. Ratio of training to test data
 2. Data noise
@@ -15,7 +15,7 @@ Perturb the following parameters, considering extreme values as well as moderate
 6. Number of hidden layers
 7. Alternative input features
 
-Describe and discuss:
+### Describe and discuss:
 
 a. Test/training loss (is there overfitting?)  
 
