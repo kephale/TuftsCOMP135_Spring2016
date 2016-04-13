@@ -1,0 +1,34 @@
+
+digraph G {
+
+  rankdir=LR
+	splines=line
+
+  node [fixedsize=true, label=""];
+
+  subgraph cluster_0 {
+		color=white;
+		node [style=solid,color=blue4, shape=circle];
+		x1 x2 x3;
+		label = "layer 1 (Input layer)";
+	}
+
+	subgraph cluster_1 {
+		color=white;
+		node [style=solid,color=seagreen2, shape=circle];
+		O;
+		label="layer 2 (output layer)";
+	}
+
+
+        x1 -> O
+        x2 -> O
+        x3 -> O
+
+        # renaming nodes here, too lazy to set weights
+        x1 [label="x1"]
+        x2 [label="x2"]
+        x3 [label="x3"]
+        O [label="O"]
+
+}

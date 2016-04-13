@@ -1,0 +1,66 @@
+
+digraph G {
+
+  rankdir=LR
+	splines=line
+
+  node [fixedsize=true, label=""];
+
+  subgraph cluster_0 {
+		color=white;
+		node [style=solid,color=blue4, shape=circle];
+		x1 x2 x3;
+		label = "layer 1 (Input layer)";
+	}
+
+	subgraph cluster_1 {
+		color=white;
+		node [style=solid,color=red2, shape=circle];
+		a12 a22 a32;
+		label = "layer 2 (hidden layer)";
+	}
+
+  subgraph cluster_2 {
+		color=white;
+		node [style=solid,color=red2, shape=circle];
+		b12 b22 b32;
+		label = "layer 3 (hidden layer)";
+	}
+	subgraph cluster_3 {
+		color=white;
+		node [style=solid,color=seagreen2, shape=circle];
+		O;
+		label="layer 4 (output layer)";
+	}
+
+        x1 -> a12;
+        x1 -> a22;
+        x1 -> a32;
+        x2 -> a12;
+        x2 -> a22;
+        x2 -> a32;
+        x3 -> a12;
+        x3 -> a22;
+        x3 -> a32;
+
+        a12 -> b12  [style="dashed"];
+        a12 -> b22 [style="dashed"];
+        a12 -> b32 [style="dashed"];
+        a22 -> b12 [style="dashed"];
+        a22 -> b22 [style="dashed"];
+        a22 -> b32 [style="dashed"];
+        a32 -> b12 [style="dashed"];
+        a32 -> b22 [style="dashed"];
+        a32 -> b32 [style="dashed"];
+
+        b12 -> O  [style="dashed"]
+        b22 -> O  [style="dashed"]
+        b32 -> O [style="dashed"]
+
+        # renaming nodes here, too lazy to set weights
+        x1 [label="x2"]
+        x2 [label="x3"]
+        x3 [label="x1"]
+        O [label="O"]
+
+}

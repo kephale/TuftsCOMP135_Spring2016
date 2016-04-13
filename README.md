@@ -9,42 +9,6 @@ Course Web Page (redirects to current page): [https://github.com/kephale/TuftsCO
 
 # Announcement(s):
 
-MidtermExam:
-
-[Update: there was an adjustment to this fix, please use this new version. Thanks Sara!]
-
-A couple of Windows users have noticed that when running the Jupyter notebook there is an error when reading in the datafile. Specifically:
-
-ValueError: could not convert string to float:  
-
-To fix this, change:
-
-```
-# Open and read the dataset
-with open( datafilename ) as f:
-    lines = f.readlines()
-
-    for line in lines:
-        els = line[:-3].split(' ')
-        inputs += [ [ float(s) for s in els[:numFeatures] ] ]
-        outputs += [ [ float(s) for s in els[numFeatures:] ] ]
-        outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
-```
-
-to
-
-```
-# Open and read the dataset
-with open( datafilename ) as f:
-    lines = f.readlines()
-
-    for line in lines:
-        els = line[:-2].split(' ')
-        inputs += [ [ float(s) for s in els[:numFeatures] ] ]
-        outputs += [ [ float(s) for s in els[numFeatures:] ] ]
-        outputLabels += [ ''.join( els[numFeatures:] ).find('1') ]
-```
-
 # What is this course about?  
 
 Machine learning is the study of algorithmic methods for learning and prediction based upon data. Approaches range from extracting patterns from large collections of data, such as social media and scientific datasets, to online learning in real-time, for applications like active robots. ML is becoming increasingly widespread because of the increase and accessibility of computational power and datasets, as well as recent advances in ML algorithms. It is now commonplace for ML to produce results that have not been achieved by humans.
@@ -163,7 +127,7 @@ Date | Lecture | Assignments and Notes | Due Date
 04/05| Neural Networks | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture17/#/)</li><li>Chapter 4 - Mitchell</li><li>[Touretzky's Backpropagation Slides](https://www.cs.cmu.edu/afs/cs/academic/class/15883-f15/slides/backprop.pdf)</li><li>[Geoff Hinton's Backpropagation Slides](http://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec3.pdf)</li><li>[Send 5-slide summary of project](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture17/#/7)</li></ul> | 04/12
 04/07| Support Vector Machines | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture18/#/)</li><li>[A practical guide to support vector classification](http://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf)</li></ul>
 04/12| Reinforcement Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture19/#/)</li><li>[Reinforcement Learning: An Introduction by Sutton and Barto](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html)</li><li><a href="https://github.com/Rochester-NRT/AlphaGo">Open-source clone of AlphaGo in progress</a></li></ul> |
-04/14| Game Theory and Retrospective | <ul><li>Assignment 5 <i>(See due date)</i></li></ul> | 04/26
+04/14| Game Theory and Retrospective | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture20/#/)</li><li>[Assignment 5](http://kephale.github.io/TuftsCOMP135_Spring2016/Assignment5/Assignment5.md) <i>(See due date)</i></li></ul> | 04/26
 04/19| Project presentations | <ul><li>Quiz 2</li></ul> |
 04/21| Project presentations |
 04/26| Project presentations |
