@@ -17,6 +17,8 @@ Perturb the following parameters, considering extreme values as well as moderate
 
 Describe and discuss:
 
-a. Test/training loss (is there overfitting?)
-b. Convergence rates (does the network stabilize? how fast?)
-c. Output map (what pattern does the network learn? in what ways does it differ from the spirals?) and maps within hidden neurons
+a. Test/training loss (is there overfitting?)  
+
+b. Convergence rates (does the network stabilize? how fast?)  
+
+c. Output map (what pattern does the network learn? in what ways does it differ from the spirals?) and maps within hidden neurons  
