@@ -129,10 +129,10 @@ Date | Lecture | Assignments and Notes | Due Date
 04/12| Reinforcement Learning | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture19/#/)</li><li>[Reinforcement Learning: An Introduction by Sutton and Barto](https://webdocs.cs.ualberta.ca/~sutton/book/the-book.html)</li><li><a href="https://github.com/Rochester-NRT/AlphaGo">Open-source clone of AlphaGo in progress</a></li></ul> |
 04/14| Game Theory and Retrospective | <ul><li>[Slides](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture20/#/)</li><li>[Assignment 5](https://github.com/kephale/TuftsCOMP135_Spring2016/blob/gh-pages/Assignment5.md) <i>(See due date)</i></li></ul> | 04/26
 04/19| Project presentations | <ul><li>Quiz 2</li></ul> |
-04/21| Project presentations |
-04/26| Project presentations |
-04/28| Project presentations | Randy Olson's TPOT
-05/05| Program Discovery |
+04/21| Project presentations & Random Forests | <ul><li>[Random Decision Forests](http://ect.bell-labs.com/who/tkh/publications/papers/odt.pdf)</li><li>Slides</li></ul>
+04/26| Project presentations & Long Short-term Memory | <ul><li>[LSTM Paper](http://deeplearning.cs.cmu.edu/pdfs/Hochreiter97_lstm.pdf)</li><li>Slides</li></ul>
+04/28| Project presentations & Automatic Optimization of ML Pipelines | <ul><li>[TPOT paper](http://arxiv.org/pdf/1601.07925v1.pdf)</li><li>[TPOT (Github)](https://github.com/rhiever/tpot)</li><li>Slides</li></ul>
+05/05| Program Discovery | <ul><li>A Field Guide to Genetic Programming</li></ul>
 
 
 # Assignments, Quizzes, and Exams
