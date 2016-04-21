@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Machine Learning and Data Mining</title>
+
+    <meta name="description" content="Introduction to Machine Learning and Data Mining">
+    <meta name="author" content="Kyle I S Harrington">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black_KISHtufts135_2016.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!-- Mermaid
+    <link rel="stylesheet" href="css/mermaid.css">
+    <script src="js/mermaid.slim.js"></script> -->
+
+    <!-- Footer header
+    <link rel="stylesheet" href="plugin/title-footer/title-footer.css"> -->
+
+    <!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="footer">
+	Tufts University - <a href="http://www.cs.tufts.edu/comp/135/">COMP 135</a> - Spring 2016 / Kyle I S Harrington
+      </div>
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section>
+	  <h2>Introduction to Machine Learning and Data Mining</h2>
+    <br><br><br>
+    <h4>Ho, T.K., 1995, August. Random decision forests. In Document Analysis and Recognition, 1995., Proc of the Third Intl Conf on (Vol. 1, pp. 278-282). IEEE.</h4>
+	  <p>
+	    <small> <a href="http://kyleharrington.com">Kyle I S Harrington</a> / <a href="mailto:kyle@eecs.tufts.edu">kyle@eecs.tufts.edu</a></small>
+	  </p>
+	  <br><br><br>
+    <p><small></small></p>
+	</section>
+
+  <section>
+    <section data-markdown>
+      ## Decision Trees
+
+      ![Tennis Decision Tree](http://kephale.github.io/TuftsCOMP135_Spring2016/Lecture03/images/Mitchell_playTennis_decision_tree.png)
+
+    </section>
+
+    <section data-markdown>
+      ## Decision Trees
+
+      What were the issues?
+
+    </section>
+
+    <section data-markdown>
+      ## Decision Trees
+
+      What were the issues?
+
+      - overfitting
+      - weak generalizability
+
+    </section>
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Random decision forests
+
+      Idea: Multiple trees can compensate for the bias of a single classifier
+
+      How do we make *different* trees?
+
+    </section>
+
+    <section data-markdown>
+      ## Random decision forests
+
+      Create decision trees that generalize by disregarding some features during classification
+
+      1. Choose a random subset of features
+      2. Train a decision tree on the subset
+
+    </section>
+
+    <section data-markdown>
+      ## Making a Decision with a Forest
+
+      Use a forest of $t$ trees to classify $x$ as some class $c \in [1,n]$
+
+      The prediction of a tree $T_i$ for instance $x$ is $P(c|T_i(x))$, representing the probability of class $c$ at a leaf of $T_i$, when fully split $P(c|T_i(x))=1$.
+
+      The discriminant function is
+
+      $g_c(x) = \frac{1}{t} \displaystyle \sum^t_j P(c|T_j(x))$
+
+      and the classification is the $c$ that maximizes $g_c(x)$.
+
+    </section>
+
+  </section>
+
+  <section>
+    <section data-markdown>
+      ## Experiments
+
+      - Dataset: handwritten digits (MNIST)
+      - Features: 20x20 Pixels (400 features)
+      - Compare 2 branching methods
+      - Test an additional set of features that include conjunctions/disjunctions of neighboring pixels (852 features)
+
+    </section>
+
+    <section data-markdown>
+      ## Central axis projection branching
+
+      - Calculate the mean of each class
+      - Define a central axis between the means of the two most distant classes
+      - Project all points onto central axis
+      - Search with incremental steps along axis for threshold that optimizes accuracy
+
+      Very fast, but produces large trees
+
+    </section>
+
+    <section data-markdown>
+      ## Perceptron branching
+
+      - Calculate the mean of each class
+      - Find the two most distant classes
+      - Label all instances based on the nearest of these 2 class centroids
+      - Use perceptron learning to learn the line that separates both classes
+
+      Slow, but produces compact trees
+
+    </section>
+
+    <section data-markdown>
+      ## Experiments
+
+      ![Ho 1995 Table 1](images/Ho_1995_Table1.png)
+
+    </section>
+
+    <section data-markdown>
+      ## Experiments
+
+      ![Ho 1995 Figure 1](images/Ho_1995_Figure1.png)
+
+      Random forest of 20 trees with 100 or 200 dimensional feature subspaces created with central axis projection branching.
+
+    </section>
+
+    <section data-markdown>
+      ## Experiments
+
+      ![Ho 1995 Figure 2](images/Ho_1995_Figure2.png)
+
+      Random forest of 10 trees with 100 or 200 dimensional feature subspaces created with perceptron branching.
+
+    </section>
+  </section>
+
+ 	<section data-markdown>
+	  ## What Next?
+
+    Assignment 5 due 04/26
+    Project Presentations
+
+	</section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/math/math.js', async: true }
+      ]
+      });
+
+//      { src: 'plugin/mermaid/mermaid.js' }
+    </script>
+
+  </body>
+</html>
