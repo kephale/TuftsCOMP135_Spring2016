@@ -18,6 +18,10 @@ Comp 160 is highly recommended.
 
 ## Class Times:  
 
+<<<<<<< HEAD
+	
+=======
+>>>>>>> 1f58633ab6ebc159c01e0f30b45c4cd1eb6a03d4
 Tu, Th 10:30AM - 11:45AM  
 Tisch Library, 304-Auditorium  
 
@@ -28,8 +32,13 @@ Office Hours: By appointment
 
 ## Teaching Assistants:  
 
+<<<<<<< HEAD
+Sepideh Sadeghi  
+Hao Cui  
+=======
 Sepideh Sadeghi, <A HREF="mailto:sepideh.sadeghi@tufts.edu"> sepideh.sadeghi@tufts.edu</A><br /> Office Hours: Mon noon-1pm, Fri 10am-noon,<br /> Location for Office Hours: Halligan 121<br />  
 Hao Cui, <A HREF="mailto:Hao.Cui@tufts.edu"> Hao.Cui@tufts.edu</A><br /> Office Hours: Tue 4:30-5:30 pm, Thu 4:30-5:30 pm,<br /> Location for Office Hours: Halligan 121<br />  
+>>>>>>> 1f58633ab6ebc159c01e0f30b45c4cd1eb6a03d4
 
 # Grading  
 
